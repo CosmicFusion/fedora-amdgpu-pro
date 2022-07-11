@@ -72,7 +72,9 @@ as some parts remains proprietary like :
 
 # For OpenGL
 
-~~install amdgpu-opengl-switcher from XYZ ~~
+~~install amdgpu-opengl-switcher from XYZ~~
+
+
 ~~and run your program with~~
 ```
 gl_pro {THE_PROGRAM}
