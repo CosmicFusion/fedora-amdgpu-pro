@@ -37,7 +37,9 @@ Amdgpu Pro Vulkan driver
 "/usr/lib/.build-id/d8/44d90033815cb1376acbc25d573011b40df7d8"
 "/etc/ld.so.conf.d/amdvlk-pro-x86_64.conf"
 
-%post -p /sbin/ldconfig
+%post 
+/sbin/ldconfig 
+/usr/bin/ln -s /opt/amdgpu-pro/etc/vulkan/icd.d/amd_icd64.json /usr/share/vulkan/icd.d/amd_pro_icd64.json
 
 
 
