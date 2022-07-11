@@ -1,0 +1,36 @@
+#!/usr/bin/bash
+
+# This script applies amdogl-pro/zink/mesa OpenGL driver for specific application.
+# You can test the difference (GL_VENDOR, GL_RENDERER, GL_VERSION) with glmark2 utility.
+# 
+# Usage:
+#   <gl_mesa|gl_zink|gl_pro> <app and its parameters>
+# For example:
+#   $ gl_pro davinci-resolve
+# This will start davinci resolve with AMDGPU PRO OpenGL driver.
+
+gl_mesa() {
+    export __GLX_VENDOR_LIBRARY_NAME=mesa
+}
+
+gl_zink() {
+    export __GLX_VENDOR_LIBRARY_NAME=mesa MESA_LOADER_DRIVER_OVERRIDE=zink
+}
+
+gl_pro() {
+    export LD_LIBRARY_PATH="/opt/amdgpu-pro/OpenGL/lib64:/opt/amdgpu-pro/OpenGL/lib:${LD_LIBRARY_PATH}" LIBGL_DRIVERS_PATH="/opt/amdgpu-pro/OpenGL/lib64/dri:/opt/amdgpu-pro/OpenGL/lib/dri"
+}
+
+if [[ $(basename $0) == gl_mesa ]]; then
+    gl_mesa
+elif [[ $(basename $0) == gl_zink ]]; then
+    gl_zink
+elif [[ $(basename $0) == gl_pro ]]; then
+    gl_pro
+else
+    echo "Unknown function"
+    exit 1
+fi
+
+# applied variables, now execute the rest of the command
+"$@"

@@ -1,0 +1,3 @@
+_have gl_mesa && complete -F _command gl_mesa
+_have gl_zink && complete -F _command gl_zink
+_have gl_pro && complete -F _command gl_pro
