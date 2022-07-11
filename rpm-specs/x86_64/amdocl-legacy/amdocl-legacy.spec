@@ -8,7 +8,7 @@ Summary:       AMD OpenCL ICD Loaders
 
 URL:           http://repo.radeon.com/amdgpu
 
-
+Source0:	amdocl-legacy-22.10.2.f36.x86_64.tar.gz
 
 
 
@@ -58,7 +58,7 @@ Requires(postun): /sbin/ldconfig
 
 
 %install
-tar -xf amdocl-legacy-22.10.2.f36.x86_64.tar.gz
+tar -xf %{SOURCE0}
 mv opt %{buildroot}/
 mv usr %{buildroot}/
 mv etc %{buildroot}/

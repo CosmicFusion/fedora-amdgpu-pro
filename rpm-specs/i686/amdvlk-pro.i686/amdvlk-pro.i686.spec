@@ -5,8 +5,7 @@ License:       AMD GPU PRO EULA
 Group:         System Environment/Libraries
 Summary:       AMD Vulkan
 URL:      http://repo.radeon.com/amdgpu
-Source: http://repo.radeon.com/amdgpu/22.10.2/ubuntu/pool/proprietary/v/vulkan-amdgpu-pro/vulkan-amdgpu-pro_22.10.2-1411481_i386.deb
-
+Source0:	amdvlk-pro-22.10.2.f36.i686.tar.gz
 Provides:      config(amdvlk-pro) = 22.10.2-1.fc36
 Provides:      amdvlk-pro = 22.10.2-1.fc36
 Provides:      amdvlk-pro(i686) = 22.10.2-1.fc36
@@ -21,7 +20,7 @@ Requires(postun): /sbin/ldconfig
 Recommends:	 openssl-libs  
 
 %install
-tar -xf amdvlk-pro-22.10.2.f36.i686.tar.gz
+tar -xf %{SOURCE0}
 mv opt %{buildroot}/
 mv etc %{buildroot}/
 

@@ -5,8 +5,7 @@ License:       AMD GPU PRO EULA
 Group:         System Environment/Libraries
 Summary:       AMD OpenCL ICD Loaders
 URL:      http://repo.radeon.com/amdgpu
-Source0: http://repo.radeon.com/amdgpu/22.10.2/ubuntu/pool/proprietary/o/opencl-legacy-amdgpu-pro/opencl-legacy-amdgpu-pro-icd_22.10.2-1411481_i386.deb
-Source1: http://repo.radeon.com/amdgpu/22.10.2/ubuntu/pool/proprietary/o/ocl-icd-amdgpu-pro/ocl-icd-libopencl1-amdgpu-pro_22.10.2-1411481_i386.deb
+Source0:	amdocl-legacy-22.10.2.f36.i686.tar.gz
 Provides:      config(opencl-legacy-amdgpu-pro-icd) = 0:22.10.2-1411481.el9
 Provides:      opencl-legacy-amdgpu-pro-icd = 0:22.10.2-1411481.el9
 Provides:      opencl-legacy-amdgpu-pro-icd(i686) = 0:22.10.2-1411481.el9
@@ -19,7 +18,7 @@ Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig 
 
 %install
-tar -xf amdocl-legacy-22.10.2.f36.i686.tar.gz
+tar -xf %{SOURCE0}
 mv opt %{buildroot}/
 mv etc %{buildroot}/
 

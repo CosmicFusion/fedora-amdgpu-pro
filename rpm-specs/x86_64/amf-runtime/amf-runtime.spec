@@ -5,8 +5,7 @@ License:       AMD GPU PRO EULA
 Group:         System Environment/Libraries
 Summary:       System runtime for AMD Advanced Media Framework
 URL:      http://repo.radeon.com/amdgpu
-Source0: http://repo.radeon.com/amdgpu/22.10.2/rhel/9.0/proprietary/x86_64/amf-amdgpu-pro-1.4.24-1411481.el9.x86_64.rpm
-Source1: http://repo.radeon.com/amdgpu/22.10.2/rhel/9.0/proprietary/x86_64/libamdenc-amdgpu-pro-1.0-1411481.el9.x86_64.rpm
+Source0: amf-runtime-22.10.2.f36.x86_64.tar.gz
 
 Provides:      amf-runtime = 22.10.2-1.fc36
 Provides:      amf-runtime(x86-64) = 2.10.2-1.fc36
@@ -27,7 +26,7 @@ Recommends:	 rocm-opencl-runtime
 
 
 %install
-tar -xf amf-runtime-22.10.2.f36.x86_64.tar.gz
+tar -xf tar -xf %{SOURCE0}
 mv opt %{buildroot}/
 mv usr %{buildroot}/
 mv etc %{buildroot}/
