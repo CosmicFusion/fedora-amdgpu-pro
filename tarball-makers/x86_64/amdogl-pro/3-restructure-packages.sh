@@ -23,7 +23,7 @@ mv ./opt/amdgpu/share/drirc.d/10-amdgpu-pro.conf ./opt/amdgpu/share/drirc.d/10-a
 
 echo "restructuring package directories  "
 
-mkdir ./opt/amdgpu-pro/OpenGL
+mkdir -p ./opt/amdgpu-pro/OpenGL
 
 mv ./opt/amdgpu-pro/lib64 ./opt/amdgpu-pro/OpenGL/
 
@@ -37,7 +37,7 @@ mv ./opt/amdgpu-pro/lib/* ./opt/amdgpu-pro/OpenGL/lib64/
 
 echo "adding *Disabled* library path"
 
-mkdir ./etc/ld.so.conf.d
+mkdir -p ./etc/ld.so.conf.d
 
 touch ./etc/ld.so.conf.d/amdogl-pro-x86_64.conf
 

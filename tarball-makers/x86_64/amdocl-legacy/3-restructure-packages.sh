@@ -11,7 +11,7 @@ echo "restructuring package directories  "
 
 cd ./rpms/extract
 
-mkdir ./opt/amdgpu-pro/OpenCL
+mkdir -p ./opt/amdgpu-pro/OpenCL
 
 mv ./opt/amdgpu-pro/lib64 ./opt/amdgpu-pro/OpenCL/
 
@@ -19,9 +19,9 @@ mv ./opt/amdgpu-pro/lib64 ./opt/amdgpu-pro/OpenCL/
 
 echo "adding library path"
 
-mkdir ./etc
+mkdir -p ./etc
 
-mkdir ./etc/ld.so.conf.d
+mkdir -p ./etc/ld.so.conf.d
 
 touch ./etc/ld.so.conf.d/amdocl-legacy-x86_64.conf
 

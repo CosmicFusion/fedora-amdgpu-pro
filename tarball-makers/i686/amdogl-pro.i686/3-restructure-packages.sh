@@ -18,9 +18,9 @@ rm -r ./opt/amdgpu
 
 echo "restructuring package directories  "
 
-mkdir ./opt/amdgpu-pro/OpenGL
+mkdir -p ./opt/amdgpu-pro/OpenGL
 
-mkdir ./opt/amdgpu-pro/OpenGL/lib
+mkdir -p ./opt/amdgpu-pro/OpenGL/lib
 
 mv ./opt/amdgpu-pro/lib/i386-linux-gnu/* ./opt/amdgpu-pro/OpenGL/lib/
 
@@ -40,9 +40,9 @@ rm -r ./usr
 
 echo "adding *Disabled* library path"
 
-mkdir ./etc
+mkdir -p ./etc
 
-mkdir ./etc/ld.so.conf.d
+mkdir -p ./etc/ld.so.conf.d
 
 touch ./etc/ld.so.conf.d/amdogl-pro-i686.conf
 

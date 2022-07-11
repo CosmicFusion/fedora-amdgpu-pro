@@ -8,7 +8,6 @@ fedora=f36
 
 echo "making final tarball"
 cd ./rpms/extract
-tar -czvf amdogl-pro-"$major"."$fedora".x86_64.tar.gz ./
-mv amdogl-pro-"$major"."$fedora".x86_64.tar.gz ../../
+tar -czvf ../../../../../amdogl-pro-"$major"."$fedora".x86_64.tar.gz .
 
 

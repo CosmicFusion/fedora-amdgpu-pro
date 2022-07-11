@@ -11,7 +11,7 @@ echo "restructuring package directories  "
 
 cd ./rpms/extract
 
-mkdir ./opt/amdgpu-pro/vulkan
+mkdir -p ./opt/amdgpu-pro/vulkan
 
 mv ./opt/amdgpu-pro/lib64 ./opt/amdgpu-pro/vulkan/
 #
@@ -24,9 +24,9 @@ sed -i "s#/opt/amdgpu-pro/lib64/amdvlk64.so#/opt/amdgpu-pro/vulkan/lib64/amdvlk6
 
 echo "adding library path"
 
-mkdir ./etc
+mkdir -p ./etc
 
-mkdir ./etc/ld.so.conf.d
+mkdir -p ./etc/ld.so.conf.d
 
 touch ./etc/ld.so.conf.d/amdvlk-pro-x86_64.conf
 
