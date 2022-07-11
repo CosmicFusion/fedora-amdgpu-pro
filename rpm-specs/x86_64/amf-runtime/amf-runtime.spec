@@ -26,7 +26,7 @@ Recommends:	 rocm-opencl-runtime
 
 
 %install
-tar -xf tar -xf %{SOURCE0}
+tar -xf %{SOURCE0}
 mv opt %{buildroot}/
 mv usr %{buildroot}/
 mv etc %{buildroot}/

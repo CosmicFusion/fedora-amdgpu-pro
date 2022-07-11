@@ -55,7 +55,7 @@ Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig 
 
 %install
-tar -xf amdogl-pro-22.10.2.f36.i686.tar.gz
+tar -xf %{SOURCE0}
 mv opt %{buildroot}/
 mv etc %{buildroot}/
 
