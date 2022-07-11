@@ -8,6 +8,6 @@ fedora=f36
 
 echo "making final tarball"
 cd ./rpms/extract
-tar -czvf ../../../../../amf-runtime-"$major"."$fedora".x86_64.tar.gz .
+tar -czvf ../../../../../amdamf-pro-runtime-"$major"."$fedora".x86_64.tar.gz .
 
 

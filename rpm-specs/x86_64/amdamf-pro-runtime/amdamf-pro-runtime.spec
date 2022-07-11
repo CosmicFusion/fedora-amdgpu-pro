@@ -1,11 +1,11 @@
-Name:     amf-runtime
+Name:     amdamf-pro-runtime
 Version:  22.10.2
 Release:  1%{?dist}
 License:       AMD GPU PRO EULA 
 Group:         System Environment/Libraries
 Summary:       System runtime for AMD Advanced Media Framework
 URL:      http://repo.radeon.com/amdgpu
-Source0: amf-runtime-22.10.2.f36.x86_64.tar.gz
+Source0: amdamf-pro-runtime-22.10.2.f36.x86_64.tar.gz
 
 Provides:      amf-runtime = 22.10.2-1.fc36
 Provides:      amf-runtime(x86-64) = 2.10.2-1.fc36
