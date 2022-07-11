@@ -32,35 +32,32 @@ as some parts remains proprietary like :
 # For Vulkan
 
 - install amdgpu-vulkan-switcher from https://copr.fedorainfracloud.org/coprs/gloriouseggroll/amdgpu-vulkan-switcher/
-- make a symbolic from the actual vulkan icd to the place the switcher tries to read
-- for amdvlk-pro 64 bit 
- ```
- sudo ln -s /opt/amdgpu-pro/etc/vulkan/icd.d/amd_icd64.json /usr/share/vulkan/icd.d/amd_pro_icd64.json 
- ```
- - for amdvlk-pro 32 bit
- ```
- sudo ln -s /opt/amdgpu-pro/etc/vulkan/icd.d/amd_icd32.json /usr/share/vulkan/icd.d/amd_pro_icd32.json
 
- ```
- - Now run the program with 
+ **AMDVLK_PRO**
+ 
+ - Run the program with 
+  
   ```
   vk_pro {THE_PROGRAM}
    ```
  
  
- - for amdvlk 64 bit 
- ```
- sudo ln -s /etc/vulkan/icd.d/amd_icd64.json /usr/share/vulkan/icd.d/amd_icd64.json
- ```
- - for amdvlk 32 bit
- ```
- sudo ln -s /etc/vulkan/icd.d/amd_icd32.json /usr/share/vulkan/icd.d/amd_icd32.json
 
+**AMDVLK**
+
+ **"**WARNING**"** : Since you get the 64 bit amdvlk binary directly from AMD's github you need to symlink their icd so that the amdgpu-vulkan-switcher can read it.
+ 
+ - To do that , run
  ```
- - Now run the program with 
+sudo ln -s /etc/vulkan/icd.d/amd_icd64.json /usr/share/vulkan/icd.d/amd_icd64.json
+   ```
+ 
+ 
+ - Run the program with 
+  
   ```
   vk_amdvlk {THE_PROGRAM}
-   ```
+  ```
 
 # For AMF
 
@@ -68,18 +65,23 @@ as some parts remains proprietary like :
 
 # For OpenCL
 
-- The system will do what ends to do automatically .
+- The system will do what it needs to do automatically .
 
 # For OpenGL
 
-~~install amdgpu-opengl-switcher from XYZ~~
+- install amdgpu-opengl-switcher from the rpm .spec here , or the releases section
 
 
-~~and run your program with~~
+ - And run your program with
 ```
 gl_pro {THE_PROGRAM}
 ```
-**COMING SOON**
+- You can also use zink
+
+
+```
+gl_zink {THE_PROGRAM}
+```
 
 .
 
