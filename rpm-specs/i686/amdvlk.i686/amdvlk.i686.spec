@@ -28,6 +28,8 @@ mv etc %{buildroot}/
 %description
 AMD Open Source Driver for Vulkan
 
-
+%post 
+/sbin/ldconfig 
+/usr/bin/ln -s /etc/vulkan/icd.d/amd_icd32.json /usr/share/vulkan/icd.d/amd_icd32.json
 
 
