@@ -13,7 +13,7 @@ echo "restructuring package directories  "
 
 cd ./rpms/extract
 
-mkdir ./opt/amdgpu-pro/amf
+mkdir -p ./opt/amdgpu-pro/amf
 
 mv ./opt/amdgpu-pro/lib64 ./opt/amdgpu-pro/amf/
 
@@ -21,9 +21,9 @@ mv ./opt/amdgpu-pro/lib64 ./opt/amdgpu-pro/amf/
 
 echo "adding library path"
 
-mkdir ./etc
+mkdir -p ./etc
 
-mkdir ./etc/ld.so.conf.d
+mkdir -p ./etc/ld.so.conf.d
 
 touch ./etc/ld.so.conf.d/amf-runtime-x86_64.conf
 

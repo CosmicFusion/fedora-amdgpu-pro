@@ -4,7 +4,7 @@ Release:  1%{?dist}
 License:       AMD GPU PRO EULA 
 Group:         System Environment/Libraries
 URL:      http://repo.radeon.com/amdgpu
-
+Source0:       amdogl-pro-22.10.2.f36.i686.tar.gz
 Summary:       AMD OpenGL
 
 Provides:      libEGL.so.1()  
@@ -55,7 +55,7 @@ Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig 
 
 %install
-tar -xf amdogl-pro-22.10.2.f36.i686.tar.gz
+tar -xf %{SOURCE0}
 mv opt %{buildroot}/
 mv etc %{buildroot}/
 

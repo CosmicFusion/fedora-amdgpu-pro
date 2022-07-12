@@ -8,7 +8,6 @@ fedora=f36
 
 echo "making final tarball"
 cd ./debs/extract
-tar -czvf amdogl-pro-"$major"."$fedora".i686.tar.gz ./
-mv amdogl-pro-"$major"."$fedora".i686.tar.gz ../../
+tar -czvf ../../../../../amdogl-pro-"$major"."$fedora".i686.tar.gz .
 
 

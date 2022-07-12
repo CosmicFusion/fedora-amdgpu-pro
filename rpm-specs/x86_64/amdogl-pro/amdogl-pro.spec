@@ -7,6 +7,7 @@ URL:      http://repo.radeon.com/amdgpu
 
 Summary:       AMD OpenGL
 
+Source0:	amdogl-pro-22.10.2.f36.x86_64.tar.gz
 Provides:      libEGL.so.1()(64bit)  
 Provides:      libegl-amdgpu-pro = 0:22.10.2-1411481.el9
 Provides:      libegl-amdgpu-pro(x86-64) = 0:22.10.2-1411481.el9
@@ -57,7 +58,7 @@ Requires(postun): /sbin/ldconfig
 Recommends: amdgpu-opengl-switcher
 
 %install
-tar -xf amdogl-pro-22.10.2.f36.x86_64.tar.gz
+tar -xf %{SOURCE0}
 mv opt %{buildroot}/
 mv usr %{buildroot}/
 mv etc %{buildroot}/

@@ -7,8 +7,7 @@ fedora=f36
 #
 
 echo "making final tarball"
-cd ./rpms/extract
-tar -czvf amdvlk-pro-"$major"."$fedora".x86_64.tar.gz ./
-mv amdvlk-pro-"$major"."$fedora".x86_64.tar.gz ../../
+cd rpms/extract
+tar -czvf ../../../../../amdvlk-pro-"$major"."$fedora".x86_64.tar.gz .
 
 

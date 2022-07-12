@@ -8,7 +8,6 @@ fedora=f36
 
 echo "making final tarball"
 cd ./debs/extract
-tar -czvf amdocl-legacy-"$major"."$fedora".i686.tar.gz ./
-mv amdocl-legacy-"$major"."$fedora".i686.tar.gz ../../
+tar -czvf ../../../../../amdocl-legacy-"$major"."$fedora".i686.tar.gz .
 
 

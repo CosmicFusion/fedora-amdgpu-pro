@@ -5,7 +5,7 @@ License:       AMD GPU PRO EULA
 Group:         System Environment/Libraries
 Summary:       AMD Vulkan
 URL:      http://repo.radeon.com/amdgpu
-Source: http://repo.radeon.com/amdgpu/22.10.2/rhel/9.0/proprietary/x86_64/vulkan-amdgpu-pro-22.10.2-1411481.el9.x86_64.rpm
+Source: amdvlk-pro-22.10.2.f36.x86_64.tar.gz
 
 Provides:      config(amdvlk-pro) = 22.10.2-1.fc36
 Provides:      amdvlk-pro = 22.10.2-1.fc36
@@ -22,7 +22,7 @@ Recommends:	 openssl-libs
 Recommends:	 amdgpu-vulkan-switcher
 
 %install
-tar -xf amdvlk-pro-22.10.2.f36.x86_64.tar.gz
+tar -xf %{SOURCE0}
 mv opt %{buildroot}/
 mv usr %{buildroot}/
 mv etc %{buildroot}/

@@ -5,6 +5,7 @@ License:       MIT
 Group:         System Environment/Libraries
 Summary:       AMD Open Source Driver for Vulkan
 
+Source0:	amdvlk-2022.Q2.3.f36.i686.tar.gz
 URL:           https://github.com/GPUOpen-Drivers/AMDVLK
 Vendor:        Advanced Micro Devices (AMD)
 
@@ -15,7 +16,7 @@ Requires:      config(amdvlk) = 2022.Q2.3-1
 Requires:      vulkan-loader
 
 %install
-tar -xf amdvlk-2022.Q2.3.f36.i686.tar.gz
+tar -xf %{SOURCE0}
 mv usr %{buildroot}/
 mv etc %{buildroot}/
 
