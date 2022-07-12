@@ -1,0 +1,10 @@
+# please define the major , minor , enc , amf , amdvlk , fedora & rhel version of the packages you want 
+
+major=22.10.2
+minor=1411481
+amf=1.4.24
+enc=1.0
+rhel_major=9.0
+rhel_minor=9
+amdvlk=2022.Q2.3
+fedora=f36
