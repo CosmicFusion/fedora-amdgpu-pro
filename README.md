@@ -89,6 +89,6 @@ gl_zink {THE_PROGRAM}
 
 # How to manually compile 
 
-Go into the tarball makers , each package will have 4 scripts and a versions file , choose define the version of the driver you want in the versions file (and your .spec file) , and run them by order , you will end up with a tar ball throw it in your rpm **Sources** directory , and build the spec using the proper architecture (x86_64 or i686) , and enjoy!
+Go into the tarball makers , each package will have 4 scripts and a versions file , choose define the version of the driver you want in the versions file (and your .spec file) , and run them by order , you will end up with a tar ball throw it in your rpm **SOURCES** directory , and build the spec using the proper architecture (x86_64 or i686) , and enjoy!
 
 .
