@@ -29,6 +29,8 @@ as some parts remains proprietary like :
 
 - install the binaries from the releases section or maybe a repo one day or learn to generate them on your own system
 
+ **"**WARNING**"** : It seems like AMD maintainers forgot enable rdna2 in amdvlk-pro starting from amdgpu-pro 21.50 and onwards , so please use **amdvlk-pro-rdna2** if you have a rdna2 GPU.
+
 # For Vulkan
 
 - install amdgpu-vulkan-switcher from https://copr.fedorainfracloud.org/coprs/gloriouseggroll/amdgpu-vulkan-switcher/
@@ -87,6 +89,6 @@ gl_zink {THE_PROGRAM}
 
 # How to manually compile 
 
-Go into the tarball makers , each package will have 4 scripts , choose define the version of the driver you want in all 4 scripts (and your .spec file) , and run them by order , you will end up with a tar ball throw it in your rpm **BUILD** directory , and build the spec using the proper architecture (x86_64 or i686) , and enjoy!
+Go into the tarball makers , each package will have 4 scripts and a versions file , choose define the version of the driver you want in the versions file (and your .spec file) , and run them by order , you will end up with a tar ball throw it in your rpm **Sources** directory , and build the spec using the proper architecture (x86_64 or i686) , and enjoy!
 
 .
