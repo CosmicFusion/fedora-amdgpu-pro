@@ -101,4 +101,6 @@ rpmbuild -bb --target=x86_64 "$source"/x86_64/amdvlk-pro/amdvlk-pro.spec
 ```
 rpmbuild -bb --target=i686 "$source"/i686/amdvlk-pro/amdvlk-pro.i686.spec
 ```
+
+ **"**WARNING**"** : This script depends on rpmbuild cleaning to clean the build directory , so if building was for any reason cancelled or failed , do not attempt to build again , until you erase the builddir manually , or else it **"**WILL**"** fail .
 .
