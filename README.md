@@ -71,7 +71,7 @@ sudo ln -s /etc/vulkan/icd.d/amd_icd64.json /usr/share/vulkan/icd.d/amd_icd64.js
 
 # For OpenGL
 
-- install amdgpu-opengl-switcher from the rpm .spec here , or the releases section
+- install amdgpu-opengl-switcher from https://github.com/CosmicFusion/amdgpu-opengl-switcher
 
 
  - And run your program with
@@ -89,6 +89,16 @@ gl_zink {THE_PROGRAM}
 
 # How to manually compile 
 
-Go into the tarball makers , each package will have 4 scripts and a versions file , choose define the version of the driver you want in the versions file (and your .spec file) , and run them by order , you will end up with a tar ball throw it in your rpm **SOURCES** directory , and build the spec using the proper architecture (x86_64 or i686) , and enjoy!
+There are a bunch of .spec files in this repository , choose what you want to build and build it the spec using the proper architecture (x86_64 or i686) , and enjoy!
+eg : 
+# you want "$source"/x86_64/amdvlk-pro , a.k.a 64-bit vulkan amdgpu pro
 
+```
+rpmbuild -bb --target=x86_64 "$source"/x86_64/amdvlk-pro/amdvlk-pro.spec
+```
+# you want "$source"/i686/amdvlk-pro , a.k.a 32-bit vulkan amdgpu pro
+
+```
+rpmbuild -bb --target=i686 "$source"/i686/amdvlk-pro/amdvlk-pro.i686.spec
+```
 .
