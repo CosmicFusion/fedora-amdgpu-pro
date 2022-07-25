@@ -1,14 +1,16 @@
-%global major 22.10.2
-%global minor 1411481
-%global amf 1.4.24
+%global amdpro 22.20.1
+%global major 22.20
+%global minor 1447095
+%global amf 1.4.26
 %global enc 1.0
 %global rhel_major 9.0
 %global rhel_minor 9
-%global amdvlk 2022.Q2.3
+%global amdvlk 2022.Q3.1
 %global fedora fc36
+%global ubuntu 22.04
 
 Name:     amdvlk-pro
-Version:       %{major}
+Version:       %{amdpro}
 Release:       3.%{fedora}
 License:       AMD GPU PRO EULA 
 Group:         System Environment/Libraries
@@ -36,7 +38,7 @@ mkdir -p %{buildroot}/debs
 
 cd %{buildroot}/debs
 
-wget http://repo.radeon.com/amdgpu/"%{major}"/ubuntu/pool/proprietary/v/vulkan-amdgpu-pro/vulkan-amdgpu-pro_"%{major}"-"%{minor}"_i386.deb
+wget http://repo.radeon.com/amdgpu/"%{amdpro}"/ubuntu/pool/proprietary/v/vulkan-amdgpu-pro/vulkan-amdgpu-pro_"%{major}"-"%{minor}"~"%{ubuntu}"_i386.deb
 
 ###
 
@@ -46,7 +48,7 @@ mkdir -p %{buildroot}/debs/extract
 
 cd %{buildroot}/debs/extract
 
-ar -x ../vulkan-amdgpu-pro_"%{major}"-"%{minor}"_i386.deb
+ar -x ../vulkan-amdgpu-pro_"%{major}"-"%{minor}"~"%{ubuntu}"_i386.deb
 
 tar -xf data.tar.xz
 

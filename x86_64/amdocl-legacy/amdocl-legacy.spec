@@ -1,14 +1,15 @@
-%global major 22.10.2
-%global minor 1411481
-%global amf 1.4.24
+%global amdpro 22.20.1
+%global major 22.20
+%global minor 1447095
+%global amf 1.4.26
 %global enc 1.0
 %global rhel_major 9.0
 %global rhel_minor 9
-%global amdvlk 2022.Q2.3
+%global amdvlk 2022.Q3.1
 %global fedora fc36
 
 Name:          amdocl-legacy
-Version:       %{major}
+Version:       %{amdpro}
 Release:       3.%{fedora}
 License:       AMD GPU PRO EULA 
 Group:         System Environment/Libraries
@@ -72,9 +73,9 @@ mkdir -p %{buildroot}/rpms
 
 cd %{buildroot}/rpms
 
-wget http://repo.radeon.com/amdgpu/"%{major}"/rhel/"%{rhel_major}"/proprietary/x86_64/opencl-legacy-amdgpu-pro-icd-"%{major}"-"%{minor}".el"%{rhel_minor}".x86_64.rpm
+wget http://repo.radeon.com/amdgpu/"%{amdpro}"/rhel/"%{rhel_major}"/proprietary/x86_64/opencl-legacy-amdgpu-pro-icd-"%{major}"-"%{minor}".el"%{rhel_minor}".x86_64.rpm
 
-wget http://repo.radeon.com/amdgpu/"%{major}"/rhel/"%{rhel_major}"/proprietary/x86_64/ocl-icd-amdgpu-pro-"%{major}"-"%{minor}".el"%{rhel_minor}".x86_64.rpm
+wget http://repo.radeon.com/amdgpu/"%{amdpro}"/rhel/"%{rhel_major}"/proprietary/x86_64/ocl-icd-amdgpu-pro-"%{major}"-"%{minor}".el"%{rhel_minor}".x86_64.rpm
 
 ###
 

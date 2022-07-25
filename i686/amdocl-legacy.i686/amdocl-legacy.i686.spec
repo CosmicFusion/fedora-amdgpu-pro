@@ -1,14 +1,16 @@
-%global major 22.10.2
-%global minor 1411481
-%global amf 1.4.24
+%global amdpro 22.20.1
+%global major 22.20
+%global minor 1447095
+%global amf 1.4.26
 %global enc 1.0
 %global rhel_major 9.0
 %global rhel_minor 9
-%global amdvlk 2022.Q1.3
+%global amdvlk 2022.Q3.1
 %global fedora fc36
+%global ubuntu 22.04
 
 Name:     amdocl-legacy
-Version:       %{major}
+Version:       %{amdpro}
 Release:       3.%{fedora}
 License:       AMD GPU PRO EULA 
 Group:         System Environment/Libraries
@@ -33,9 +35,9 @@ mkdir -p %{buildroot}/debs
 
 cd %{buildroot}/debs
 
-wget http://repo.radeon.com/amdgpu/"%{major}"/ubuntu/pool/proprietary/o/opencl-legacy-amdgpu-pro/opencl-legacy-amdgpu-pro-icd_"%{major}"-"%{minor}"_i386.deb  
+wget http://repo.radeon.com/amdgpu/"%{amdpro}"/ubuntu/pool/proprietary/o/opencl-legacy-amdgpu-pro/opencl-legacy-amdgpu-pro-icd_"%{major}"-"%{minor}"~"%{ubuntu}"_i386.deb
 
-wget http://repo.radeon.com/amdgpu/"%{major}"/ubuntu/pool/proprietary/o/ocl-icd-amdgpu-pro/ocl-icd-libopencl1-amdgpu-pro_"%{major}"-"%{minor}"_i386.deb 
+wget http://repo.radeon.com/amdgpu/"%{amdpro}"/ubuntu/pool/proprietary/o/ocl-icd-amdgpu-pro/ocl-icd-libopencl1-amdgpu-pro_"%{major}"-"%{minor}"~"%{ubuntu}"_i386.deb
 
 ###
 
@@ -45,7 +47,7 @@ mkdir -p %{buildroot}/debs/extract
 
 cd %{buildroot}/debs/extract
 
-ar -x ../opencl-legacy-amdgpu-pro-icd_"%{major}"-"%{minor}"_i386.deb 
+ar -x ../opencl-legacy-amdgpu-pro-icd_"%{major}"-"%{minor}"~"%{ubuntu}"_i386.deb
 
 tar -xf data.tar.xz
 
@@ -55,7 +57,7 @@ rm debian-binary
 
 rm -r ./usr
 
-ar -x ../ocl-icd-libopencl1-amdgpu-pro_"%{major}"-"%{minor}"_i386.deb
+ar -x ../ocl-icd-libopencl1-amdgpu-pro_"%{major}"-"%{minor}"~"%{ubuntu}"_i386.deb
 
 tar -xf data.tar.xz
 

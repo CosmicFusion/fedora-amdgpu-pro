@@ -1,14 +1,16 @@
-%global major 22.10.2
-%global minor 1411481
-%global amf 1.4.24
+%global amdpro 22.20.1
+%global major 22.20
+%global minor 1447095
+%global amf 1.4.26
 %global enc 1.0
 %global rhel_major 9.0
 %global rhel_minor 9
-%global amdvlk 2022.Q1.3
+%global amdvlk 2022.Q3.1
 %global fedora fc36
+%global ubuntu 22.04
 
 Name:     amdogl-pro
-Version:       %{major}
+Version:       %{amdpro}
 Release:       3.%{fedora}
 License:       AMD GPU PRO EULA 
 Group:         System Environment/Libraries
@@ -70,15 +72,15 @@ mkdir -p %{buildroot}/debs
 
 cd %{buildroot}/debs
 
-wget http://repo.radeon.com/amdgpu/22.10.2/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libegl1-amdgpu-pro_"%{major}"-"%{minor}"_i386.deb
+wget http://repo.radeon.com/amdgpu/%{amdpro}/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libegl1-amdgpu-pro_"%{major}"-"%{minor}"~"%{ubuntu}"_i386.deb
 
-wget http://repo.radeon.com/amdgpu/22.10.2/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libgl1-amdgpu-pro-dri_"%{major}"-"%{minor}"_i386.deb
+wget http://repo.radeon.com/amdgpu/%{amdpro}/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libgl1-amdgpu-pro-dri_"%{major}"-"%{minor}"~"%{ubuntu}"_i386.deb
 
-wget http://repo.radeon.com/amdgpu/22.10.2/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libgl1-amdgpu-pro-ext_"%{major}"-"%{minor}"_i386.deb
+wget http://repo.radeon.com/amdgpu/%{amdpro}/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libgl1-amdgpu-pro-ext_"%{major}"-"%{minor}"~"%{ubuntu}"_i386.deb
 
-wget http://repo.radeon.com/amdgpu/22.10.2/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libglapi1-amdgpu-pro_"%{major}"-"%{minor}"_i386.deb
+wget http://repo.radeon.com/amdgpu/%{amdpro}/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libglapi1-amdgpu-pro_"%{major}"-"%{minor}"~"%{ubuntu}"_i386.deb
 
-wget http://repo.radeon.com/amdgpu/22.10.2/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libgles2-amdgpu-pro_"%{major}"-"%{minor}"_i386.deb
+wget http://repo.radeon.com/amdgpu/%{amdpro}/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libgles2-amdgpu-pro_"%{major}"-"%{minor}"~"%{ubuntu}"_i386.deb
 
 ###
 
@@ -90,7 +92,7 @@ cd %{buildroot}/debs/extract
 
 ####
 
-ar -x ../libegl1-amdgpu-pro_"%{major}"-"%{minor}"_i386.deb
+ar -x ../libegl1-amdgpu-pro_"%{major}"-"%{minor}"~"%{ubuntu}"_i386.deb
 
 tar -xf data.tar.xz
 
@@ -100,7 +102,7 @@ rm debian-binary
 
 ####
 
-ar -x ../libgl1-amdgpu-pro-dri_"%{major}"-"%{minor}"_i386.deb
+ar -x ../libgl1-amdgpu-pro-dri_"%{major}"-"%{minor}"~"%{ubuntu}"_i386.deb
 
 tar -xf data.tar.xz
 
@@ -110,7 +112,7 @@ rm debian-binary
 
 ####
 
-ar -x ../libgl1-amdgpu-pro-ext_"%{major}"-"%{minor}"_i386.deb
+ar -x ../libgl1-amdgpu-pro-ext_"%{major}"-"%{minor}"~"%{ubuntu}"_i386.deb
 
 tar -xf data.tar.xz
 
@@ -120,7 +122,7 @@ rm debian-binary
 
 ####
 
-ar -x ../libglapi1-amdgpu-pro_"%{major}"-"%{minor}"_i386.deb
+ar -x ../libglapi1-amdgpu-pro_"%{major}"-"%{minor}"~"%{ubuntu}"_i386.deb
 
 tar -xf data.tar.xz
 
@@ -130,7 +132,7 @@ rm debian-binary
 
 ####
 
-ar -x ../libgles2-amdgpu-pro_"%{major}"-"%{minor}"_i386.deb
+ar -x ../libgles2-amdgpu-pro_"%{major}"-"%{minor}"~"%{ubuntu}"_i386.deb
 
 tar -xf data.tar.xz
 
