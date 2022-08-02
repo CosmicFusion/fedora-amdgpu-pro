@@ -24,6 +24,9 @@ Provides:      vulkan-amdgpu-pro = 0:%{major}-%{minor}.el%{rhel_minor}
 Provides:      vulkan-amdgpu-pro(i686) = 0:%{major}-%{minor}.el%{rhel_minor}
 Requires:      vulkan-loader
 
+BuildRequires: wget 
+BuildRequires: cpio
+
 Requires(post): /sbin/ldconfig  
 Requires(postun): /sbin/ldconfig 
 
@@ -78,13 +81,13 @@ sed -i "s#/opt/amdgpu-pro/lib/i386-linux-gnu/amdvlk32.so#/opt/amdgpu-pro/vulkan/
 
 # 
 
-echo "adding library path"
+echo "adding *Disabled* library path"
 
 mkdir -p ./etc/ld.so.conf.d
 
 touch ./etc/ld.so.conf.d/amdvlk-pro-i686.conf
 
-echo "/opt/amdgpu-pro/vulkan/lib32" > ./etc/ld.so.conf.d/amdvlk-pro-i686.conf
+echo "# /opt/amdgpu-pro/vulkan/lib32" > ./etc/ld.so.conf.d/amdvlk-pro-i686.conf
 
 
 ###
