@@ -17,6 +17,9 @@ Group:         System Environment/Libraries
 URL:      http://repo.radeon.com/amdgpu
 Summary:       AMD OpenGL
 
+BuildRequires: wget 
+BuildRequires: cpio
+
 Provides:      libEGL.so.1()  
 Provides:      libegl-amdgpu-pro = 0:%{major}-%{minor}.el%{rhel_minor}
 Provides:      libegl-amdgpu-pro(i686) = 0:%{major}-%{minor}.el%{rhel_minor}
@@ -157,17 +160,17 @@ echo "restructuring package directories  "
 
 mkdir -p ./opt/amdgpu-pro/OpenGL
 
-mkdir -p ./opt/amdgpu-pro/OpenGL/lib
+mkdir -p ./opt/amdgpu-pro/OpenGL/lib32
 
-mv ./opt/amdgpu-pro/lib/i386-linux-gnu/* ./opt/amdgpu-pro/OpenGL/lib/
+mv ./opt/amdgpu-pro/lib/i386-linux-gnu/* ./opt/amdgpu-pro/OpenGL/lib32/
 
 rm -r ./opt/amdgpu-pro/lib/i386-linux-gnu
 
-mv ./usr/lib/i386-linux-gnu/* ./opt/amdgpu-pro/OpenGL/lib/
+mv ./usr/lib/i386-linux-gnu/* ./opt/amdgpu-pro/OpenGL/lib32/
 
 rm -r ./usr/lib/i386-linux-gnu
 
-mv ./opt/amdgpu-pro/lib/* ./opt/amdgpu-pro/OpenGL/lib
+mv ./opt/amdgpu-pro/lib/* ./opt/amdgpu-pro/OpenGL/lib32
 
 rm -r ./opt/amdgpu-pro/lib
 
@@ -183,7 +186,7 @@ mkdir -p ./etc/ld.so.conf.d
 
 touch ./etc/ld.so.conf.d/amdogl-pro-i686.conf
 
-echo "# /opt/amdgpu-pro/OpenGL/lib" > ./etc/ld.so.conf.d/amdogl-pro-i686.conf
+echo "# /opt/amdgpu-pro/OpenGL/lib32" > ./etc/ld.so.conf.d/amdogl-pro-i686.conf
 
 
 
