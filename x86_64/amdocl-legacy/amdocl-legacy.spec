@@ -18,7 +18,8 @@ Summary:       AMD OpenCL ICD Loaders
 
 URL:           http://repo.radeon.com/amdgpu
 
-
+BuildRequires: wget 
+BuildRequires: cpio
 
 
 
