@@ -26,6 +26,9 @@ Provides:      libamdenc-amdgpu-pro(x86-64) = 0:%{enc}-%{minor}.el%{rhel_minor}
 Provides:      libamdenc64.so.1.0()(64bit)  
 Provides:      libamdenc64.so.1.0()(64bit)  
 
+BuildRequires: wget 
+BuildRequires: cpio
+
 Requires(post): /sbin/ldconfig  
 Requires(postun): /sbin/ldconfig 
 
