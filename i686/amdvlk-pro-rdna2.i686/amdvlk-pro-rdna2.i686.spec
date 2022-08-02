@@ -25,6 +25,9 @@ Requires:      vulkan-loader
 Requires(post): /sbin/ldconfig  
 Requires(postun): /sbin/ldconfig 
 
+BuildRequires: wget 
+BuildRequires: cpio
+
 Recommends:	 openssl-libs  
 
 %build
@@ -75,13 +78,13 @@ sed -i "s#/opt/amdgpu-pro/lib/i386-linux-gnu/amdvlk32.so#/opt/amdgpu-pro/vulkan-
 
 # 
 
-echo "adding library path"
+echo "adding *Disabled* library path"
 
 mkdir -p ./etc/ld.so.conf.d
 
 touch ./etc/ld.so.conf.d/amdvlk-pro-rdna2-i686.conf
 
-echo "/opt/amdgpu-pro/vulkan-rdna2/lib32" > ./etc/ld.so.conf.d/amdvlk-pro-rdna2-i686.conf
+echo "# /opt/amdgpu-pro/vulkan-rdna2/lib32" > ./etc/ld.so.conf.d/amdvlk-pro-rdna2-i686.conf
 
 ###
 
