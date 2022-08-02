@@ -29,6 +29,8 @@ Requires(postun): /sbin/ldconfig
 Recommends:	 openssl-libs  
 Recommends:	 amdgpu-vulkan-switcher
 
+BuildRequires: wget 
+BuildRequires: cpio
 
 %build
 
@@ -69,7 +71,7 @@ sed -i "s#/opt/amdgpu-pro/lib64/amdvlk64.so#/opt/amdgpu-pro/vulkan-rdna2/lib64/a
 
 # 
 
-echo "adding library path"
+echo "adding *Disabled* library path"
 
 mkdir -p ./etc
 
@@ -77,7 +79,7 @@ mkdir -p ./etc/ld.so.conf.d
 
 touch ./etc/ld.so.conf.d/amdvlk-pro-rdna2-x86_64.conf
 
-echo "/opt/amdgpu-pro/vulkan-rdna2/lib64" > ./etc/ld.so.conf.d/amdvlk-pro-rdna2-x86_64.conf
+echo "# /opt/amdgpu-pro/vulkan-rdna2/lib64" > ./etc/ld.so.conf.d/amdvlk-pro-rdna2-x86_64.conf
 
 
 
