@@ -64,6 +64,9 @@ Requires:      libxcb.so.1()(64bit)
 Requires(post): /sbin/ldconfig  
 Requires(postun): /sbin/ldconfig 
 
+BuildRequires: wget 
+BuildRequires: cpio
+
 Recommends: amdgpu-opengl-switcher
 
 %build
