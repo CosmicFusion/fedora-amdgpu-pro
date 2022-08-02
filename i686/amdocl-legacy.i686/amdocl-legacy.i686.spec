@@ -27,6 +27,9 @@ Provides:      ocl-icd-amdgpu-pro(i686) = 0:%{major}-%{minor}.el%{rhel_minor}
 Requires(post): /sbin/ldconfig  
 Requires(postun): /sbin/ldconfig 
 
+BuildRequires: wget 
+BuildRequires: cpio
+
 %build
 
 echo "pulling required packages off repo.radeon.com"
