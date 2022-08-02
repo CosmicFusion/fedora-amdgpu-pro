@@ -201,14 +201,14 @@ Amdgpu Pro OpenGL driver
 
 %files
 %attr(0644, root, root) "/etc/ld.so.conf.d/amdogl-pro-i686.conf"
-%attr(0644, root, root) "/opt/amdgpu-pro/OpenGL/lib/dri/amdgpu_dri.so"
-%attr(0777, root, root) "/opt/amdgpu-pro/OpenGL/lib/libEGL.so"
-%attr(0644, root, root) "/opt/amdgpu-pro/OpenGL/lib/libEGL.so.1"
-%attr(0777, root, root) "/opt/amdgpu-pro/OpenGL/lib/libGLESv2.so"
-%attr(0644, root, root) "/opt/amdgpu-pro/OpenGL/lib/libGLESv2.so.2"
-%attr(0777, root, root) "/opt/amdgpu-pro/OpenGL/lib/libglapi.so"
-%attr(0644, root, root) "/opt/amdgpu-pro/OpenGL/lib/libglapi.so.1"
-%attr(0644, root, root) "/opt/amdgpu-pro/OpenGL/lib/xorg/modules/extensions/libglx.so"
+%attr(0644, root, root) "/opt/amdgpu-pro/OpenGL/lib32/dri/amdgpu_dri.so"
+%attr(0777, root, root) "/opt/amdgpu-pro/OpenGL/lib32/libEGL.so"
+%attr(0644, root, root) "/opt/amdgpu-pro/OpenGL/lib32/libEGL.so.1"
+%attr(0777, root, root) "/opt/amdgpu-pro/OpenGL/lib32/libGLESv2.so"
+%attr(0644, root, root) "/opt/amdgpu-pro/OpenGL/lib32/libGLESv2.so.2"
+%attr(0777, root, root) "/opt/amdgpu-pro/OpenGL/lib32/libglapi.so"
+%attr(0644, root, root) "/opt/amdgpu-pro/OpenGL/lib32/libglapi.so.1"
+%attr(0644, root, root) "/opt/amdgpu-pro/OpenGL/lib32/xorg/modules/extensions/libglx.so"
 %exclude "/debs"
 %exclude "/usr/lib/.build-id"
 
