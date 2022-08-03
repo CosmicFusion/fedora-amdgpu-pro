@@ -27,9 +27,6 @@ Requires:      vulkan-loader
 BuildRequires: wget 
 BuildRequires: cpio
 
-Requires(post): /sbin/ldconfig  
-Requires(postun): /sbin/ldconfig 
-
 Recommends:	 openssl-libs  
 
 
@@ -105,10 +102,4 @@ Amdgpu Pro Vulkan driver
 %exclude "/debs"
 %exclude "/usr/lib/.build-id"
 
-%post 
-/sbin/ldconfig 
-/usr/bin/ln -s /opt/amdgpu-pro/etc/vulkan/icd.d/amd_icd32.json /usr/share/vulkan/icd.d/amd_pro_icd32.json
 
-%postun 
-/sbin/ldconfig
-rm /usr/share/vulkan/icd.d/amd_pro_icd32.json
