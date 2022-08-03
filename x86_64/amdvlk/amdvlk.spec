@@ -38,7 +38,7 @@ mkdir -p %{buildroot}/debs
 
 cd %{buildroot}/debs
 
-wget http://repo.radeon.com/amdvlk/apt/debian/pool/main/a/amdvlk/amdvlk_"%{amdvlk}"_x86_64.deb
+wget http://repo.radeon.com/amdvlk/apt/debian/pool/main/a/amdvlk/amdvlk_"%{amdvlk}"_amd64.deb
 
 ###
 
@@ -48,7 +48,7 @@ mkdir -p %{buildroot}/debs/extract
 
 cd %{buildroot}/debs/extract
 
-ar -x ../amdvlk_"%{amdvlk}"_x86_64.deb
+ar -x ../amdvlk_"%{amdvlk}"_amd64.deb
 
 tar -xf data.tar.gz
 
