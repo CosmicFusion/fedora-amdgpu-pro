@@ -110,4 +110,4 @@ Amdgpu Pro Vulkan driver
 
 %postun 
 /sbin/ldconfig
-rm /usr/share/vulkan/icd.d/amd_pro_icd32.json
+

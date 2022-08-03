@@ -24,9 +24,6 @@ Provides:      vulkan-amdgpu-pro = 0:%{major}-%{minor}.el%{rhel_minor}
 Provides:      vulkan-amdgpu-pro(x86-64) = 0:%{major}-%{minor}.el%{rhel_minor}
 Requires:      vulkan-loader
 
-Requires(post): /sbin/ldconfig  
-Requires(postun): /sbin/ldconfig 
-
 Recommends:	 openssl-libs  
 Recommends:	 amdgpu-vulkan-switcher
 
@@ -109,4 +106,4 @@ Amdgpu Pro Vulkan driver
 
 %postun 
 /sbin/ldconfig
-rm /usr/share/vulkan/icd.d/amd_pro_icd64.json
+

@@ -93,4 +93,4 @@ AMD Open Source Driver for Vulkan
 
 %postun 
 /sbin/ldconfig
-rm /usr/share/vulkan/icd.d/amd_icd32.json
+
