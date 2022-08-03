@@ -25,6 +25,11 @@ Provides:      config(amdvlk) = %{amdvlk}-3
 Requires:      config(amdvlk) = %{amdvlk}-3
 Requires:      vulkan-loader
 
+BuildRequires: wget 
+BuildRequires: cpio
+
+Recommends:	 openssl-libs  
+
 %build
 
 echo "pulling required packages off repo.radeon.com"
@@ -59,7 +64,9 @@ echo "restructuring package directories  "
 
 cd %{buildroot}/debs/extract
 
-mv ./usr/lib/i386-linux-gnu/* ./usr/lib/
+mkdir -p ./opt/amdgpu/vulkan
+
+mv ./usr/lib/i386-linux-gnu/* ./opt/amdgpu/vulkan/lib32
 
 rm -r ./usr/lib/i386-linux-gnu
 
@@ -69,19 +76,19 @@ rm -r ./usr/share
 
 echo "fixing .icds "
 
-sed -i "s#/usr/lib/i386-linux-gnu/amdvlk32.so#/usr/lib/amdvlk32.so#" "./etc/vulkan/icd.d/amd_icd32.json"
+sed -i "s#/usr/lib/i386-linux-gnu/amdvlk32.so#/opt/amdgpu-pro/vulkan/lib32/amdvlk32.so#" "./etc/vulkan/icd.d/amd_icd32.json"
 
-sed -i "s#/usr/lib/i386-linux-gnu/amdvlk32.so#/usr/lib/amdvlk32.so#" "./etc/vulkan/implicit_layer.d/amd_icd32.json"
+# we don't need this one
+rm ./etc/vulkan/implicit_layer.d/amd_icd32.json"
 
 ###
 
-mv ./usr %{buildroot}/
+mv ./opt %{buildroot}/
 mv ./etc %{buildroot}/
 
 %files
-"/etc/vulkan/icd.d/amd_icd32.json"
-"/etc/vulkan/implicit_layer.d/amd_icd32.json"
-"/usr/lib/amdvlk32.so"
+"/opt/amdgpu/etc/vulkan/icd.d/amd_icd32.json"
+"/opt/amdgpu/vulkan/lib32/amdvlk32.so"
 %exclude "/debs"
 %exclude "/usr/lib/.build-id"
 
