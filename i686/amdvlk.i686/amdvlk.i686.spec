@@ -66,9 +66,7 @@ cd %{buildroot}/debs/extract
 
 mkdir -p ./opt/amdgpu/vulkan
 
-mv ./usr/lib/i386-linux-gnu/* ./opt/amdgpu/vulkan/lib32
-
-rm -r ./usr/lib/i386-linux-gnu
+mv ./usr/lib/i386-linux-gnu ./opt/amdgpu/vulkan/lib32
 
 rm -r ./usr/share
 
@@ -84,7 +82,7 @@ rm ./etc/vulkan/implicit_layer.d/amd_icd32.json
 ###
 
 mv ./opt %{buildroot}/
-mv ./etc %{buildroot}/
+mv ./etc %{buildroot}/opt/amdgpu/
 
 %files
 "/opt/amdgpu/etc/vulkan/icd.d/amd_icd32.json"
