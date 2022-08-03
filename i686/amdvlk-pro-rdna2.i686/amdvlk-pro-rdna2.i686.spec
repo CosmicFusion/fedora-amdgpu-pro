@@ -105,7 +105,6 @@ Amdgpu Pro Vulkan driver for rdna2
 
 %post 
 /sbin/ldconfig 
-/usr/bin/ln -s /opt/amdgpu-pro/etc/vulkan/icd.d/amd_icd32.json /usr/share/vulkan/icd.d/amd_pro_icd32.json
 
 
 
