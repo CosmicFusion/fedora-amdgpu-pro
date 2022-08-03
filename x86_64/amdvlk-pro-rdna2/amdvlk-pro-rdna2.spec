@@ -23,9 +23,6 @@ Provides:      vulkan-amdgpu-pro = 0:%{major}-%{minor}.el%{rhel_minor}
 Provides:      vulkan-amdgpu-pro(x86-64) = 0:%{major}-%{minor}.el%{rhel_minor}
 Requires:      vulkan-loader
 
-Requires(post): /sbin/ldconfig  
-Requires(postun): /sbin/ldconfig 
-
 Recommends:	 openssl-libs  
 Recommends:	 amdgpu-vulkan-switcher
 
@@ -101,11 +98,4 @@ Amdgpu Pro Vulkan driver for RDNA2
 %exclude "/rpms"
 %exclude "/usr/lib/.build-id"
 
-%post 
-/sbin/ldconfig 
-
-
-
-%postun 
-/sbin/ldconfig
 

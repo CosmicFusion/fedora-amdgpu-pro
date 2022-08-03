@@ -88,9 +88,4 @@ mv ./etc %{buildroot}/
 %description
 AMD Open Source Driver for Vulkan
 
-%post 
-/sbin/ldconfig 
-
-%postun 
-/sbin/ldconfig
 

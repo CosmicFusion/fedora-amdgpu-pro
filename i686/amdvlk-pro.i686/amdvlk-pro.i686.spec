@@ -27,9 +27,6 @@ Requires:      vulkan-loader
 BuildRequires: wget 
 BuildRequires: cpio
 
-Requires(post): /sbin/ldconfig  
-Requires(postun): /sbin/ldconfig 
-
 Recommends:	 openssl-libs  
 
 
@@ -105,9 +102,4 @@ Amdgpu Pro Vulkan driver
 %exclude "/debs"
 %exclude "/usr/lib/.build-id"
 
-%post 
-/sbin/ldconfig 
-
-%postun 
-/sbin/ldconfig
 

@@ -22,9 +22,6 @@ Provides:      vulkan-amdgpu-pro = 0:%{major}-%{minor}.el%{rhel_minor}
 Provides:      vulkan-amdgpu-pro(i686) = 0:%{major}-%{minor}.el%{rhel_minor}
 Requires:      vulkan-loader
 
-Requires(post): /sbin/ldconfig  
-Requires(postun): /sbin/ldconfig 
-
 BuildRequires: wget 
 BuildRequires: cpio
 
@@ -102,12 +99,4 @@ Amdgpu Pro Vulkan driver for rdna2
 %exclude "/debs"
 %exclude "/usr/lib/.build-id"
 
-
-%post 
-/sbin/ldconfig 
-
-
-
-%postun 
-/sbin/ldconfig
 

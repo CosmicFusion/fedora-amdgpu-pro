@@ -99,11 +99,4 @@ Amdgpu Pro Vulkan driver
 %exclude "/rpms"
 %exclude "/usr/lib/.build-id"
 
-%post 
-/sbin/ldconfig 
-
-
-
-%postun 
-/sbin/ldconfig
 
