@@ -97,7 +97,7 @@ vk_pro {THE_PROGRAM}
 
 # How to use the OpenGL PRO drivers:
 
-- install amdgpu-opengl-switcher from https://github.com/CosmicFusion/amdgpu-opengl-switcher
+- install amdgpu-opengl-switcher from https://copr.fedorainfracloud.org/coprs/gloriouseggroll/amdgpu-vulkan-switcher/
 
 
 - Run the program with 
