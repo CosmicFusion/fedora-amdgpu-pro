@@ -74,7 +74,7 @@ rm -r ./usr/share
 
 echo "fixing .icds "
 
-sed -i "s#/usr/lib/x86_64-linux-gnu/amdvlk64.so#/opt/amdgpu-pro/vulkan/lib64/amdvlk64.so#" "./etc/vulkan/icd.d/amd_icd64.json"
+sed -i "s#/usr/lib/x86_64-linux-gnu/amdvlk64.so#/opt/amdgpu/vulkan/lib64/amdvlk64.so#" "./etc/vulkan/icd.d/amd_icd64.json"
 
 # we don't need this one
 rm ./etc/vulkan/implicit_layer.d/amd_icd64.json
