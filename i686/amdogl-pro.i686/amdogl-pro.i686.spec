@@ -41,7 +41,8 @@ Provides:      libgl-amdgpu-pro-dri = 0:%{major}-%{minor}.el%{rhel_minor}
 Provides:      libgl-amdgpu-pro-dri(i686) = 0:%{major}-%{minor}.el%{rhel_minor}
 Provides:      libgl-amdgpu-pro-ext = 0:%{major}-%{minor}.el%{rhel_minor}
 Provides:      libgl-amdgpu-pro-ext(i686) = 0:%{major}-%{minor}.el%{rhel_minor}
-
+Provides:      libgl-amdgpu-pro-glx = 0:%{major}-%{minor}.el%{rhel_minor}
+Provides:      libgl-amdgpu-pro-glx(i686) = 0:%{major}-%{minor}.el%{rhel_minor}
 
 Requires:      libEGL.so.1()    
 Requires:      libGLESv2.so.2() 
@@ -81,6 +82,8 @@ wget http://repo.radeon.com/amdgpu/%{amdpro}/ubuntu/pool/proprietary/o/opengl-am
 
 wget http://repo.radeon.com/amdgpu/%{amdpro}/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libgl1-amdgpu-pro-ext_"%{major}"-"%{minor}"~"%{ubuntu}"_i386.deb
 
+wget http://repo.radeon.com/amdgpu/%{amdpro}/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libgl1-amdgpu-pro-glx_"%{major}"-"%{minor}"~"%{ubuntu}"_i386.deb
+
 wget http://repo.radeon.com/amdgpu/%{amdpro}/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libglapi1-amdgpu-pro_"%{major}"-"%{minor}"~"%{ubuntu}"_i386.deb
 
 wget http://repo.radeon.com/amdgpu/%{amdpro}/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libgles2-amdgpu-pro_"%{major}"-"%{minor}"~"%{ubuntu}"_i386.deb
@@ -116,6 +119,16 @@ rm debian-binary
 ####
 
 ar -x ../libgl1-amdgpu-pro-ext_"%{major}"-"%{minor}"~"%{ubuntu}"_i386.deb
+
+tar -xf data.tar.xz
+
+rm -r *.tar*
+
+rm debian-binary
+
+####
+
+ar -x ../libgl1-amdgpu-pro-glx_"%{major}"-"%{minor}"~"%{ubuntu}"_i386.deb
 
 tar -xf data.tar.xz
 
