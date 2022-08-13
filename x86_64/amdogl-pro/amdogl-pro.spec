@@ -38,7 +38,8 @@ Provides:      libgl-amdgpu-pro-dri = 0:%{major}-%{minor}.el%{rhel_minor}
 Provides:      libgl-amdgpu-pro-dri(x86-64) = 0:%{major}-%{minor}.el%{rhel_minor}
 Provides:      libgl-amdgpu-pro-ext = 0:%{major}-%{minor}.el%{rhel_minor}
 Provides:      libgl-amdgpu-pro-ext(x86-64) = 0:%{major}-%{minor}.el%{rhel_minor}
-
+Provides:      libgl-amdgpu-pro-glx = 0:%{major}-%{minor}.el%{rhel_minor}
+Provides:      libgl-amdgpu-pro-glx(x86-64) = 0:%{major}-%{minor}.el%{rhel_minor}
 
 Requires:      libEGL.so.1()(64bit)    
 Requires:      libGLESv2.so.2()(64bit) 
