@@ -166,6 +166,9 @@ echo "adapting to a mesa friendly environment"
 
 rm -r ./opt/amdgpu
 
+rm -r  ./etc/amd/amdrc
+
+rm -r   ./etc/ld.so.conf.d/10-amdgpu-pro-i386.conf
 
 #
 
@@ -222,6 +225,9 @@ Amdgpu Pro OpenGL driver
 %attr(0777, root, root) "/opt/amdgpu-pro/OpenGL/lib32/libglapi.so"
 %attr(0644, root, root) "/opt/amdgpu-pro/OpenGL/lib32/libglapi.so.1"
 %attr(0644, root, root) "/opt/amdgpu-pro/OpenGL/lib32/xorg/modules/extensions/libglx.so"
+%attr(0644, root, root) "/opt/amdgpu-pro/OpenGL/lib32/libGL*"
+%attr(0644, root, root) "/opt/amdgpu-pro/OpenGL/lib32/libGLX_amd*"
+
 %exclude "/debs"
 %exclude "/usr/lib/.build-id"
 
