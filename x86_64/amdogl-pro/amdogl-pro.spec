@@ -130,6 +130,7 @@ rm ./etc/ld.so.conf.d/10-amdgpu-pro-x86_64.conf
 
 mv ./opt/amdgpu/share/drirc.d/10-amdgpu-pro.conf ./opt/amdgpu/share/drirc.d/10-amdgpu-pro.conf.disabled
 
+rm -r %{buildroot/usr/lib/.build-id
 
 #
 
@@ -194,7 +195,6 @@ Amdgpu Pro OpenGL driver
 %attr(0644, root, root) "/opt/amdgpu-pro/share/licenses/libgles-amdgpu-pro/AMDGPUPROEULA"
 %attr(0644, root, root) "/opt/amdgpu/share/drirc.d/10-amdgpu-pro.conf.disabled"
 %exclude "/rpms"
-%exclude "/usr/lib/.build-id"
 
 %post -p /sbin/ldconfig
 
