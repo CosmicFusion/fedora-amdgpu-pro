@@ -1,3 +1,4 @@
+%undefine _auto_set_build_flags
 %global amdpro 22.20.1
 %global major 22.20
 %global minor 1447095
@@ -88,7 +89,6 @@ mv ./etc %{buildroot}/opt/amdgpu/
 "/opt/amdgpu/etc/vulkan/icd.d/amd_icd32.json"
 "/opt/amdgpu/vulkan/lib32/amdvlk32.so"
 %exclude "/debs"
-%exclude "/usr/lib/.build-id"
 
 %description
 AMD Open Source Driver for Vulkan
