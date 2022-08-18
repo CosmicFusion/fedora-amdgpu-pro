@@ -84,7 +84,7 @@ rm ./etc/vulkan/implicit_layer.d/amd_icd64.json
 
 mv ./opt %{buildroot}/
 mv ./etc %{buildroot}/opt/amdgpu/
-rm -r %{buildroot}/usr/lib/.build-id
+rm -r %{buildroot}/usr/lib/.build-id || echo 'no build-ids :)'
 
 %files
 "/opt/amdgpu/etc/vulkan/icd.d/amd_icd64.json"
