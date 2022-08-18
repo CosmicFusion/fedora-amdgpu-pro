@@ -6,7 +6,7 @@
 %global enc 1.0
 %global rhel_major 9.0
 %global rhel_minor 9
-%global amdvlk 2022.Q3.1
+%global amdvlk 2022.Q3.3
 %global fedora fc36
 %global ubuntu 22.04
 
