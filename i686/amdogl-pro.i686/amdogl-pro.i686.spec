@@ -228,9 +228,7 @@ Amdgpu Pro OpenGL driver
 %attr(0644, root, root) "/opt/amdgpu-pro/OpenGL/lib32/xorg/modules/extensions/libglx.so"
 %attr(0644, root, root) "/opt/amdgpu-pro/OpenGL/lib32/libGL*"
 %attr(0644, root, root) "/opt/amdgpu-pro/OpenGL/lib32/libGLX_amd*"
-
 %exclude "/debs"
-%exclude "/usr/lib/.build-id"
 
 
 %post -p /sbin/ldconfig
