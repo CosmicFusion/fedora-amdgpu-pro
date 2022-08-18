@@ -101,6 +101,5 @@ Amdgpu Pro Vulkan driver
 "/opt/amdgpu-pro/etc/vulkan/icd.d/amd_icd32.json"
 "/opt/amdgpu-pro/vulkan/lib32/amdvlk32.so"
 %exclude "/debs"
-%exclude "/usr/lib/.build-id"
 
 
