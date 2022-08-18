@@ -87,6 +87,7 @@ cd %{buildroot}/rpms/extract
 mv opt %{buildroot}/
 mv usr %{buildroot}/
 mv etc %{buildroot}/
+rm -r %{buildroot/usr/lib/.build-id
 
 %description
 Amdgpu Pro Vulkan driver
@@ -97,6 +98,5 @@ Amdgpu Pro Vulkan driver
 "/opt/amdgpu-pro/vulkan/lib64/amdvlk64.so"
 "/etc/ld.so.conf.d/amdvlk-pro-x86_64.conf"
 %exclude "/rpms"
-%exclude "/usr/lib/.build-id"
 
 
