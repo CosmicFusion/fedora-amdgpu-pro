@@ -110,7 +110,6 @@ CPUs, GPUs and other processors. + The ICD Loader library provided by AMD.
 "/opt/amdgpu-pro/OpenCL/lib32/libOpenCL.so.1.2"
 "/opt/amdgpu-pro/OpenCL/lib32/libamdocl-orca32.so"
 %exclude "/debs"
-%exclude "/usr/lib/.build-id"
 
 %post -p /sbin/ldconfig
 
