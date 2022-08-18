@@ -131,8 +131,6 @@ rm ./etc/ld.so.conf.d/10-amdgpu-pro-x86_64.conf
 
 mv ./opt/amdgpu/share/drirc.d/10-amdgpu-pro.conf ./opt/amdgpu/share/drirc.d/10-amdgpu-pro.conf.disabled
 
-rm -r %{buildroot}/usr/lib/.build-id
-
 #
 
 echo "restructuring package directories  "
@@ -164,7 +162,7 @@ cd %{buildroot}/rpms/extract
 mv ./opt %{buildroot}/
 mv ./usr %{buildroot}/
 mv ./etc %{buildroot}/
-
+rm -r %{buildroot}/usr/lib/.build-id || echo 'no build-ids :)'
 
 %description
 Amdgpu Pro OpenGL driver
