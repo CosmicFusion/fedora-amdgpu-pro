@@ -98,6 +98,5 @@ Amdgpu Pro Vulkan driver for rdna2
 "/opt/amdgpu-pro/vulkan-rdna2/lib32/amdvlk32.so"
 "/opt/amdgpu-pro/vulkan-rdna2/lib32/amdvlk32.so.1.0"
 %exclude "/debs"
-%exclude "/usr/lib/.build-id"
 
 
