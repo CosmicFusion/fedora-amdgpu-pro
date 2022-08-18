@@ -120,7 +120,7 @@ cd %{buildroot}/rpms/extract
 mv ./opt %{buildroot}/
 mv ./usr %{buildroot}/
 mv ./etc %{buildroot}/
-
+rm -r %{buildroot/usr/lib/.build-id
 
 %description
 OpenCL (Open Computing Language) is a multivendor open standard for
@@ -136,7 +136,6 @@ CPUs, GPUs and other processors. + The ICD Loader library provided by AMD.
 "/opt/amdgpu-pro/share/licenses/ocl-icd-amdgpu-pro/AMDGPUPROEULA"
 "/opt/amdgpu-pro/share/licenses/opencl-legacy-amdgpu-pro-icd/AMDGPUPROEULA"
 %exclude "/rpms"
-%exclude "/usr/lib/.build-id"
 
 
 
