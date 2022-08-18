@@ -131,7 +131,7 @@ rm ./etc/ld.so.conf.d/10-amdgpu-pro-x86_64.conf
 
 mv ./opt/amdgpu/share/drirc.d/10-amdgpu-pro.conf ./opt/amdgpu/share/drirc.d/10-amdgpu-pro.conf.disabled
 
-rm -r %{buildroot/usr/lib/.build-id
+rm -r %{buildroot}/usr/lib/.build-id
 
 #
 
