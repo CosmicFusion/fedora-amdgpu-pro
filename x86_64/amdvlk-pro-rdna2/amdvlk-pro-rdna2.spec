@@ -87,7 +87,7 @@ cd %{buildroot}/rpms/extract
 mv ./opt %{buildroot}/
 mv ./etc %{buildroot}/
 
-rm -r %{buildroot/usr/lib/.build-id
+rm -r %{buildroot}/usr/lib/.build-id
 
 %description
 Amdgpu Pro Vulkan driver for RDNA2
