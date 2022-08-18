@@ -83,12 +83,12 @@ rm ./etc/vulkan/implicit_layer.d/amd_icd64.json
 
 mv ./opt %{buildroot}/
 mv ./etc %{buildroot}/opt/amdgpu/
+rm -r %{buildroot/usr/lib/.build-id
 
 %files
 "/opt/amdgpu/etc/vulkan/icd.d/amd_icd64.json"
 "/opt/amdgpu/vulkan/lib64/amdvlk64.so"
 %exclude "/debs"
-%exclude "/usr/lib/.build-id"
 
 %description
 AMD Open Source Driver for Vulkan
