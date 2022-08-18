@@ -1,3 +1,4 @@
+%undefine _auto_set_build_flags
 %global amdpro 22.20.1
 %global major 22.20
 %global minor 1447095
