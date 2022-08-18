@@ -103,7 +103,6 @@ Amd encode library
 "/opt/amdgpu-pro/share/licenses/amf-amdgpu-pro/AMDGPUPROEULA"
 "/opt/amdgpu-pro/share/licenses/libamdenc-amdgpu-pro/AMDGPUPROEULA"
 %exclude "/rpms"
-%exclude "/usr/lib/.build-id"
 
 %post -p /sbin/ldconfig
 
