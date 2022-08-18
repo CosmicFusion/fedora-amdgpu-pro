@@ -1,3 +1,4 @@
+%undefine _auto_set_build_flags
 %global major 21.40.2
 %global minor 1350682
 %global amf 1.4.24
