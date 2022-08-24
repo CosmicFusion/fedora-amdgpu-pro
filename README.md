@@ -46,6 +46,7 @@ Achitecture options are "32" for 32 bit and "64" for 64 bit
 amdamf-pro-runtime
 amdocl-legacy
 amdogl-pro
+amdvlk
 amdvlk-pro
 amdvlk-pro-rdna2
 -------------------------------------

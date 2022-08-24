@@ -1,7 +1,7 @@
 %undefine _auto_set_build_flags
-%global amdpro 22.20.1
+%global amdpro 22.20.3
 %global major 22.20
-%global minor 1447095
+%global minor 1462318
 %global amf 1.4.26
 %global enc 1.0
 %global rhel_major 9.0
