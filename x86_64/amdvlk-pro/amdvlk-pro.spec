@@ -1,12 +1,14 @@
-%global amdpro 22.20.1
+%undefine _auto_set_build_flags
+%global amdpro 22.20.3
 %global major 22.20
-%global minor 1447095
+%global minor 1462318
 %global amf 1.4.26
 %global enc 1.0
 %global rhel_major 9.0
 %global rhel_minor 9
-%global amdvlk 2022.Q3.1
+%global amdvlk 2022.Q3.3
 %global fedora fc36
+%global ubuntu 22.04
 
 Name:     amdvlk-pro
 Version:       %{amdpro}
@@ -24,12 +26,11 @@ Provides:      vulkan-amdgpu-pro = 0:%{major}-%{minor}.el%{rhel_minor}
 Provides:      vulkan-amdgpu-pro(x86-64) = 0:%{major}-%{minor}.el%{rhel_minor}
 Requires:      vulkan-loader
 
-Requires(post): /sbin/ldconfig  
-Requires(postun): /sbin/ldconfig 
-
 Recommends:	 openssl-libs  
 Recommends:	 amdgpu-vulkan-switcher
 
+BuildRequires: wget 
+BuildRequires: cpio
 
 %build
 
@@ -70,7 +71,7 @@ sed -i "s#/opt/amdgpu-pro/lib64/amdvlk64.so#/opt/amdgpu-pro/vulkan/lib64/amdvlk6
 
 # 
 
-echo "adding library path"
+echo "adding *Disabled* library path"
 
 mkdir -p ./etc
 
@@ -78,7 +79,7 @@ mkdir -p ./etc/ld.so.conf.d
 
 touch ./etc/ld.so.conf.d/amdvlk-pro-x86_64.conf
 
-echo "/opt/amdgpu-pro/vulkan/lib64" > ./etc/ld.so.conf.d/amdvlk-pro-x86_64.conf
+echo "# /opt/amdgpu-pro/vulkan/lib64" > ./etc/ld.so.conf.d/amdvlk-pro-x86_64.conf
 
 
 
@@ -88,6 +89,7 @@ cd %{buildroot}/rpms/extract
 mv opt %{buildroot}/
 mv usr %{buildroot}/
 mv etc %{buildroot}/
+rm -r %{buildroot}/usr/lib/.build-id || echo 'no build-ids :)'
 
 %description
 Amdgpu Pro Vulkan driver
@@ -98,14 +100,5 @@ Amdgpu Pro Vulkan driver
 "/opt/amdgpu-pro/vulkan/lib64/amdvlk64.so"
 "/etc/ld.so.conf.d/amdvlk-pro-x86_64.conf"
 %exclude "/rpms"
-%exclude "/usr/lib/.build-id"
-
-%post 
-/sbin/ldconfig 
-/usr/bin/ln -s /opt/amdgpu-pro/etc/vulkan/icd.d/amd_icd64.json /usr/share/vulkan/icd.d/amd_pro_icd64.json
 
 
-
-%postun 
-/sbin/ldconfig
-rm /usr/share/vulkan/icd.d/amd_pro_icd64.json

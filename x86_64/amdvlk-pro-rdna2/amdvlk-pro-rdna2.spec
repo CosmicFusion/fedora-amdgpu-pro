@@ -1,3 +1,4 @@
+%undefine _auto_set_build_flags
 %global major 21.40.2
 %global minor 1350682
 %global amf 1.4.24
@@ -23,12 +24,11 @@ Provides:      vulkan-amdgpu-pro = 0:%{major}-%{minor}.el%{rhel_minor}
 Provides:      vulkan-amdgpu-pro(x86-64) = 0:%{major}-%{minor}.el%{rhel_minor}
 Requires:      vulkan-loader
 
-Requires(post): /sbin/ldconfig  
-Requires(postun): /sbin/ldconfig 
-
 Recommends:	 openssl-libs  
 Recommends:	 amdgpu-vulkan-switcher
 
+BuildRequires: wget 
+BuildRequires: cpio
 
 %build
 
@@ -69,7 +69,7 @@ sed -i "s#/opt/amdgpu-pro/lib64/amdvlk64.so#/opt/amdgpu-pro/vulkan-rdna2/lib64/a
 
 # 
 
-echo "adding library path"
+echo "adding *Disabled* library path"
 
 mkdir -p ./etc
 
@@ -77,7 +77,7 @@ mkdir -p ./etc/ld.so.conf.d
 
 touch ./etc/ld.so.conf.d/amdvlk-pro-rdna2-x86_64.conf
 
-echo "/opt/amdgpu-pro/vulkan-rdna2/lib64" > ./etc/ld.so.conf.d/amdvlk-pro-rdna2-x86_64.conf
+echo "# /opt/amdgpu-pro/vulkan-rdna2/lib64" > ./etc/ld.so.conf.d/amdvlk-pro-rdna2-x86_64.conf
 
 
 
@@ -86,6 +86,7 @@ cd %{buildroot}/rpms/extract
 
 mv ./opt %{buildroot}/
 mv ./etc %{buildroot}/
+rm -r %{buildroot}/usr/lib/.build-id || echo 'no build-ids :)'
 
 %description
 Amdgpu Pro Vulkan driver for RDNA2
@@ -97,14 +98,5 @@ Amdgpu Pro Vulkan driver for RDNA2
 "/opt/amdgpu-pro/vulkan-rdna2/lib64/amdvlk64.so.1.0"
 "/etc/ld.so.conf.d/amdvlk-pro-rdna2-x86_64.conf"
 %exclude "/rpms"
-%exclude "/usr/lib/.build-id"
-
-%post 
-/sbin/ldconfig 
-/usr/bin/ln -s /opt/amdgpu-pro/etc/vulkan/icd.d/amd_icd64.json /usr/share/vulkan/icd.d/amd_pro_icd64.json
 
 
-
-%postun 
-/sbin/ldconfig
-rm /usr/share/vulkan/icd.d/amd_pro_icd64.json

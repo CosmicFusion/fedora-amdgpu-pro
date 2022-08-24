@@ -1,12 +1,14 @@
-%global amdpro 22.20.1
+%undefine _auto_set_build_flags
+%global amdpro 22.20.3
 %global major 22.20
-%global minor 1447095
+%global minor 1462318
 %global amf 1.4.26
 %global enc 1.0
 %global rhel_major 9.0
 %global rhel_minor 9
-%global amdvlk 2022.Q3.1
+%global amdvlk 2022.Q3.3
 %global fedora fc36
+%global ubuntu 22.04
 
 Name:          amdocl-legacy
 Version:       %{amdpro}
@@ -18,7 +20,8 @@ Summary:       AMD OpenCL ICD Loaders
 
 URL:           http://repo.radeon.com/amdgpu
 
-
+BuildRequires: wget 
+BuildRequires: cpio
 
 
 
@@ -119,7 +122,7 @@ cd %{buildroot}/rpms/extract
 mv ./opt %{buildroot}/
 mv ./usr %{buildroot}/
 mv ./etc %{buildroot}/
-
+rm -r %{buildroot}/usr/lib/.build-id || echo 'no build-ids :)'
 
 %description
 OpenCL (Open Computing Language) is a multivendor open standard for
@@ -135,7 +138,6 @@ CPUs, GPUs and other processors. + The ICD Loader library provided by AMD.
 "/opt/amdgpu-pro/share/licenses/ocl-icd-amdgpu-pro/AMDGPUPROEULA"
 "/opt/amdgpu-pro/share/licenses/opencl-legacy-amdgpu-pro-icd/AMDGPUPROEULA"
 %exclude "/rpms"
-%exclude "/usr/lib/.build-id"
 
 
 

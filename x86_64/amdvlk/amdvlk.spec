@@ -21,7 +21,7 @@ URL:           https://github.com/GPUOpen-Drivers/AMDVLK
 Vendor:        Advanced Micro Devices (AMD)
 
 Provides:      amdvlk = %{amdvlk}-3
-Provides:      amdvlk(i686) = %{amdvlk}-3
+Provides:      amdvlk(x86_64) = %{amdvlk}-3
 Provides:      config(amdvlk) = %{amdvlk}-3
 Requires:      config(amdvlk) = %{amdvlk}-3
 Requires:      vulkan-loader
@@ -39,7 +39,7 @@ mkdir -p %{buildroot}/debs
 
 cd %{buildroot}/debs
 
-wget http://repo.radeon.com/amdvlk/apt/debian/pool/main/a/amdvlk/amdvlk_"%{amdvlk}"_i386.deb
+wget http://repo.radeon.com/amdvlk/apt/debian/pool/main/a/amdvlk/amdvlk_"%{amdvlk}"_amd64.deb
 
 ###
 
@@ -49,7 +49,7 @@ mkdir -p %{buildroot}/debs/extract
 
 cd %{buildroot}/debs/extract
 
-ar -x ../amdvlk_"%{amdvlk}"_i386.deb
+ar -x ../amdvlk_"%{amdvlk}"_amd64.deb
 
 tar -xf data.tar.gz
 
@@ -67,7 +67,7 @@ cd %{buildroot}/debs/extract
 
 mkdir -p ./opt/amdgpu/vulkan
 
-mv ./usr/lib/i386-linux-gnu ./opt/amdgpu/vulkan/lib32
+mv ./usr/lib/x86_64-linux-gnu ./opt/amdgpu/vulkan/lib64
 
 rm -r ./usr/share
 
@@ -75,19 +75,20 @@ rm -r ./usr/share
 
 echo "fixing .icds "
 
-sed -i "s#/usr/lib/i386-linux-gnu/amdvlk32.so#/opt/amdgpu/vulkan/lib32/amdvlk32.so#" "./etc/vulkan/icd.d/amd_icd32.json"
+sed -i "s#/usr/lib/x86_64-linux-gnu/amdvlk64.so#/opt/amdgpu/vulkan/lib64/amdvlk64.so#" "./etc/vulkan/icd.d/amd_icd64.json"
 
 # we don't need this one
-rm ./etc/vulkan/implicit_layer.d/amd_icd32.json
+rm ./etc/vulkan/implicit_layer.d/amd_icd64.json
 
 ###
 
 mv ./opt %{buildroot}/
 mv ./etc %{buildroot}/opt/amdgpu/
+rm -r %{buildroot}/usr/lib/.build-id || echo 'no build-ids :)'
 
 %files
-"/opt/amdgpu/etc/vulkan/icd.d/amd_icd32.json"
-"/opt/amdgpu/vulkan/lib32/amdvlk32.so"
+"/opt/amdgpu/etc/vulkan/icd.d/amd_icd64.json"
+"/opt/amdgpu/vulkan/lib64/amdvlk64.so"
 %exclude "/debs"
 
 %description

@@ -1,106 +1,119 @@
 # fedora-amdgpu-pro
-A repository that provides the proprietary driver for fedora without having to deal with hassle of getting RHEL repo to work , and it has 32 bit libraries.
-
-The end goal of this repository is to hand it over to glourious eggroll , so he can use it to supply AMD proprietary to nobara/fedora users
-
+This repository contains scripts for repacking the AMD proprietary drivers into Fedora-usable packages. It includes both 64 and 32 bit drivers.
 
 # Q&A
 
-* Who's responsiable for this?
-
-
-Some dumb 14 year old on the internet.
-
-
 * Proprietary drivers on AMD? thought those guys were open source ??
 
+AMD's proprietary drivers only support a few linux distributions: Ubuntu, OpenSUSE, RHEL, CentOS. Other distributions have to repackage their drivers.
 
-While yes AMD driver stack is mostly open-source , some corporate greed still runs in the blood
-as some parts remains proprietary like :
-
+While yes AMD driver stack is mostly open-source , as some parts remains proprietary like :
 
 - The legacy/pal/orca OpenCL drivers. (required for darktable , resolve & blender (< 3.0) .)
 - The industrial OpenGL drivers (required for resolve.)
-- The Advanced Media Framework System Runtime 
-- A Vulkan driver with ray tracing capabilities
+- The Advanced Media Framework (required for GPU H.264/H.265 encoding)
+- Vulkan drivers with ray tracing capabilities
+
+# How to build the packages:
+
+**"**IMPORTANT BUILD NOTES**"** : 
+
+1) Occasionally, the mock build may fail on 32 bit packages with the following issue:
+```
+Failed:
+  shadow-utils-2:4.11.1-2.fc36.i686                                                                                                                                                                                                                               
+
+Error: Transaction failed
+```
+This is a known issue. You can just ignore it and re-run the build.  
+
+2) It seems like AMD maintainers forgot enable rdna2 AMF encoding support in amdvlk-pro starting from amdgpu-pro 21.50 and onwards , so please use **amdvlk-pro-rdna2** if you have a rdna2 GPU. (6000 series or higher):  
+https://github.com/GPUOpen-LibrariesAndSDKs/AMF/issues/334
 
 
-# How to use
+We include a package builder script which uses mock to build packages with minimal dependencies. It will auto install the dependencies it needs (mock pykickstart fedpkg libvirt)  
 
-- install the binaries from the releases section or maybe a repo one day or learn to generate them on your own system
+Use the package builder to build specific packages:  
+```
+$ ./package-builder.sh 
+-------------------------------------
+Usage: <package-name> <architecture>
+-------------------------------------
+You must specify a package name and an architecture.
+Achitecture options are "32" for 32 bit and "64" for 64 bit
+-------------------------------------
+64 bit package names are:
+amdamf-pro-runtime
+amdocl-legacy
+amdogl-pro
+amdvlk
+amdvlk-pro
+amdvlk-pro-rdna2
+-------------------------------------
+32 bit package names are:
+amdocl-legacy
+amdogl-pro
+amdvlk
+amdvlk-pro
+amdvlk-pro-rdna2
+```
 
- **"**WARNING**"** : It seems like AMD maintainers forgot enable rdna2 in amdvlk-pro starting from amdgpu-pro 21.50 and onwards , so please use **amdvlk-pro-rdna2** if you have a rdna2 GPU.
+# How to install the packages:
 
-# For Vulkan
+Resulting packages are placed in the "package" subfolder. Install packages like so:
+```
+$ cd packages
+$ sudo dnf install *.rpm
+```
+
+# How to use Vulkan PRO drivers:
+
+- install amdgpu-vulkan-switcher from https://copr.fedorainfracloud.org/coprs/gloriouseggroll/amdgpu-vulkan-switcher/
+ 
+- Run the program with 
+  
+```
+vk_pro {THE_PROGRAM}
+```
+ 
+# How to use Vulkan AMDVLK drivers:
 
 - install amdgpu-vulkan-switcher from https://copr.fedorainfracloud.org/coprs/gloriouseggroll/amdgpu-vulkan-switcher/
 
- **AMDVLK_PRO**
- 
- - Run the program with 
-  
-  ```
-  vk_pro {THE_PROGRAM}
-   ```
- 
- 
-
 **AMDVLK**
-
- **"**WARNING**"** : Since you get the 64 bit amdvlk binary directly from AMD's github you need to symlink their icd so that the amdgpu-vulkan-switcher can read it.
  
- - To do that , run
- ```
-sudo ln -s /etc/vulkan/icd.d/amd_icd64.json /usr/share/vulkan/icd.d/amd_icd64.json
-   ```
+- Run the program with 
  
- 
- - Run the program with 
-  
-  ```
-  vk_amdvlk {THE_PROGRAM}
-  ```
+```
+vk_amdvlk {THE_PROGRAM}
+```
 
-# For AMF
+# How to use AMD AMF encoder:
 
-- Just run the program the needs AMF with vk_pro and it will work.
+- The only requirement to use the AMF encoder is that it requires the PRO driver to be used, so you must run the application (such as obs or ffmpeg) with vk_pro:
 
-# For OpenCL
+```
+vk_pro {THE_PROGRAM}
+```
 
-- The system will do what it needs to do automatically .
+# How to use the OpenGL PRO drivers:
 
-# For OpenGL
-
-- install amdgpu-opengl-switcher from https://github.com/CosmicFusion/amdgpu-opengl-switcher
+- install amdgpu-opengl-switcher from https://copr.fedorainfracloud.org/coprs/gloriouseggroll/amdgpu-vulkan-switcher/
 
 
- - And run your program with
+- Run the program with 
 ```
 gl_pro {THE_PROGRAM}
 ```
-- You can also use zink
 
+- You can also use  the open source zink driver:
 
 ```
 gl_zink {THE_PROGRAM}
 ```
 
-.
+# How to use the OpenCL drivers:
 
-# How to manually compile 
+- The system will do what it needs to do automatically .
 
-There are a bunch of .spec files in this repository , choose what you want to build and build it the spec using the proper architecture (x86_64 or i686) , and enjoy!
-eg : 
-# you want "$source"/x86_64/amdvlk-pro , a.k.a 64-bit vulkan amdgpu pro
 
-```
-rpmbuild -bb --target=x86_64 "$source"/x86_64/amdvlk-pro/amdvlk-pro.spec
-```
-# you want "$source"/i686/amdvlk-pro , a.k.a 32-bit vulkan amdgpu pro
-
-```
-rpmbuild -bb --target=i686 "$source"/i686/amdvlk-pro/amdvlk-pro.i686.spec
-```
-
- **"**WARNING**"** : This script depends on rpmbuild cleaning to clean the build directory , so if building was for any reason cancelled or failed , do not attempt to build again , until you erase the builddir manually , or else it **"**WILL**"** fail .
-.

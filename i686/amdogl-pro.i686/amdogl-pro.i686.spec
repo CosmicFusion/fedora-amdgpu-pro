@@ -1,11 +1,12 @@
-%global amdpro 22.20.1
+%undefine _auto_set_build_flags
+%global amdpro 22.20.3
 %global major 22.20
-%global minor 1447095
+%global minor 1462318
 %global amf 1.4.26
 %global enc 1.0
 %global rhel_major 9.0
 %global rhel_minor 9
-%global amdvlk 2022.Q3.1
+%global amdvlk 2022.Q3.3
 %global fedora fc36
 %global ubuntu 22.04
 
@@ -16,6 +17,9 @@ License:       AMD GPU PRO EULA
 Group:         System Environment/Libraries
 URL:      http://repo.radeon.com/amdgpu
 Summary:       AMD OpenGL
+
+BuildRequires: wget 
+BuildRequires: cpio
 
 Provides:      libEGL.so.1()  
 Provides:      libegl-amdgpu-pro = 0:%{major}-%{minor}.el%{rhel_minor}
@@ -38,7 +42,8 @@ Provides:      libgl-amdgpu-pro-dri = 0:%{major}-%{minor}.el%{rhel_minor}
 Provides:      libgl-amdgpu-pro-dri(i686) = 0:%{major}-%{minor}.el%{rhel_minor}
 Provides:      libgl-amdgpu-pro-ext = 0:%{major}-%{minor}.el%{rhel_minor}
 Provides:      libgl-amdgpu-pro-ext(i686) = 0:%{major}-%{minor}.el%{rhel_minor}
-
+Provides:      libgl-amdgpu-pro-glx = 0:%{major}-%{minor}.el%{rhel_minor}
+Provides:      libgl-amdgpu-pro-glx(i686) = 0:%{major}-%{minor}.el%{rhel_minor}
 
 Requires:      libEGL.so.1()    
 Requires:      libGLESv2.so.2() 
@@ -77,6 +82,8 @@ wget http://repo.radeon.com/amdgpu/%{amdpro}/ubuntu/pool/proprietary/o/opengl-am
 wget http://repo.radeon.com/amdgpu/%{amdpro}/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libgl1-amdgpu-pro-dri_"%{major}"-"%{minor}"~"%{ubuntu}"_i386.deb
 
 wget http://repo.radeon.com/amdgpu/%{amdpro}/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libgl1-amdgpu-pro-ext_"%{major}"-"%{minor}"~"%{ubuntu}"_i386.deb
+
+wget http://repo.radeon.com/amdgpu/%{amdpro}/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libgl1-amdgpu-pro-glx_"%{major}"-"%{minor}"~"%{ubuntu}"_i386.deb
 
 wget http://repo.radeon.com/amdgpu/%{amdpro}/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libglapi1-amdgpu-pro_"%{major}"-"%{minor}"~"%{ubuntu}"_i386.deb
 
@@ -122,6 +129,16 @@ rm debian-binary
 
 ####
 
+ar -x ../libgl1-amdgpu-pro-glx_"%{major}"-"%{minor}"~"%{ubuntu}"_i386.deb
+
+tar -xf data.tar.xz
+
+rm -r *.tar*
+
+rm debian-binary
+
+####
+
 ar -x ../libglapi1-amdgpu-pro_"%{major}"-"%{minor}"~"%{ubuntu}"_i386.deb
 
 tar -xf data.tar.xz
@@ -150,6 +167,9 @@ echo "adapting to a mesa friendly environment"
 
 rm -r ./opt/amdgpu
 
+rm -r  ./etc/amd/amdrc
+
+rm -r   ./etc/ld.so.conf.d/10-amdgpu-pro-i386.conf
 
 #
 
@@ -157,17 +177,17 @@ echo "restructuring package directories  "
 
 mkdir -p ./opt/amdgpu-pro/OpenGL
 
-mkdir -p ./opt/amdgpu-pro/OpenGL/lib
+mkdir -p ./opt/amdgpu-pro/OpenGL/lib32
 
-mv ./opt/amdgpu-pro/lib/i386-linux-gnu/* ./opt/amdgpu-pro/OpenGL/lib/
+mv ./opt/amdgpu-pro/lib/i386-linux-gnu/* ./opt/amdgpu-pro/OpenGL/lib32/
 
 rm -r ./opt/amdgpu-pro/lib/i386-linux-gnu
 
-mv ./usr/lib/i386-linux-gnu/* ./opt/amdgpu-pro/OpenGL/lib/
+mv ./usr/lib/i386-linux-gnu/* ./opt/amdgpu-pro/OpenGL/lib32/
 
 rm -r ./usr/lib/i386-linux-gnu
 
-mv ./opt/amdgpu-pro/lib/* ./opt/amdgpu-pro/OpenGL/lib
+mv ./opt/amdgpu-pro/lib/* ./opt/amdgpu-pro/OpenGL/lib32
 
 rm -r ./opt/amdgpu-pro/lib
 
@@ -183,7 +203,7 @@ mkdir -p ./etc/ld.so.conf.d
 
 touch ./etc/ld.so.conf.d/amdogl-pro-i686.conf
 
-echo "# /opt/amdgpu-pro/OpenGL/lib" > ./etc/ld.so.conf.d/amdogl-pro-i686.conf
+echo "# /opt/amdgpu-pro/OpenGL/lib32" > ./etc/ld.so.conf.d/amdogl-pro-i686.conf
 
 
 
@@ -198,16 +218,17 @@ Amdgpu Pro OpenGL driver
 
 %files
 %attr(0644, root, root) "/etc/ld.so.conf.d/amdogl-pro-i686.conf"
-%attr(0644, root, root) "/opt/amdgpu-pro/OpenGL/lib/dri/amdgpu_dri.so"
-%attr(0777, root, root) "/opt/amdgpu-pro/OpenGL/lib/libEGL.so"
-%attr(0644, root, root) "/opt/amdgpu-pro/OpenGL/lib/libEGL.so.1"
-%attr(0777, root, root) "/opt/amdgpu-pro/OpenGL/lib/libGLESv2.so"
-%attr(0644, root, root) "/opt/amdgpu-pro/OpenGL/lib/libGLESv2.so.2"
-%attr(0777, root, root) "/opt/amdgpu-pro/OpenGL/lib/libglapi.so"
-%attr(0644, root, root) "/opt/amdgpu-pro/OpenGL/lib/libglapi.so.1"
-%attr(0644, root, root) "/opt/amdgpu-pro/OpenGL/lib/xorg/modules/extensions/libglx.so"
+%attr(0644, root, root) "/opt/amdgpu-pro/OpenGL/lib32/dri/amdgpu_dri.so"
+%attr(0777, root, root) "/opt/amdgpu-pro/OpenGL/lib32/libEGL.so"
+%attr(0644, root, root) "/opt/amdgpu-pro/OpenGL/lib32/libEGL.so.1"
+%attr(0777, root, root) "/opt/amdgpu-pro/OpenGL/lib32/libGLESv2.so"
+%attr(0644, root, root) "/opt/amdgpu-pro/OpenGL/lib32/libGLESv2.so.2"
+%attr(0777, root, root) "/opt/amdgpu-pro/OpenGL/lib32/libglapi.so"
+%attr(0644, root, root) "/opt/amdgpu-pro/OpenGL/lib32/libglapi.so.1"
+%attr(0644, root, root) "/opt/amdgpu-pro/OpenGL/lib32/xorg/modules/extensions/libglx.so"
+%attr(0644, root, root) "/opt/amdgpu-pro/OpenGL/lib32/libGL*"
+%attr(0644, root, root) "/opt/amdgpu-pro/OpenGL/lib32/libGLX_amd*"
 %exclude "/debs"
-%exclude "/usr/lib/.build-id"
 
 
 %post -p /sbin/ldconfig

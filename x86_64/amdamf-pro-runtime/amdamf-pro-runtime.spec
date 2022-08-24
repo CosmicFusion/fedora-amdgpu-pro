@@ -1,12 +1,14 @@
-%global amdpro 22.20.1
+%undefine _auto_set_build_flags
+%global amdpro 22.20.3
 %global major 22.20
-%global minor 1447095
+%global minor 1462318
 %global amf 1.4.26
 %global enc 1.0
 %global rhel_major 9.0
 %global rhel_minor 9
-%global amdvlk 2022.Q3.1
+%global amdvlk 2022.Q3.3
 %global fedora fc36
+%global ubuntu 22.04
 
 Name:     amdamf-pro-runtime
 Version:  %{amdpro}
@@ -25,6 +27,9 @@ Provides:      libamdenc-amdgpu-pro = 0:%{enc}-%{minor}.el%{rhel_minor}
 Provides:      libamdenc-amdgpu-pro(x86-64) = 0:%{enc}-%{minor}.el%{rhel_minor}
 Provides:      libamdenc64.so.1.0()(64bit)  
 Provides:      libamdenc64.so.1.0()(64bit)  
+
+BuildRequires: wget 
+BuildRequires: cpio
 
 Requires(post): /sbin/ldconfig  
 Requires(postun): /sbin/ldconfig 
@@ -87,6 +92,7 @@ cd %{buildroot}/rpms/extract
 mv ./opt %{buildroot}/
 mv ./usr %{buildroot}/
 mv ./etc %{buildroot}/
+rm -r %{buildroot}/usr/lib/.build-id || echo 'no build-ids :)'
 
 %description
 Amd encode library
@@ -99,7 +105,6 @@ Amd encode library
 "/opt/amdgpu-pro/share/licenses/amf-amdgpu-pro/AMDGPUPROEULA"
 "/opt/amdgpu-pro/share/licenses/libamdenc-amdgpu-pro/AMDGPUPROEULA"
 %exclude "/rpms"
-%exclude "/usr/lib/.build-id"
 
 %post -p /sbin/ldconfig
 

@@ -1,11 +1,12 @@
-%global amdpro 22.20.1
+%undefine _auto_set_build_flags
+%global amdpro 22.20.3
 %global major 22.20
-%global minor 1447095
+%global minor 1462318
 %global amf 1.4.26
 %global enc 1.0
 %global rhel_major 9.0
 %global rhel_minor 9
-%global amdvlk 2022.Q3.1
+%global amdvlk 2022.Q3.3
 %global fedora fc36
 %global ubuntu 22.04
 
@@ -26,6 +27,9 @@ Provides:      ocl-icd-amdgpu-pro(i686) = 0:%{major}-%{minor}.el%{rhel_minor}
 
 Requires(post): /sbin/ldconfig  
 Requires(postun): /sbin/ldconfig 
+
+BuildRequires: wget 
+BuildRequires: cpio
 
 %build
 
@@ -106,7 +110,6 @@ CPUs, GPUs and other processors. + The ICD Loader library provided by AMD.
 "/opt/amdgpu-pro/OpenCL/lib32/libOpenCL.so.1.2"
 "/opt/amdgpu-pro/OpenCL/lib32/libamdocl-orca32.so"
 %exclude "/debs"
-%exclude "/usr/lib/.build-id"
 
 %post -p /sbin/ldconfig
 

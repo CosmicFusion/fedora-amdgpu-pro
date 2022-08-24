@@ -1,12 +1,14 @@
-%global amdpro 22.20.1
+%undefine _auto_set_build_flags
+%global amdpro 22.20.3
 %global major 22.20
-%global minor 1447095
+%global minor 1462318
 %global amf 1.4.26
 %global enc 1.0
 %global rhel_major 9.0
 %global rhel_minor 9
-%global amdvlk 2022.Q3.1
+%global amdvlk 2022.Q3.3
 %global fedora fc36
+%global ubuntu 22.04
 
 Name:     amdogl-pro
 Version:       %{amdpro}
@@ -38,7 +40,8 @@ Provides:      libgl-amdgpu-pro-dri = 0:%{major}-%{minor}.el%{rhel_minor}
 Provides:      libgl-amdgpu-pro-dri(x86-64) = 0:%{major}-%{minor}.el%{rhel_minor}
 Provides:      libgl-amdgpu-pro-ext = 0:%{major}-%{minor}.el%{rhel_minor}
 Provides:      libgl-amdgpu-pro-ext(x86-64) = 0:%{major}-%{minor}.el%{rhel_minor}
-
+Provides:      libgl-amdgpu-pro-glx = 0:%{major}-%{minor}.el%{rhel_minor}
+Provides:      libgl-amdgpu-pro-glx(x86-64) = 0:%{major}-%{minor}.el%{rhel_minor}
 
 Requires:      libEGL.so.1()(64bit)    
 Requires:      libGLESv2.so.2()(64bit) 
@@ -63,6 +66,9 @@ Requires:      libxcb.so.1()(64bit)
 
 Requires(post): /sbin/ldconfig  
 Requires(postun): /sbin/ldconfig 
+
+BuildRequires: wget 
+BuildRequires: cpio
 
 Recommends: amdgpu-opengl-switcher
 
@@ -126,7 +132,6 @@ rm ./etc/ld.so.conf.d/10-amdgpu-pro-x86_64.conf
 
 mv ./opt/amdgpu/share/drirc.d/10-amdgpu-pro.conf ./opt/amdgpu/share/drirc.d/10-amdgpu-pro.conf.disabled
 
-
 #
 
 echo "restructuring package directories  "
@@ -158,7 +163,7 @@ cd %{buildroot}/rpms/extract
 mv ./opt %{buildroot}/
 mv ./usr %{buildroot}/
 mv ./etc %{buildroot}/
-
+rm -r %{buildroot}/usr/lib/.build-id || echo 'no build-ids :)'
 
 %description
 Amdgpu Pro OpenGL driver
@@ -190,7 +195,6 @@ Amdgpu Pro OpenGL driver
 %attr(0644, root, root) "/opt/amdgpu-pro/share/licenses/libgles-amdgpu-pro/AMDGPUPROEULA"
 %attr(0644, root, root) "/opt/amdgpu/share/drirc.d/10-amdgpu-pro.conf.disabled"
 %exclude "/rpms"
-%exclude "/usr/lib/.build-id"
 
 %post -p /sbin/ldconfig
 

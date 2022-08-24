@@ -1,3 +1,4 @@
+%undefine _auto_set_build_flags
 %global major 21.40.2
 %global minor 1350682
 %global amf 1.4.24
@@ -22,8 +23,8 @@ Provides:      vulkan-amdgpu-pro = 0:%{major}-%{minor}.el%{rhel_minor}
 Provides:      vulkan-amdgpu-pro(i686) = 0:%{major}-%{minor}.el%{rhel_minor}
 Requires:      vulkan-loader
 
-Requires(post): /sbin/ldconfig  
-Requires(postun): /sbin/ldconfig 
+BuildRequires: wget 
+BuildRequires: cpio
 
 Recommends:	 openssl-libs  
 
@@ -75,13 +76,13 @@ sed -i "s#/opt/amdgpu-pro/lib/i386-linux-gnu/amdvlk32.so#/opt/amdgpu-pro/vulkan-
 
 # 
 
-echo "adding library path"
+echo "adding *Disabled* library path"
 
 mkdir -p ./etc/ld.so.conf.d
 
 touch ./etc/ld.so.conf.d/amdvlk-pro-rdna2-i686.conf
 
-echo "/opt/amdgpu-pro/vulkan-rdna2/lib32" > ./etc/ld.so.conf.d/amdvlk-pro-rdna2-i686.conf
+echo "# /opt/amdgpu-pro/vulkan-rdna2/lib32" > ./etc/ld.so.conf.d/amdvlk-pro-rdna2-i686.conf
 
 ###
 
@@ -97,15 +98,5 @@ Amdgpu Pro Vulkan driver for rdna2
 "/opt/amdgpu-pro/vulkan-rdna2/lib32/amdvlk32.so"
 "/opt/amdgpu-pro/vulkan-rdna2/lib32/amdvlk32.so.1.0"
 %exclude "/debs"
-%exclude "/usr/lib/.build-id"
 
 
-%post 
-/sbin/ldconfig 
-/usr/bin/ln -s /opt/amdgpu-pro/etc/vulkan/icd.d/amd_icd32.json /usr/share/vulkan/icd.d/amd_pro_icd32.json
-
-
-
-%postun 
-/sbin/ldconfig
-rm /usr/share/vulkan/icd.d/amd_pro_icd32.json
