@@ -23,8 +23,6 @@ Provides:      libdrm-pro(i686)
 
 Requires: 	libdrm-pro(x86_64)
 
-Requires: 	libdrm(i686)
-
 BuildRequires: wget 
 BuildRequires: cpio
 
