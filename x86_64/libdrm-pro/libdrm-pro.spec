@@ -21,6 +21,13 @@ URL:      http://repo.radeon.com/amdgpu
 Provides:      libdrm-pro
 Provides:      libdrm-pro(x86_64)
 
+Provides:      libdro.so.2()
+Provides:      libdro_amdgpu.so.1()
+Provides:      libdro_radeon.so.1()
+Provides:      libdro.so.2()(x86_64)
+Provides:      libdro_amdgpu.so.1()(x86_64)
+Provides:      libdro_radeon.so.1()(x86_64)
+
 Requires: 	libdrm
 
 BuildRequires: wget 
