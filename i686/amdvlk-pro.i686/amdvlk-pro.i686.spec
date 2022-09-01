@@ -29,7 +29,6 @@ BuildRequires: wget
 BuildRequires: cpio
 
 Requires:      libdrm-pro  
-Requires:      libdrm-pro(i686)
 
 Recommends:	 openssl-libs  
 

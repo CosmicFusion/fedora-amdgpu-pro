@@ -27,6 +27,9 @@ Provides:      libdro_radeon.so.1()
 Provides:      libdro.so.2()(x86_64)
 Provides:      libdro_amdgpu.so.1()(x86_64)
 Provides:      libdro_radeon.so.1()(x86_64)
+Provides:      libdro.so.2()(64bit)
+Provides:      libdro_amdgpu.so.1()(64bit)
+Provides:      libdro_radeon.so.1()(64bit)
 
 Requires: 	libdrm
 

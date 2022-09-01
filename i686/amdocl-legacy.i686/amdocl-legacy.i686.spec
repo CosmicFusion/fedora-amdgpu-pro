@@ -29,7 +29,6 @@ Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig 
 
 Requires:      libdrm-pro  
-Requires:      libdrm-pro(i686)
 
 BuildRequires: wget 
 BuildRequires: cpio

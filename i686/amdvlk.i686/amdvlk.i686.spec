@@ -27,7 +27,6 @@ Requires:      config(amdvlk) = %{amdvlk}-3
 Requires:      vulkan-loader
 
 Requires:      libdrm-pro  
-Requires:      libdrm-pro(i686)
 
 BuildRequires: wget 
 BuildRequires: cpio

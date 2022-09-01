@@ -22,7 +22,6 @@ BuildRequires: wget
 BuildRequires: cpio
 
 Requires:      libdrm-pro  
-Requires:      libdrm-pro(i686)
 
 Provides:      libEGL.so.1()  
 Provides:      libegl-amdgpu-pro = 0:%{major}-%{minor}.el%{rhel_minor}

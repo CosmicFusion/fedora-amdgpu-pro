@@ -26,8 +26,15 @@ Provides:      libdro_radeon.so.1()
 Provides:      libdro.so.2()(i686)
 Provides:      libdro_amdgpu.so.1()(i686)
 Provides:      libdro_radeon.so.1()(i686)
+Provides:      libdro.so.2()(x86_32)
+Provides:      libdro_amdgpu.so.1()(x86_32)
+Provides:      libdro_radeon.so.1()(x86_32)
+Provides:      libdro.so.2()(32bit)
+Provides:      libdro_amdgpu.so.1()(32bit)
+Provides:      libdro_radeon.so.1()(32bit)
 
 Requires: 	libdrm-pro(x86_64)
+Requires: 	libdrm
 
 BuildRequires: wget 
 BuildRequires: cpio
