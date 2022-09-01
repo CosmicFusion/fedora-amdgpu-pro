@@ -29,6 +29,8 @@ Requires:      vulkan-loader
 BuildRequires: wget 
 BuildRequires: cpio
 
+Requires:      libdrm-pro  
+
 Recommends:	 openssl-libs  
 
 %build
@@ -77,6 +79,12 @@ echo "fixing .icds "
 
 sed -i "s#/usr/lib/x86_64-linux-gnu/amdvlk64.so#/opt/amdgpu/vulkan/lib64/amdvlk64.so#" "./etc/vulkan/icd.d/amd_icd64.json"
 
+# 
+
+echo 'patching libs to use official libdrm'
+
+sed -i "s|libdrm|libdro|g" ./opt/amdgpu/vulkan/lib64/*.so
+
 # we don't need this one
 rm ./etc/vulkan/implicit_layer.d/amd_icd64.json
 
@@ -94,4 +102,8 @@ rm -r %{buildroot}/usr/lib/.build-id || echo 'no build-ids :)'
 %description
 AMD Open Source Driver for Vulkan
 
+%post
+/sbin/ldconfig
 
+%postun
+/sbin/ldconfig

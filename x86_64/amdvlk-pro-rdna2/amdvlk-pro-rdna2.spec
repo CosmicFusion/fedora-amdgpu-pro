@@ -99,4 +99,8 @@ Amdgpu Pro Vulkan driver for RDNA2
 "/etc/ld.so.conf.d/amdvlk-pro-rdna2-x86_64.conf"
 %exclude "/rpms"
 
+%post
+/sbin/ldconfig
 
+%postun
+/sbin/ldconfig

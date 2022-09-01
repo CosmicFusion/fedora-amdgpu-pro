@@ -28,6 +28,9 @@ Requires:      vulkan-loader
 BuildRequires: wget 
 BuildRequires: cpio
 
+Requires:      libdrm-pro  
+Requires:      libdrm-pro(i686)
+
 Recommends:	 openssl-libs  
 
 
@@ -79,6 +82,13 @@ sed -i "s#/opt/amdgpu-pro/lib/i386-linux-gnu/amdvlk32.so#/opt/amdgpu-pro/vulkan/
 
 # 
 
+echo 'patching libs to use official libdrm'
+
+sed -i "s|libdrm|libdro|g" ./opt/amdgpu-pro/vulkan/lib32/*.so
+
+
+# 
+
 echo "adding *Disabled* library path"
 
 mkdir -p ./etc/ld.so.conf.d
@@ -102,4 +112,8 @@ Amdgpu Pro Vulkan driver
 "/opt/amdgpu-pro/vulkan/lib32/amdvlk32.so"
 %exclude "/debs"
 
+%post
+/sbin/ldconfig
 
+%postun
+/sbin/ldconfig
