@@ -27,8 +27,12 @@ Error: Transaction failed
 ```
 This is a known issue. You can just ignore it and re-run the build.  
 
-2) It seems like AMD maintainers forgot enable rdna2 AMF encoding support in amdvlk-pro starting from amdgpu-pro 21.50 and onwards , so please use **amdvlk-pro-rdna2** if you have a rdna2 GPU. (6000 series or higher):  
-https://github.com/GPUOpen-LibrariesAndSDKs/AMF/issues/334
+2) ~~It seems like AMD maintainers forgot enable rdna2 AMF encoding support in amdvlk-pro starting from amdgpu-pro 21.50 and onwards , so please use **amdvlk-pro-rdna2** if you have a rdna2 GPU. (6000 series or higher):  
+https://github.com/GPUOpen-LibrariesAndSDKs/AMF/issues/334~~
+
+2) We have repackaged the offficial "libdrm" library for better performance and stability , it also solves the RDNA2 issue.
+
+3) libdrm libraries are called libdro to not conflict with the mesa ones.
 
 
 We include a package builder script which uses mock to build packages with minimal dependencies. It will auto install the dependencies it needs (mock pykickstart fedpkg libvirt)  
@@ -43,6 +47,7 @@ You must specify a package name and an architecture.
 Achitecture options are "32" for 32 bit and "64" for 64 bit
 -------------------------------------
 64 bit package names are:
+libdrm-pro
 amdamf-pro-runtime
 amdocl-legacy
 amdogl-pro
@@ -51,6 +56,7 @@ amdvlk-pro
 amdvlk-pro-rdna2
 -------------------------------------
 32 bit package names are:
+libdrm-pro
 amdocl-legacy
 amdogl-pro
 amdvlk
@@ -95,6 +101,8 @@ vk_amdvlk {THE_PROGRAM}
 ```
 vk_pro {THE_PROGRAM}
 ```
+
+Note : H265 AMF is supported only on RDNA1 cards and higher (RX 5XXX) , the rest shall use H264.
 
 # How to use the OpenGL PRO drivers:
 
