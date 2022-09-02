@@ -93,13 +93,13 @@ rm -r ./opt/amdgpu-pro/lib
 
 # 
 
-echo "adding library path"
+echo "adding *Disabled* library path"
 
 mkdir -p ./etc/ld.so.conf.d
 
 touch ./etc/ld.so.conf.d/amdocl-legacy-i686.conf
 
-echo "/opt/amdgpu-pro/OpenCL/lib32" > ./etc/ld.so.conf.d/amdocl-legacy-i686.conf
+echo "#/opt/amdgpu-pro/OpenCL/lib32" > ./etc/ld.so.conf.d/amdocl-legacy-i686.conf
 
 ###
 
