@@ -87,9 +87,9 @@ rm -r ./opt/amdgpu-pro/lib
 
 # 
 
-echo 'patching libs to use official libdrm'
+#echo 'patching libs to use official libdrm'
 
-sed -i "s|libdrm|libdro|g" ./opt/amdgpu-pro/OpenCL/lib32/*.so
+#sed -i "s|libdrm|libdro|g" ./opt/amdgpu-pro/OpenCL/lib32/*.so
 
 # 
 

@@ -81,9 +81,9 @@ sed -i "s#/usr/lib/x86_64-linux-gnu/amdvlk64.so#/opt/amdgpu/vulkan/lib64/amdvlk6
 
 # 
 
-echo 'patching libs to use official libdrm'
+#echo 'patching libs to use official libdrm'
 
-sed -i "s|libdrm|libdro|g" ./opt/amdgpu/vulkan/lib64/*.so
+#sed -i "s|libdrm|libdro|g" ./opt/amdgpu/vulkan/lib64/*.so
 
 # we don't need this one
 rm ./etc/vulkan/implicit_layer.d/amd_icd64.json

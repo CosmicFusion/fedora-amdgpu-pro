@@ -21,15 +21,15 @@ URL:      http://repo.radeon.com/amdgpu
 Provides:      libdrm-pro
 Provides:      libdrm-pro(x86_64)
 
-Provides:      libdro.so.2()
-Provides:      libdro_amdgpu.so.1()
-Provides:      libdro_radeon.so.1()
-Provides:      libdro.so.2()(x86_64)
-Provides:      libdro_amdgpu.so.1()(x86_64)
-Provides:      libdro_radeon.so.1()(x86_64)
-Provides:      libdro.so.2()(64bit)
-Provides:      libdro_amdgpu.so.1()(64bit)
-Provides:      libdro_radeon.so.1()(64bit)
+Provides:      libdrm.so.2()
+Provides:      libdrm_amdgpu.so.1()
+Provides:      libdrm_radeon.so.1()
+Provides:      libdrm.so.2()(x86_64)
+Provides:      libdrm_amdgpu.so.1()(x86_64)
+Provides:      libdrm_radeon.so.1()(x86_64)
+Provides:      libdrm.so.2()(64bit)
+Provides:      libdrm_amdgpu.so.1()(64bit)
+Provides:      libdrm_radeon.so.1()(64bit)
 
 Requires: 	libdrm
 
@@ -98,27 +98,27 @@ cd %{buildroot}/debs/extract
 
 mkdir -p ./opt/amdgpu/libdrm/lib64
 
-mv ./opt/amdgpu/lib/x86_64-linux-gnu/libdrm.so.2.4.0 ./opt/amdgpu/libdrm/lib64/libdro.so.2.4.0
+mv ./opt/amdgpu/lib/x86_64-linux-gnu/libdrm.so.2.4.0 ./opt/amdgpu/libdrm/lib64/
 
-mv ./opt/amdgpu/lib/x86_64-linux-gnu/libdrm_amdgpu.so.1.0.0 ./opt/amdgpu/libdrm/lib64/libdro_amdgpu.so.1.0.0
+mv ./opt/amdgpu/lib/x86_64-linux-gnu/libdrm_amdgpu.so.1.0.0 ./opt/amdgpu/libdrm/lib64/
 
-mv ./opt/amdgpu/lib/x86_64-linux-gnu/libdrm_radeon.so.1.0.1 ./opt/amdgpu/libdrm/lib64/libdro_radeon.so.1.0.1
-
-#
-
-ln -s /opt/amdgpu/libdrm/lib64/libdro.so.2.4.0 ./opt/amdgpu/libdrm/lib64/libdro.so.2
-
-ln -s /opt/amdgpu/libdrm/lib64/libdro_amdgpu.so.1.0.0 ./opt/amdgpu/libdrm/lib64/libdro_amdgpu.so.1
-
-ln -s /opt/amdgpu/libdrm/lib64/libdro_radeon.so.1.0.1 ./opt/amdgpu/libdrm/lib64/libdro_radeon.so.1
+mv ./opt/amdgpu/lib/x86_64-linux-gnu/libdrm_radeon.so.1.0.1 ./opt/amdgpu/libdrm/lib64/
 
 #
 
-ln -s /opt/amdgpu/libdrm/lib64/libdro.so.2.4.0 ./opt/amdgpu/libdrm/lib64/libdro.so
+ln -s /opt/amdgpu/libdrm/lib64/libdrm.so.2.4.0 ./opt/amdgpu/libdrm/lib64/libdrm.so.2
 
-ln -s /opt/amdgpu/libdrm/lib64/libdro_amdgpu.so.1.0.0 ./opt/amdgpu/libdrm/lib64/libdro_amdgpu.so
+ln -s /opt/amdgpu/libdrm/lib64/libdrm_amdgpu.so.1.0.0 ./opt/amdgpu/libdrm/lib64/libdrm_amdgpu.so.1
 
-ln -s /opt/amdgpu/libdrm/lib64/libdro_radeon.so.1.0.1 ./opt/amdgpu/libdrm/lib64/libdro_radeon.so
+ln -s /opt/amdgpu/libdrm/lib64/libdrm_radeon.so.1.0.1 ./opt/amdgpu/libdrm/lib64/libdrm_radeon.so.1
+
+#
+
+ln -s /opt/amdgpu/libdrm/lib64/libdrm.so.2.4.0 ./opt/amdgpu/libdrm/lib64/libdrm.so
+
+ln -s /opt/amdgpu/libdrm/lib64/libdrm_amdgpu.so.1.0.0 ./opt/amdgpu/libdrm/lib64/libdrm_amdgpu.so
+
+ln -s /opt/amdgpu/libdrm/lib64/libdrm_radeon.so.1.0.1 ./opt/amdgpu/libdrm/lib64/libdrm_radeon.so
 
 #
 
@@ -142,23 +142,6 @@ mkdir -p ./opt/amdgpu/share/libdrm
 
 ln -s /usr/share/libdrm/amdgpu.ids ./opt/amdgpu/share/libdrm/amdgpu.ids
 
-# 
-
-echo "adding needed library path"
-
-mkdir -p ./etc
-
-mkdir -p ./etc/ld.so.conf.d
-
-touch ./etc/ld.so.conf.d/libdrm-pro-x86_64.conf
-
-echo "/opt/amdgpu/libdrm/lib64" > ./etc/ld.so.conf.d/libdrm-pro-x86_64.conf
-
-mkdir -p ./etc/profile.d
-
-touch ./etc/profile.d/libdrm-pro-x86_64.sh
-
-echo 'export LD_LIBRARY_PATH="/opt/amdgpu/libdrm/lib64:$LD_LIBRARY_PATH"' > ./etc/profile.d/libdrm-pro-x86_64.sh
 
 cd %{buildroot}/debs/extract
 
@@ -173,8 +156,6 @@ AMD proprietary libdrm
 "/opt/amdgpu/share/libdrm/amdgpu.ids"
 "/opt/amdgpu/share/licenses/libdrm-amdgpu-pro/*-copyright"
 "/opt/amdgpu/libdrm/lib64/*.so*"
-"/etc/ld.so.conf.d/libdrm-pro-x86_64.conf"
-"/etc/profile.d/libdrm-pro-x86_64.sh"
 %exclude "/debs"
 %exclude "/opt/amdgpu/lib/x86_64-linux-gnu"
 

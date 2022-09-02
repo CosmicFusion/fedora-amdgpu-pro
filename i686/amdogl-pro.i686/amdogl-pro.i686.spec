@@ -197,9 +197,9 @@ rm -r ./usr
 
 # 
 
-echo 'patching libs to use official libdrm'
+#echo 'patching libs to use official libdrm'
 
-sed -i "s|libdrm|libdro|g" ./opt/amdgpu-pro/OpenGL/lib32/*.so
+#sed -i "s|libdrm|libdro|g" ./opt/amdgpu-pro/OpenGL/lib32/*.so
 
 
 # 

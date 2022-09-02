@@ -106,9 +106,9 @@ mv ./opt/amdgpu-pro/lib64 ./opt/amdgpu-pro/OpenCL/
 
 # 
 
-echo 'patching libs to use official libdrm'
+#echo 'patching libs to use official libdrm'
 
-sed -i "s|libdrm|libdro|g" ./opt/amdgpu-pro/OpenCL/lib64/*.so
+#sed -i "s|libdrm|libdro|g" ./opt/amdgpu-pro/OpenCL/lib64/*.so
 
 # 
 
