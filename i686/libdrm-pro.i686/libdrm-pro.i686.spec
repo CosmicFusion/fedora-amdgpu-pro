@@ -132,7 +132,6 @@ rm -r ./usr/share
 cd %{buildroot}/debs/extract
 
 mv opt %{buildroot}/
-mv etc %{buildroot}/
 rm -r %{buildroot}/usr/lib/.build-id || echo 'no build-ids :)'
 
 %description
