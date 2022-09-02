@@ -67,6 +67,7 @@ Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig  
 Requires(postun): /sbin/ldconfig  
 
+Recommends: amdgpu-opencl-switcher
 
 %build
 

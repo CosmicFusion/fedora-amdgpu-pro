@@ -31,7 +31,7 @@ BuildRequires: cpio
 Requires:      libdrm-pro  
 
 Recommends:	 openssl-libs  
-
+Recommends: amdgpu-vulkan-switcher(x86_64)
 
 %build
 

@@ -68,6 +68,8 @@ Requires:      libxcb-dri2.so.0
 Requires:      libxcb-glx.so.0  
 Requires:      libxcb.so.1  
 
+Recommends: amdgpu-opengl-switcher(x86_64)
+
 Requires(post): /sbin/ldconfig  
 Requires(postun): /sbin/ldconfig 
 

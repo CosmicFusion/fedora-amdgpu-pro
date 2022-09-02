@@ -33,6 +33,8 @@ Requires:      libdrm-pro
 BuildRequires: wget 
 BuildRequires: cpio
 
+Recommends: amdgpu-opencl-switcher(x86_64)
+
 %build
 
 echo "pulling required packages off repo.radeon.com"
