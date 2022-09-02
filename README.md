@@ -122,6 +122,9 @@ gl_zink {THE_PROGRAM}
 
 # How to use the OpenCL drivers:
 
-- The system will do what it needs to do automatically .
+- install amdgpu-opencl-switcher from https://copr.fedorainfracloud.org/coprs/gloriouseggroll/amdgpu-vulkan-switcher/
 
+- Run the program with 
+```
+cl_pro {THE_PROGRAM}
 
