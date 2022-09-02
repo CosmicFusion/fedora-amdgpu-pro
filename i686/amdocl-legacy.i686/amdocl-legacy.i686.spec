@@ -33,6 +33,8 @@ Requires:      libdrm-pro
 BuildRequires: wget 
 BuildRequires: cpio
 
+Recommends: amdgpu-opencl-switcher(x86_64)
+
 %build
 
 echo "pulling required packages off repo.radeon.com"
@@ -87,19 +89,19 @@ rm -r ./opt/amdgpu-pro/lib
 
 # 
 
-echo 'patching libs to use official libdrm'
+#echo 'patching libs to use official libdrm'
 
-sed -i "s|libdrm|libdro|g" ./opt/amdgpu-pro/OpenCL/lib32/*.so
+#sed -i "s|libdrm|libdro|g" ./opt/amdgpu-pro/OpenCL/lib32/*.so
 
 # 
 
-echo "adding library path"
+echo "adding *Disabled* library path"
 
 mkdir -p ./etc/ld.so.conf.d
 
 touch ./etc/ld.so.conf.d/amdocl-legacy-i686.conf
 
-echo "/opt/amdgpu-pro/OpenCL/lib32" > ./etc/ld.so.conf.d/amdocl-legacy-i686.conf
+echo "#/opt/amdgpu-pro/OpenCL/lib32" > ./etc/ld.so.conf.d/amdocl-legacy-i686.conf
 
 ###
 

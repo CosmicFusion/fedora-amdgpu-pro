@@ -67,6 +67,7 @@ Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig  
 Requires(postun): /sbin/ldconfig  
 
+Recommends: amdgpu-opencl-switcher
 
 %build
 
@@ -106,13 +107,13 @@ mv ./opt/amdgpu-pro/lib64 ./opt/amdgpu-pro/OpenCL/
 
 # 
 
-echo 'patching libs to use official libdrm'
+#echo 'patching libs to use official libdrm'
 
-sed -i "s|libdrm|libdro|g" ./opt/amdgpu-pro/OpenCL/lib64/*.so
+#sed -i "s|libdrm|libdro|g" ./opt/amdgpu-pro/OpenCL/lib64/*.so
 
 # 
 
-echo "adding library path"
+echo "adding *Disabled* library path"
 
 mkdir -p ./etc
 
@@ -120,7 +121,7 @@ mkdir -p ./etc/ld.so.conf.d
 
 touch ./etc/ld.so.conf.d/amdocl-legacy-x86_64.conf
 
-echo "/opt/amdgpu-pro/OpenCL/lib64" > ./etc/ld.so.conf.d/amdocl-legacy-x86_64.conf
+echo "#/opt/amdgpu-pro/OpenCL/lib64" > ./etc/ld.so.conf.d/amdocl-legacy-x86_64.conf
 
 
 cd %{buildroot}/rpms/extract

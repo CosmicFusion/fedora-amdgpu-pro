@@ -28,6 +28,8 @@ Provides:      libamdenc-amdgpu-pro(x86-64) = 0:%{enc}-%{minor}.el%{rhel_minor}
 Provides:      libamdenc64.so.1.0()(64bit)  
 Provides:      libamdenc64.so.1.0()(64bit)  
 
+Recommends:	rocm-opencl
+
 BuildRequires: wget 
 BuildRequires: cpio
 
@@ -80,9 +82,9 @@ mv ./opt/amdgpu-pro/lib64 ./opt/amdgpu-pro/amf/
 
 # 
 
-echo 'patching libs to use official libdrm'
+#echo 'patching libs to use official libdrm'
 
-sed -i "s|libdrm|libdro|g" ./opt/amdgpu-pro/amf/lib64/*.so
+#sed -i "s|libdrm|libdro|g" ./opt/amdgpu-pro/amf/lib64/*.so
 
 #
 

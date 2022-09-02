@@ -68,6 +68,8 @@ Requires:      libxcb-dri2.so.0
 Requires:      libxcb-glx.so.0  
 Requires:      libxcb.so.1  
 
+Recommends: amdgpu-opengl-switcher(x86_64)
+
 Requires(post): /sbin/ldconfig  
 Requires(postun): /sbin/ldconfig 
 
@@ -197,9 +199,9 @@ rm -r ./usr
 
 # 
 
-echo 'patching libs to use official libdrm'
+#echo 'patching libs to use official libdrm'
 
-sed -i "s|libdrm|libdro|g" ./opt/amdgpu-pro/OpenGL/lib32/*.so
+#sed -i "s|libdrm|libdro|g" ./opt/amdgpu-pro/OpenGL/lib32/*.so
 
 
 # 

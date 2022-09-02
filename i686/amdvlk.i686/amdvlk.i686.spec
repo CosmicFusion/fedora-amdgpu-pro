@@ -86,9 +86,9 @@ rm ./etc/vulkan/implicit_layer.d/amd_icd32.json
 
 # 
 
-echo 'patching libs to use official libdrm'
+#echo 'patching libs to use official libdrm'
 
-sed -i "s|libdrm|libdro|g" ./opt/amdgpu/vulkan/lib32/*.so
+#sed -i "s|libdrm|libdro|g" ./opt/amdgpu/vulkan/lib32/*.so
 
 #
 

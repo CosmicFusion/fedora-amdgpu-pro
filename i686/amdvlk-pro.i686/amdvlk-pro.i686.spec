@@ -31,7 +31,7 @@ BuildRequires: cpio
 Requires:      libdrm-pro  
 
 Recommends:	 openssl-libs  
-
+Recommends: amdgpu-vulkan-switcher(x86_64)
 
 %build
 
@@ -81,9 +81,9 @@ sed -i "s#/opt/amdgpu-pro/lib/i386-linux-gnu/amdvlk32.so#/opt/amdgpu-pro/vulkan/
 
 # 
 
-echo 'patching libs to use official libdrm'
+#echo 'patching libs to use official libdrm'
 
-sed -i "s|libdrm|libdro|g" ./opt/amdgpu-pro/vulkan/lib32/*.so
+#sed -i "s|libdrm|libdro|g" ./opt/amdgpu-pro/vulkan/lib32/*.so
 
 
 # 

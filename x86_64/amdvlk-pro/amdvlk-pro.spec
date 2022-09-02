@@ -73,9 +73,9 @@ sed -i "s#/opt/amdgpu-pro/lib64/amdvlk64.so#/opt/amdgpu-pro/vulkan/lib64/amdvlk6
 
 # 
 
-echo 'patching libs to use official libdrm'
+#echo 'patching libs to use official libdrm'
 
-sed -i "s|libdrm|libdro|g" ./opt/amdgpu-pro/vulkan/lib64/*.so
+#sed -i "s|libdrm|libdro|g" ./opt/amdgpu-pro/vulkan/lib64/*.so
 
 
 # 
