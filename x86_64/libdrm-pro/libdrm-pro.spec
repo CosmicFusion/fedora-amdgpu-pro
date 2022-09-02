@@ -154,12 +154,6 @@ touch ./etc/ld.so.conf.d/libdrm-pro-x86_64.conf
 
 echo "/opt/amdgpu/libdrm/lib64" > ./etc/ld.so.conf.d/libdrm-pro-x86_64.conf
 
-mkdir -p ./etc/profile.d
-
-touch ./etc/profile.d/libdrm-pro-x86_64.sh
-
-echo 'export LD_LIBRARY_PATH="/opt/amdgpu/libdrm/lib64:$LD_LIBRARY_PATH"' > ./etc/profile.d/libdrm-pro-x86_64.sh
-
 cd %{buildroot}/debs/extract
 
 mv opt %{buildroot}/
@@ -174,7 +168,6 @@ AMD proprietary libdrm
 "/opt/amdgpu/share/licenses/libdrm-amdgpu-pro/*-copyright"
 "/opt/amdgpu/libdrm/lib64/*.so*"
 "/etc/ld.so.conf.d/libdrm-pro-x86_64.conf"
-"/etc/profile.d/libdrm-pro-x86_64.sh"
 %exclude "/debs"
 %exclude "/opt/amdgpu/lib/x86_64-linux-gnu"
 
