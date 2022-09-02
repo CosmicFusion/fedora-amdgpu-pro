@@ -9,7 +9,7 @@ AMD's proprietary drivers only support a few linux distributions: Ubuntu, OpenSU
 
 While yes AMD driver stack is mostly open-source , as some parts remains proprietary like :
 
-- The legacy/pal/orca OpenCL drivers. (required for darktable , resolve & blender (< 3.0) .)
+- The legacy/pal/orca OpenCL drivers. (required for darktable , resolve & blender (< 3.0) , they also behave better than the ROCm OpenCL implentation when using wine .)
 - The industrial OpenGL drivers (required for resolve.)
 - The Advanced Media Framework (required for GPU H.264/H.265 encoding)
 - Vulkan drivers with ray tracing capabilities
