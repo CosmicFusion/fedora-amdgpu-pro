@@ -30,9 +30,11 @@ This is a known issue. You can just ignore it and re-run the build.
 2) ~~It seems like AMD maintainers forgot enable rdna2 AMF encoding support in amdvlk-pro starting from amdgpu-pro 21.50 and onwards , so please use **amdvlk-pro-rdna2** if you have a rdna2 GPU. (6000 series or higher):  
 https://github.com/GPUOpen-LibrariesAndSDKs/AMF/issues/334~~
 
-2) We have repackaged the offficial "libdrm" library for better performance and stability , it also solves the RDNA2 issue.
+3) We have repackaged the offficial "libdrm" library for better performance and stability , it also solves the RDNA2 issue.
 
-3) libdrm libraries are called libdro to not conflict with the mesa ones.
+4) We have made these libdrm libraries load system wide , to get the banefits of these libraries without needing wrappers (we need them anyway for vulkan and opengl , but i really don't wanna have one for opencl too!)
+
+5) the libdrm*.so libraries are renamed to libdro*.so to not conflict with the mesa ones (all amdgpu-pro .so files have been modded to cater for this change!).
 
 
 We include a package builder script which uses mock to build packages with minimal dependencies. It will auto install the dependencies it needs (mock pykickstart fedpkg libvirt)  
