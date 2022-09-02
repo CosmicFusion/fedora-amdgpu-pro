@@ -28,6 +28,8 @@ Provides:      ocl-icd-amdgpu-pro(i686) = 0:%{major}-%{minor}.el%{rhel_minor}
 Requires(post): /sbin/ldconfig  
 Requires(postun): /sbin/ldconfig 
 
+Requires:      libdrm-pro  
+
 BuildRequires: wget 
 BuildRequires: cpio
 
@@ -85,6 +87,12 @@ rm -r ./opt/amdgpu-pro/lib
 
 # 
 
+echo 'patching libs to use official libdrm'
+
+sed -i "s|libdrm|libdro|g" ./opt/amdgpu-pro/OpenCL/lib32/*.so
+
+# 
+
 echo "adding library path"
 
 mkdir -p ./etc/ld.so.conf.d
@@ -111,8 +119,8 @@ CPUs, GPUs and other processors. + The ICD Loader library provided by AMD.
 "/opt/amdgpu-pro/OpenCL/lib32/libamdocl-orca32.so"
 %exclude "/debs"
 
-%post -p /sbin/ldconfig
+%post
+/sbin/ldconfig
 
-
-
-%postun -p /sbin/ldconfig
+%postun
+/sbin/ldconfig

@@ -64,6 +64,8 @@ Requires:      libxcb-dri2.so.0()(64bit)
 Requires:      libxcb-glx.so.0()(64bit)  
 Requires:      libxcb.so.1()(64bit)  
 
+Requires:      libdrm-pro  
+
 Requires(post): /sbin/ldconfig  
 Requires(postun): /sbin/ldconfig 
 
@@ -148,6 +150,14 @@ mv ./opt/amdgpu-pro/lib/* ./opt/amdgpu-pro/OpenGL/lib64/
 
 # 
 
+echo 'patching libs to use official libdrm'
+
+sed -i "s|libdrm|libdro|g" ./opt/amdgpu-pro/OpenGL/lib64/*.so
+
+# 
+
+
+
 echo "adding *Disabled* library path"
 
 mkdir -p ./etc/ld.so.conf.d
@@ -196,8 +206,8 @@ Amdgpu Pro OpenGL driver
 %attr(0644, root, root) "/opt/amdgpu/share/drirc.d/10-amdgpu-pro.conf.disabled"
 %exclude "/rpms"
 
-%post -p /sbin/ldconfig
+%post
+/sbin/ldconfig
 
-
-
-%postun -p /sbin/ldconfig
+%postun
+/sbin/ldconfig

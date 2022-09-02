@@ -35,6 +35,9 @@ Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig 
 
 Requires:      vulkan-amdgpu-pro  
+Requires:      libdrm-pro
+Requires:      opencl-filesystem
+
 
 Recommends:	 rocm-opencl-runtime  
 
@@ -77,6 +80,12 @@ mv ./opt/amdgpu-pro/lib64 ./opt/amdgpu-pro/amf/
 
 # 
 
+echo 'patching libs to use official libdrm'
+
+sed -i "s|libdrm|libdro|g" ./opt/amdgpu-pro/amf/lib64/*.so
+
+#
+
 echo "adding library path"
 
 mkdir -p ./etc
@@ -106,8 +115,8 @@ Amd encode library
 "/opt/amdgpu-pro/share/licenses/libamdenc-amdgpu-pro/AMDGPUPROEULA"
 %exclude "/rpms"
 
-%post -p /sbin/ldconfig
+%post
+/sbin/ldconfig
 
-
-
-%postun -p /sbin/ldconfig
+%postun
+/sbin/ldconfig

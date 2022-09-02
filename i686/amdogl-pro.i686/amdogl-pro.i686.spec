@@ -21,6 +21,8 @@ Summary:       AMD OpenGL
 BuildRequires: wget 
 BuildRequires: cpio
 
+Requires:      libdrm-pro  
+
 Provides:      libEGL.so.1()  
 Provides:      libegl-amdgpu-pro = 0:%{major}-%{minor}.el%{rhel_minor}
 Provides:      libegl-amdgpu-pro(i686) = 0:%{major}-%{minor}.el%{rhel_minor}
@@ -195,6 +197,13 @@ rm -r ./usr
 
 # 
 
+echo 'patching libs to use official libdrm'
+
+sed -i "s|libdrm|libdro|g" ./opt/amdgpu-pro/OpenGL/lib32/*.so
+
+
+# 
+
 echo "adding *Disabled* library path"
 
 mkdir -p ./etc
@@ -231,8 +240,8 @@ Amdgpu Pro OpenGL driver
 %exclude "/debs"
 
 
-%post -p /sbin/ldconfig
+%post
+/sbin/ldconfig
 
-
-
-%postun -p /sbin/ldconfig
+%postun
+/sbin/ldconfig

@@ -23,7 +23,7 @@ URL:           http://repo.radeon.com/amdgpu
 BuildRequires: wget 
 BuildRequires: cpio
 
-
+Requires:      libdrm-pro  
 
 Provides:      amdocl-legacy = %{major}-3.%{fedora}
 Provides:      amdocl-legacy(x86-64) = %{major}-3.%{fedora}
@@ -106,6 +106,12 @@ mv ./opt/amdgpu-pro/lib64 ./opt/amdgpu-pro/OpenCL/
 
 # 
 
+echo 'patching libs to use official libdrm'
+
+sed -i "s|libdrm|libdro|g" ./opt/amdgpu-pro/OpenCL/lib64/*.so
+
+# 
+
 echo "adding library path"
 
 mkdir -p ./etc
@@ -141,10 +147,8 @@ CPUs, GPUs and other processors. + The ICD Loader library provided by AMD.
 
 
 
-%post -p /sbin/ldconfig
+%post
+/sbin/ldconfig
 
-
-
-%postun -p /sbin/ldconfig
-
-%changelog
+%postun
+/sbin/ldconfig

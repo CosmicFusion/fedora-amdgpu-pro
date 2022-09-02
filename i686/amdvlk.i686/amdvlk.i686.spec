@@ -26,6 +26,8 @@ Provides:      config(amdvlk) = %{amdvlk}-3
 Requires:      config(amdvlk) = %{amdvlk}-3
 Requires:      vulkan-loader
 
+Requires:      libdrm-pro  
+
 BuildRequires: wget 
 BuildRequires: cpio
 
@@ -82,6 +84,14 @@ rm ./etc/vulkan/implicit_layer.d/amd_icd32.json
 
 ###
 
+# 
+
+echo 'patching libs to use official libdrm'
+
+sed -i "s|libdrm|libdro|g" ./opt/amdgpu/vulkan/lib32/*.so
+
+#
+
 mv ./opt %{buildroot}/
 mv ./etc %{buildroot}/opt/amdgpu/
 
@@ -93,4 +103,8 @@ mv ./etc %{buildroot}/opt/amdgpu/
 %description
 AMD Open Source Driver for Vulkan
 
+%post
+/sbin/ldconfig
 
+%postun
+/sbin/ldconfig
