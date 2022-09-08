@@ -16,7 +16,10 @@ if [[ -z $1  ]]; then
 fi
 
 # install some build dependencies
-sudo dnf -y install wget cpio mock pykickstart fedpkg libvirt
+sudo dnf -y install mock pykickstart fedpkg libvirt
+
+# add current user to 'mock' build group
+sudo usermod -a -G mock $USER
 
 # turn selinux off if it's enabled
 sudo setenforce 0
@@ -26,30 +29,37 @@ mkdir -p packages
 
 # enter the repository of the package to build:
 if [[ "$2" == "32" ]]; then
-	export BUILDARCH="i686"
+	BUILDARCH="i386"
 	cd i686/$1.i686
 else
-	export BUILDARCH="x86_64"
+	BUILDARCH="x86_64"
 	cd x86_64/$1
 fi
 
 # create a fedora srpm from the spec sheet
-rpmbuild -bs --define "_srcrpmdir $(pwd)/../../packages " --undefine=_disable_source_fetch *.spec
-
-# enter main dir
-
-cd ../../
-
-# enter srpm folder
-
-cd packages
+rpmbuild -bs --define "_srcrpmdir $(pwd)" --undefine=_disable_source_fetch *.spec
 
 # build the package
-rpmbuild --rebuild -bb --target="$BUILDARCH" *.src.rpm --define "_topdir $(pwd)/../.." --define "_rpmdir $(pwd)/../../packages"
+mock -r /etc/mock/fedora-36-$BUILDARCH.cfg --enable-network --rebuild *.src.rpm
+
+# cleanup our source rpm
+rm *.src.rpm
+
+# move the package to our main folder
+cd ../../
+if [[ "$BUILDARCH" == "i386" ]]; then
+	sudo mv /var/lib/mock/fedora-36-i686/result/*.rpm packages/
+else
+	sudo mv /var/lib/mock/fedora-36-$BUILDARCH/result/*.rpm packages/
+fi
 
 # cleanup our source rpm (again)
-rm *.src.rpm
+rm packages/*.src.rpm
 
 # re-enable selinux if needed
 sudo setenforce 1
+
+# cleanup
+mock -r /etc/mock/fedora-36-x86_64.cfg --scrub=all
+mock -r /etc/mock/fedora-36-i386.cfg --scrub=all
 
