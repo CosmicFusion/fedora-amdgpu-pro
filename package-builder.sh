@@ -37,7 +37,7 @@ else
 fi
 
 # create a fedora srpm from the spec sheet
-fedpkg --release f36 srpm
+rpmbuild -bs --define "_srcrpmdir $(pwd)" --undefine=_disable_source_fetch *.spec
 
 # build the package
 mock -r /etc/mock/fedora-36-$BUILDARCH.cfg --enable-network --rebuild *.src.rpm
