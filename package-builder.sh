@@ -36,9 +36,9 @@ fi
 # build the package
 rpmbuild -bb --define "_srcrpmdir $(pwd)/../../packages " --undefine=_disable_source_fetch  --target="$BUILDARCH" *.spec --define "_topdir $(pwd)/../.." --define "_rpmdir $(pwd)/../../packages"
 
-mv ../../packages/x86_64/* ../../packages/
+mv ../../packages/x86_64/* ../../packages/ || echo 'not a 64 bit package , this is ok!'
 
-mv ../../packages/i686/* ../../packages/
+mv ../../packages/i686/* ../../packages/ || echo 'not a 32 bit package , this is ok!'
 
 # enter main dir
 
