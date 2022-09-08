@@ -33,22 +33,16 @@ else
 	cd x86_64/$1
 fi
 
-# create a fedora srpm from the spec sheet
-rpmbuild -bs --define "_srcrpmdir $(pwd)/../../packages " --undefine=_disable_source_fetch *.spec
+# build the package
+rpmbuild -bb --define "_srcrpmdir $(pwd)/../../packages " --undefine=_disable_source_fetch  --target="$BUILDARCH" *.spec --define "_topdir $(pwd)/../.." --define "_rpmdir $(pwd)/../../packages"
+
+mv ../../packages/x86_64/* ../../packages/
+
+mv ../../packages/i686/* ../../packages/
 
 # enter main dir
 
 cd ../../
-
-# enter srpm folder
-
-cd packages
-
-# build the package
-rpmbuild --rebuild -bb --target="$BUILDARCH" *.src.rpm --define "_topdir $(pwd)/../.." --define "_rpmdir $(pwd)/../../packages"
-
-# cleanup our source rpm (again)
-rm *.src.rpm
 
 # re-enable selinux if needed
 sudo setenforce 1
