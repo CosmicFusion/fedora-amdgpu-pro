@@ -24,7 +24,7 @@ URL:      http://repo.radeon.com/amdgpu
 Summary:       AMD OpenGL
 
 %undefine _disable_source_fetch
-Source0:  http://repo.radeon.com/amdgpu/$amdpro/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libegl1-amdgpu-pro_"$major"-"$minor"~"$ubuntu"_amd64.deb
+Source0:  http://repo.radeon.com/amdgpu/$amdpro/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libegl1-amdgpu-pro_%{major}-%{minor}~%{ubuntu}_amd64.deb
 Source1:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libgl1-amdgpu-pro-dri_%{major}-%{minor}~%{ubuntu}_amd64.deb
 Source2:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libgl1-amdgpu-pro-ext_%{major}-%{minor}~%{ubuntu}_amd64.deb
 Source3:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libgl1-amdgpu-pro-glx_%{major}-%{minor}~%{ubuntu}_amd64.deb
