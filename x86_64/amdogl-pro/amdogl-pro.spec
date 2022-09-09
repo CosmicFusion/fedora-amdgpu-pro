@@ -1,3 +1,5 @@
+%define _build_id_links none
+
 # global info
 %global repo 22.20.3
 %global major 22.20
