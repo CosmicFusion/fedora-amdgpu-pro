@@ -9,7 +9,7 @@
 %global amdvlk 2022.Q3.3
 #
 %global drm 2.4.110.50203
-%global drm-common 1.0.0.50203
+%global amdgpu 1.0.0.50203
 # Distro info
 %global fedora fc36
 %global ubuntu 22.04
