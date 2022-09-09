@@ -53,7 +53,7 @@ amdocl-legacy
 amdogl-pro
 amdvlk
 amdvlk-pro
-amdvlk-pro-rdna2
+amdvlk-pro-legacy
 -------------------------------------
 32 bit package names are:
 libdrm-pro
@@ -61,7 +61,7 @@ amdocl-legacy
 amdogl-pro
 amdvlk
 amdvlk-pro
-amdvlk-pro-rdna2
+amdvlk-pro-legacy
 ```
 
 # How to install the packages:
