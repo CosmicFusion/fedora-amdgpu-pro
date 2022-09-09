@@ -29,11 +29,11 @@ Source1:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/liba/lib
 
 Provides:      amf-runtime = %{major}-%{release}
 Provides:      amf-runtime(x86-64) = %{major}-%{release}
-Provides:      amf-amdgpu-pro = 0:%{amf}-%{minor}~%{ubuntu}
-Provides:      amf-amdgpu-pro(x86-64) = 0:%{amf}-%{minor}~%{ubuntu}
+Provides:      amf-amdgpu-pro = %{amf}-%{minor}~%{ubuntu}
+Provides:      amf-amdgpu-pro(x86-64) = %{amf}-%{minor}~%{ubuntu}
 Provides:      libamfrt64.so.1()(64bit) 
-Provides:      libamdenc-amdgpu-pro = 0:%{enc}-%{minor}~%{ubuntu}
-Provides:      libamdenc-amdgpu-pro(x86-64) = 0:%{enc}-%{minor}~%{ubuntu}
+Provides:      libamdenc-amdgpu-pro = %{enc}-%{minor}~%{ubuntu}
+Provides:      libamdenc-amdgpu-pro(x86-64) = %{enc}-%{minor}~%{ubuntu}
 Provides:      libamdenc64.so.1.0()(64bit)  
 Provides:      libamdenc64.so.1.0()(64bit)  
 
