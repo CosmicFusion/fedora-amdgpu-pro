@@ -1,12 +1,16 @@
-%undefine _auto_set_build_flags
-%global amdpro 22.20.3
+# global info
+%global repo 22.20.3
 %global major 22.20
 %global minor 1462318
+# pkg info
 %global amf 1.4.26
 %global enc 1.0
-%global rhel_major 9.0
-%global rhel_minor 9
+#
 %global amdvlk 2022.Q3.3
+#
+%global drm 2.4.110.50203
+%global drm-common 2.4.110.50203
+# Distro info
 %global fedora fc36
 %global ubuntu 22.04
 
