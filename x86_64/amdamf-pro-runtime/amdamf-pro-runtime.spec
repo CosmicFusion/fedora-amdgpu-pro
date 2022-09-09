@@ -60,10 +60,10 @@ System runtime for AMD Advanced Media Framework
 mkdir -p files
 
 ar x --output . %{SOURCE0}
-tar -xJC files -f data.tar.xz
+tar -xJC files -f data.tar.xz || tar -xC files -f data.tar.gz
 
 ar x --output . %{SOURCE1}
-tar -xJC files -f data.tar.xz
+tar -xJC files -f data.tar.xz || tar -xC files -f data.tar.gz
 
 %install
 mkdir -p %{buildroot}/opt/amdgpu-pro/amf/%{_lib}

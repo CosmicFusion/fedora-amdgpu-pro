@@ -1,3 +1,5 @@
+%define _build_id_links none
+
 # global info
 %global repo 22.20.3
 %global major 22.20
@@ -65,16 +67,16 @@ AMD proprietary libdrm
 mkdir -p files
 
 ar x --output . %{SOURCE0}
-tar -xJC files -f data.tar.xz
+tar -xJC files -f data.tar.xz || tar -xC files -f data.tar.gz
 
 ar x --output . %{SOURCE1}
-tar -xJC files -f data.tar.xz
+tar -xJC files -f data.tar.xz || tar -xC files -f data.tar.gz
 
 ar x --output . %{SOURCE2}
-tar -xJC files -f data.tar.xz
+tar -xJC files -f data.tar.xz || tar -xC files -f data.tar.gz
 
 ar x --output . %{SOURCE3}
-tar -xJC files -f data.tar.xz
+tar -xJC files -f data.tar.xz || tar -xC files -f data.tar.gz
 
 %install
 mkdir -p %{buildroot}/opt/amdgpu/libdrm/%{_lib}

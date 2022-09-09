@@ -96,25 +96,25 @@ Amdgpu Pro OpenGL driver
 mkdir -p files
 
 ar x --output . %{SOURCE0}
-tar -xJC files -f data.tar.xz
+tar -xJC files -f data.tar.xz || tar -xC files -f data.tar.gz
 
 ar x --output . %{SOURCE1}
-tar -xJC files -f data.tar.xz
+tar -xJC files -f data.tar.xz || tar -xC files -f data.tar.gz
 
 ar x --output . %{SOURCE2}
-tar -xJC files -f data.tar.xz
+tar -xJC files -f data.tar.xz || tar -xC files -f data.tar.gz
 
 ar x --output . %{SOURCE3}
-tar -xJC files -f data.tar.xz
+tar -xJC files -f data.tar.xz || tar -xC files -f data.tar.gz
 
 ar x --output . %{SOURCE4}
-tar -xJC files -f data.tar.xz
+tar -xJC files -f data.tar.xz || tar -xC files -f data.tar.gz
 
 ar x --output . %{SOURCE5}
-tar -xJC files -f data.tar.xz
+tar -xJC files -f data.tar.xz || tar -xC files -f data.tar.gz
 
 ar x --output . %{SOURCE6}
-tar -xJC files -f data.tar.xz
+tar -xJC files -f data.tar.xz || tar -xC files -f data.tar.gz
 
 %install
 mkdir -p %{buildroot}/etc/amd

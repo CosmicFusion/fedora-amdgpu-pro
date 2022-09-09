@@ -16,7 +16,7 @@
 
 Name:          amdvlk
 Version:       %{amdvlk}
-Release:       3
+Release:       4
 License:       MIT 
 Group:         System Environment/Libraries
 Summary:       AMD Open Source Driver for Vulkan
@@ -24,87 +24,47 @@ Summary:       AMD Open Source Driver for Vulkan
 URL:           https://github.com/GPUOpen-Drivers/AMDVLK
 Vendor:        Advanced Micro Devices (AMD)
 
-Provides:      amdvlk = %{amdvlk}-3
-Provides:      amdvlk(x86_64) = %{amdvlk}-3
-Provides:      config(amdvlk) = %{amdvlk}-3
-Requires:      config(amdvlk) = %{amdvlk}-3
-Requires:      vulkan-loader
+%undefine _disable_source_fetch
+Source0 :  http://repo.radeon.com/amdvlk/apt/debian/pool/main/a/amdvlk/amdvlk_%{amdvlk}_amd64.deb
+
+Provides:      amdvlk = %{amdvlk}-%{release}
+Provides:      amdvlk(x86_64) = %{amdvlk}-%{release}
+Provides:      config(amdvlk) = %{amdvlk}-%{release}
+
+Recommends:	 openssl-libs  
 
 BuildRequires: wget 
 BuildRequires: cpio
 
+Requires(post): /sbin/ldconfig  
+Requires(postun): /sbin/ldconfig 
+
+Requires:      config(amdvlk) = %{amdvlk}-%{release}
+Requires:      vulkan-loader
 Requires:      libdrm-pro  
 
-Recommends:	 openssl-libs  
 
-%build
+%description
+AMD Open Source Driver for Vulkan
 
-echo "pulling required packages off repo.radeon.com"
+%prep
+mkdir -p files
 
-mkdir -p %{buildroot}/debs
+ar x --output . %{SOURCE0}
+tar -xJC files -f data.tar.xz || tar -xC files -f data.tar.gz
 
-cd %{buildroot}/debs
-
-wget http://repo.radeon.com/amdvlk/apt/debian/pool/main/a/amdvlk/amdvlk_"%{amdvlk}"_amd64.deb
-
-###
-
-echo "extracting packages"
-
-mkdir -p %{buildroot}/debs/extract
-
-cd %{buildroot}/debs/extract
-
-ar -x ../amdvlk_"%{amdvlk}"_amd64.deb
-
-tar -xf data.tar.gz
-
-rm -r *.tar*
-
-rm debian-binary
-
-###
+%install
 
 #
-
-echo "restructuring package directories  "
-
-cd %{buildroot}/debs/extract
-
-mkdir -p ./opt/amdgpu/vulkan
-
-mv ./usr/lib/x86_64-linux-gnu ./opt/amdgpu/vulkan/lib64
-
-rm -r ./usr/share
-
-#
-
 echo "fixing .icds "
-
 sed -i "s#/usr/lib/x86_64-linux-gnu/amdvlk64.so#/opt/amdgpu/vulkan/lib64/amdvlk64.so#" "./etc/vulkan/icd.d/amd_icd64.json"
 
-# 
-
-#echo 'patching libs to use official libdrm'
-
-#sed -i "s|libdrm|libdro|g" ./opt/amdgpu/vulkan/lib64/*.so
-
-# we don't need this one
-rm ./etc/vulkan/implicit_layer.d/amd_icd64.json
-
-###
-
-mv ./opt %{buildroot}/
-mv ./etc %{buildroot}/opt/amdgpu/
-rm -r %{buildroot}/usr/lib/.build-id || echo 'no build-ids :)'
 
 %files
 "/opt/amdgpu/etc/vulkan/icd.d/amd_icd64.json"
 "/opt/amdgpu/vulkan/lib64/amdvlk64.so"
 %exclude "/debs"
 
-%description
-AMD Open Source Driver for Vulkan
 
 %post
 /sbin/ldconfig
