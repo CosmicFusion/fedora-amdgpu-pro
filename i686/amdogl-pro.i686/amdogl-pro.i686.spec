@@ -117,9 +117,9 @@ mkdir -p %{buildroot}/opt/amdgpu/share/drirc.d
 mkdir -p %{buildroot}/opt/amdgpu-pro/opengl/%{_lib}
 mkdir -p %{buildroot}/opt/amdgpu-pro/opengl/%{_lib}/dri
 #
-install -p -m755 files/opt/amdgpu-pro/lib/i386-linux-gnu/* %{buildroot}/opt/amdgpu-pro/opengl/%{_lib}/
-install -p -m755 files/opt/amdgpu-pro/lib/xorg/modules/extensions/* %{buildroot}/opt/amdgpu-pro/opengl/%{_lib}/
-install -p -m755 files/usr/lib/i386-linux-gnu/dri/* %{buildroot}/opt/amdgpu-pro/opengl/%{_lib}/dri
+cp -r files/opt/amdgpu-pro/lib/i386-linux-gnu/* %{buildroot}/opt/amdgpu-pro/opengl/%{_lib}/
+cp -r files/opt/amdgpu-pro/lib/xorg/modules/extensions/* %{buildroot}/opt/amdgpu-pro/opengl/%{_lib}/
+cp -r files/usr/lib/i386-linux-gnu/dri/* %{buildroot}/opt/amdgpu-pro/opengl/%{_lib}/dri
 #
 echo "adding *Disabled* library path"
 mkdir -p %{buildroot}/etc/ld.so.conf.d

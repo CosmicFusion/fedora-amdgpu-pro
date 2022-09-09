@@ -62,8 +62,8 @@ mkdir -p %{buildroot}/opt/amdgpu-pro/vulkan/%{_lib}
 mkdir -p %{buildroot}/opt/amdgpu-pro/vulkan/etc/vulkan/icd.d/
 mkdir -p %{buildroot}/opt/amdgpu-pro/etc/vulkan/icd.d/
 #
-install -p -m755 files/opt/amdgpu-pro/lib/i386-linux-gnu/* %{buildroot}/opt/amdgpu-pro/vulkan/%{_lib}/
-install -p -m755 files/opt/amdgpu-pro/etc/vulkan/icd.d/* %{buildroot}/opt/amdgpu-pro/vulkan/etc/vulkan/icd.d/
+cp -r files/opt/amdgpu-pro/lib/i386-linux-gnu/* %{buildroot}/opt/amdgpu-pro/vulkan/%{_lib}/
+cp -r files/opt/amdgpu-pro/etc/vulkan/icd.d/* %{buildroot}/opt/amdgpu-pro/vulkan/etc/vulkan/icd.d/
 #
 echo "fixing .icds "
 sed -i "s#/opt/amdgpu-pro/lib/i386-linux-gnu/amdvlk32.so#/opt/amdgpu-pro/vulkan/%{_lib}/amdvlk32.so#" "%{buildroot}/opt/amdgpu-pro/vulkan/etc/vulkan/icd.d/amd_icd32.json"

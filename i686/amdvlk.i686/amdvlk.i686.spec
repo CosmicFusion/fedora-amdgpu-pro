@@ -66,9 +66,9 @@ mkdir -p %{buildroot}/opt/amdgpu/vulkan/etc/vulkan/icd.d/
 mkdir -p %{buildroot}/opt/amdgpu/etc/vulkan/implicit_layer.d/
 mkdir -p %{buildroot}/opt/amdgpu/etc/vulkan/icd.d
 #
-install -p -m755 files/usr/lib/i386-linux-gnu/* %{buildroot}/opt/amdgpu/vulkan/%{_lib}/
-install -p -m755 files/etc/vulkan/implicit_layer.d/* %{buildroot}/opt/amdgpu/vulkan/etc/vulkan/implicit_layer.d/
-install -p -m755 files/etc/vulkan/icd.d/* %{buildroot}/opt/amdgpu/vulkan/etc/vulkan/icd.d/
+cp -r files/usr/lib/i386-linux-gnu/* %{buildroot}/opt/amdgpu/vulkan/%{_lib}/
+cp -r files/etc/vulkan/implicit_layer.d/* %{buildroot}/opt/amdgpu/vulkan/etc/vulkan/implicit_layer.d/
+cp -r files/etc/vulkan/icd.d/* %{buildroot}/opt/amdgpu/vulkan/etc/vulkan/icd.d/
 #
 echo "fixing .icds "
 sed -i "s#/usr/lib/i386-linux-gnu/amdvlk32.so#/opt/amdgpu/vulkan/%{_lib}/amdvlk32.so#" "%{buildroot}/opt/amdgpu/vulkan/etc/vulkan/implicit_layer.d/amd_icd32.json"

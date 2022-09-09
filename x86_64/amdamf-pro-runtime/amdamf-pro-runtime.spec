@@ -70,9 +70,9 @@ mkdir -p %{buildroot}/opt/amdgpu-pro/amf/%{_lib}
 mkdir -p %{buildroot}/opt/amdgpu-pro/amf/share/licenses/amf-amdgpu-pro
 mkdir -p %{buildroot}/opt/amdgpu-pro/amf/share/licenses/libamdenc-amdgpu-pro
 #
-install -p -m755 files/opt/amdgpu-pro/lib/x86_64-linux-gnu/* %{buildroot}/opt/amdgpu-pro/amf/%{_lib}/
-install -p -m755 files/usr/share/doc/amf-amdgpu-pro/copyright %{buildroot}/opt/amdgpu-pro/amf/share/licenses/amf-amdgpu-pro/LICENSE
-install -p -m755 files/usr/share/doc/libamdenc-amdgpu-pro/copyright %{buildroot}/opt/amdgpu-pro/amf/share/licenses/libamdenc-amdgpu-pro/LICENSE
+cp -r files/opt/amdgpu-pro/lib/x86_64-linux-gnu/* %{buildroot}/opt/amdgpu-pro/amf/%{_lib}/
+cp -r files/usr/share/doc/amf-amdgpu-pro/copyright %{buildroot}/opt/amdgpu-pro/amf/share/licenses/amf-amdgpu-pro/LICENSE
+cp -r files/usr/share/doc/libamdenc-amdgpu-pro/copyright %{buildroot}/opt/amdgpu-pro/amf/share/licenses/libamdenc-amdgpu-pro/LICENSE
 #
 mkdir -p %{buildroot}/opt/amdgpu-pro/share/licenses
 ln -s /opt/amdgpu-pro/amf/share/licenses/amf-amdgpu-pro %{buildroot}/opt/amdgpu-pro/share/licenses/amf-amdgpu-pro

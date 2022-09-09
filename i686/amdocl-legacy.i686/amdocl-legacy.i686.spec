@@ -68,8 +68,8 @@ tar -xJC files -f data.tar.xz || tar -xC files -f data.tar.gz
 mkdir -p %{buildroot}/opt/amdgpu-pro/opencl/%{_lib}
 mkdir -p %{buildroot}/etc/OpenCL/vendors/
 #
-install -p -m755 files/etc/OpenCL/vendors/* %{buildroot}/etc/OpenCL/vendors/
-install -p -m755 files/opt/amdgpu-pro/lib/i386-linux-gnu/* %{buildroot}/opt/amdgpu-pro/opencl/%{_lib}/
+cp -r files/etc/OpenCL/vendors/* %{buildroot}/etc/OpenCL/vendors/
+cp -r files/opt/amdgpu-pro/lib/i386-linux-gnu/* %{buildroot}/opt/amdgpu-pro/opencl/%{_lib}/
 #
 echo "adding *Disabled* library path"
 mkdir -p %{buildroot}/etc/ld.so.conf.d

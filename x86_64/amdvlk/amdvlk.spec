@@ -67,10 +67,10 @@ mkdir -p %{buildroot}/opt/amdgpu/vulkan/share/licenses/amdvlk
 mkdir -p %{buildroot}/opt/amdgpu/etc/vulkan/implicit_layer.d/
 mkdir -p %{buildroot}/opt/amdgpu/etc/vulkan/icd.d
 #
-install -p -m755 files/usr/lib/x86_64-linux-gnu/* %{buildroot}/opt/amdgpu/vulkan/%{_lib}/
-install -p -m755 files/etc/vulkan/implicit_layer.d/* %{buildroot}/opt/amdgpu/vulkan/etc/vulkan/implicit_layer.d/
-install -p -m755 files/etc/vulkan/icd.d/* %{buildroot}/opt/amdgpu/vulkan/etc/vulkan/icd.d/
-install -p -m755 files/usr/share/doc/amdvlk/LICENSE* %{buildroot}/opt/amdgpu/vulkan/share/licenses/amdvlk/LICENSE
+cp -r files/usr/lib/x86_64-linux-gnu/* %{buildroot}/opt/amdgpu/vulkan/%{_lib}/
+cp -r files/etc/vulkan/implicit_layer.d/* %{buildroot}/opt/amdgpu/vulkan/etc/vulkan/implicit_layer.d/
+cp -r files/etc/vulkan/icd.d/* %{buildroot}/opt/amdgpu/vulkan/etc/vulkan/icd.d/
+cp -r files/usr/share/doc/amdvlk/LICENSE* %{buildroot}/opt/amdgpu/vulkan/share/licenses/amdvlk/LICENSE
 #
 mkdir -p %{buildroot}/opt/amdgpu/share/licenses
 ln -s /opt/amdgpu/vulkan/share/licenses/amdvlk %{buildroot}/opt/amdgpu/share/licenses/amdvlk

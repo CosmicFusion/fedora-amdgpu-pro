@@ -83,7 +83,7 @@ mkdir -p %{buildroot}/opt/amdgpu/libdrm/share/licenses/libdrm-amdgpu-radeon1
 mkdir -p %{buildroot}/opt/amdgpu/libdrm/share/licenses/libdrm2-amdgpu
 mkdir -p %{buildroot}/opt/amdgpu/libdrm/share/libdrm
 #
-install -p -m755 files/opt/amdgpu/lib/i386-linux-gnu/* %{buildroot}/opt/amdgpu/libdrm/%{_lib}/
+cp -r files/opt/amdgpu/lib/i386-linux-gnu/* %{buildroot}/opt/amdgpu/libdrm/%{_lib}/
 #
 echo "adding *Disabled* library path"
 mkdir -p %{buildroot}/etc/ld.so.conf.d

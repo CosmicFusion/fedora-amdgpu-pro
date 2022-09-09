@@ -63,9 +63,9 @@ mkdir -p %{buildroot}/opt/amdgpu-pro/vulkan/etc/vulkan/icd.d/
 mkdir -p %{buildroot}/opt/amdgpu-pro/vulkan/share/licenses/vulkan-amdgpu-pro
 mkdir -p %{buildroot}/opt/amdgpu-pro/etc/vulkan/icd.d/
 #
-install -p -m755 files/opt/amdgpu-pro/lib/x86_64-linux-gnu/* %{buildroot}/opt/amdgpu-pro/vulkan/%{_lib}/
-install -p -m755 files/opt/amdgpu-pro/etc/vulkan/icd.d/* %{buildroot}/opt/amdgpu-pro/vulkan/etc/vulkan/icd.d/
-install -p -m755 files/usr/share/doc/vulkan-amdgpu-pro/copyright %{buildroot}/opt/amdgpu-pro/vulkan/share/licenses/vulkan-amdgpu-pro/LICENSE
+cp -r files/opt/amdgpu-pro/lib/x86_64-linux-gnu/* %{buildroot}/opt/amdgpu-pro/vulkan/%{_lib}/
+cp -r files/opt/amdgpu-pro/etc/vulkan/icd.d/* %{buildroot}/opt/amdgpu-pro/vulkan/etc/vulkan/icd.d/
+cp -r files/usr/share/doc/vulkan-amdgpu-pro/copyright %{buildroot}/opt/amdgpu-pro/vulkan/share/licenses/vulkan-amdgpu-pro/LICENSE
 #
 mkdir -p %{buildroot}/opt/amdgpu-pro/share/licenses
 ln -s /opt/amdgpu-pro/vulkan/share/licenses/vulkan-amdgpu-pro %{buildroot}/opt/amdgpu-pro/share/licenses/vulkan-amdgpu-pro

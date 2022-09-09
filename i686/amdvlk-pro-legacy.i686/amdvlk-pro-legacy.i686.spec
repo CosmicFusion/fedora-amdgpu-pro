@@ -61,8 +61,8 @@ tar -xJC files -f data.tar.xz || tar -xC files -f data.tar.gz
 mkdir -p %{buildroot}/opt/amdgpu-pro/vulkan-legacy/%{_lib}
 mkdir -p %{buildroot}/opt/amdgpu-pro/vulkan-legacy/etc/vulkan/icd.d/
 #
-install -p -m755 files/opt/amdgpu-pro/lib/i386-linux-gnu/* %{buildroot}/opt/amdgpu-pro/vulkan-legacy/%{_lib}/
-install -p -m755 files/opt/amdgpu-pro/etc/vulkan/icd.d/* %{buildroot}/opt/amdgpu-pro/vulkan-legacy/etc/vulkan/icd.d/
+cp -r files/opt/amdgpu-pro/lib/i386-linux-gnu/* %{buildroot}/opt/amdgpu-pro/vulkan-legacy/%{_lib}/
+cp -r files/opt/amdgpu-pro/etc/vulkan/icd.d/* %{buildroot}/opt/amdgpu-pro/vulkan-legacy/etc/vulkan/icd.d/
 #
 echo "fixing .icds "
 sed -i "s#/opt/amdgpu-pro/lib/i386-linux-gnu/amdvlk32.so#/opt/amdgpu-pro/vulkan-legacy/%{_lib}/amdvlk32.so#" "%{buildroot}/opt/amdgpu-pro/vulkan-legacy/etc/vulkan/icd.d/amd_icd32.json"

@@ -129,19 +129,19 @@ mkdir -p %{buildroot}/opt/amdgpu-pro/opengl/share/licenses/libglapi1-amdgpu-pro
 mkdir -p %{buildroot}/opt/amdgpu-pro/opengl/share/licenses/libgles2-amdgpu-pro
 mkdir -p %{buildroot}/opt/amdgpu-pro/opengl/share/licenses/libgl1-amdgpu-pro-appprofiles
 #
-install -p -m755 files/opt/amdgpu-pro/lib/x86_64-linux-gnu/* %{buildroot}/opt/amdgpu-pro/opengl/%{_lib}/
-install -p -m755 files/opt/amdgpu-pro/lib/xorg/modules/extensions/* %{buildroot}/opt/amdgpu-pro/opengl/%{_lib}/
-install -p -m755 files/usr/lib/x86_64-linux-gnu/dri/* %{buildroot}/opt/amdgpu-pro/opengl/%{_lib}/dri
-install -p -m755 files/opt/amdgpu/share/drirc.d/10-amdgpu-pro.conf %{buildroot}/opt/amdgpu/share/drirc.d/10-amdgpu-pro.conf.disabled
-install -p -m755 files/etc/amd/*  %{buildroot}/etc/amd
+cp -r files/opt/amdgpu-pro/lib/x86_64-linux-gnu/* %{buildroot}/opt/amdgpu-pro/opengl/%{_lib}/
+cp -r files/opt/amdgpu-pro/lib/xorg/modules/extensions/* %{buildroot}/opt/amdgpu-pro/opengl/%{_lib}/
+cp -r files/usr/lib/x86_64-linux-gnu/dri/* %{buildroot}/opt/amdgpu-pro/opengl/%{_lib}/dri
+cp -r files/opt/amdgpu/share/drirc.d/10-amdgpu-pro.conf %{buildroot}/opt/amdgpu/share/drirc.d/10-amdgpu-pro.conf.disabled
+cp -r files/etc/amd/*  %{buildroot}/etc/amd
 #
-install -p -m755 files/usr/share/doc/libegl1-amdgpu-pro/copyright %{buildroot}/opt/amdgpu-pro/opengl/share/licenses/libegl1-amdgpu-pro/LICENSE
-install -p -m755 files/usr/share/doc/libgl1-amdgpu-pro-dri/copyright %{buildroot}/opt/amdgpu-pro/opengl/share/licenses/libgl1-amdgpu-pro-dri/LICENSE
-install -p -m755 files/usr/share/doc/libgl1-amdgpu-pro-ext/copyright %{buildroot}/opt/amdgpu-pro/opengl/share/licenses/libgl1-amdgpu-pro-ext/LICENSE
-install -p -m755 files/usr/share/doc/libgl1-amdgpu-pro-glx/copyright %{buildroot}/opt/amdgpu-pro/opengl/share/licenses/libgl1-amdgpu-pro-glx/LICENSE
-install -p -m755 files/usr/share/doc/libglapi1-amdgpu-pro/copyright %{buildroot}/opt/amdgpu-pro/opengl/share/licenses/libglapi1-amdgpu-pro/LICENSE
-install -p -m755 files/usr/share/doc/libgles2-amdgpu-pro/copyright %{buildroot}/opt/amdgpu-pro/opengl/share/licenses/libgles2-amdgpu-pro/LICENSE
-install -p -m755 files/usr/share/doc/libgl1-amdgpu-pro-appprofiles/copyright %{buildroot}/opt/amdgpu-pro/opengl/share/licenses/libgl1-amdgpu-pro-appprofiles/LICENSE
+cp -r files/usr/share/doc/libegl1-amdgpu-pro/copyright %{buildroot}/opt/amdgpu-pro/opengl/share/licenses/libegl1-amdgpu-pro/LICENSE
+cp -r files/usr/share/doc/libgl1-amdgpu-pro-dri/copyright %{buildroot}/opt/amdgpu-pro/opengl/share/licenses/libgl1-amdgpu-pro-dri/LICENSE
+cp -r files/usr/share/doc/libgl1-amdgpu-pro-ext/copyright %{buildroot}/opt/amdgpu-pro/opengl/share/licenses/libgl1-amdgpu-pro-ext/LICENSE
+cp -r files/usr/share/doc/libgl1-amdgpu-pro-glx/copyright %{buildroot}/opt/amdgpu-pro/opengl/share/licenses/libgl1-amdgpu-pro-glx/LICENSE
+cp -r files/usr/share/doc/libglapi1-amdgpu-pro/copyright %{buildroot}/opt/amdgpu-pro/opengl/share/licenses/libglapi1-amdgpu-pro/LICENSE
+cp -r files/usr/share/doc/libgles2-amdgpu-pro/copyright %{buildroot}/opt/amdgpu-pro/opengl/share/licenses/libgles2-amdgpu-pro/LICENSE
+cp -r files/usr/share/doc/libgl1-amdgpu-pro-appprofiles/copyright %{buildroot}/opt/amdgpu-pro/opengl/share/licenses/libgl1-amdgpu-pro-appprofiles/LICENSE
 #
 mkdir -p %{buildroot}/opt/amdgpu-pro/share/licenses
 ln -s /opt/amdgpu-pro/opengl/share/licenses/libegl1-amdgpu-pro %{buildroot}/opt/amdgpu-pro/share/licenses/libegl1-amdgpu-pro
