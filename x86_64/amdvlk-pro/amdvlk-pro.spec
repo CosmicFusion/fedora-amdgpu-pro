@@ -108,7 +108,7 @@ Amdgpu Pro Vulkan driver
 %files
 "/opt/amdgpu-pro/etc/vulkan/icd.d/amd_icd64.json"
 "/opt/amdgpu-pro/share/licenses/vulkan-amdgpu-pro/AMDGPUPROEULA"
-"/opt/amdgpu-pro/vulkan/lib64/amdvlk64.so"
+"/opt/amdgpu-pro/vulkan/lib64/amdvlk64*"
 "/etc/ld.so.conf.d/amdvlk-pro-x86_64.conf"
 %exclude "/rpms"
 
