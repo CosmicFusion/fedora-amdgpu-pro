@@ -1,3 +1,5 @@
+%define _build_id_links none
+
 # global info
 %global repo 22.20.3
 %global major 22.20
@@ -9,10 +11,11 @@
 %global amdvlk 2022.Q3.3
 #
 %global drm 2.4.110.50203
-%global drm-common 2.4.110.50203
+%global amdgpu 1.0.0.50203
 # Distro info
 %global fedora fc36
 %global ubuntu 22.04
+
 
 Name:          amdvlk
 Version:       %{amdvlk}
@@ -54,17 +57,35 @@ ar x --output . %{SOURCE0}
 tar -xJC files -f data.tar.xz || tar -xC files -f data.tar.gz
 
 %install
-
+mkdir -p %{buildroot}/opt/amdgpu/vulkan/%{_lib}
+mkdir -p %{buildroot}/opt/amdgpu/vulkan/etc/vulkan/implicit_layer.d/
+mkdir -p %{buildroot}/opt/amdgpu/vulkan/etc/vulkan/icd.d/
+mkdir -p %{buildroot}/opt/amdgpu/vulkan/share/licenses/amdvlk
+#
+install -p -m755 files/usr/lib/x86_64-linux-gnu/* %{buildroot}/opt/amdgpu/vulkan/%{_lib}/
+install -p -m755 files/etc/vulkan/implicit_layer.d/* %{buildroot}/opt/amdgpu/vulkan/etc/vulkan/implicit_layer.d/
+install -p -m755 files/etc/vulkan/icd.d/* %{buildroot}/opt/amdgpu/vulkan/etc/vulkan/icd.d/
+install -p -m755 files/usr/share/doc/amdvlk/LICENSE* %{buildroot}/opt/amdgpu/vulkan/share/licenses/amdvlk/LICENSE
+#
+mkdir -p %{buildroot}/opt/amdgpu/share/licenses
+ln -s /opt/amdgpu/vulkan/share/licenses/amdvlk %{buildroot}/opt/amdgpu/share/licenses/amdvlk
 #
 echo "fixing .icds "
-sed -i "s#/usr/lib/x86_64-linux-gnu/amdvlk64.so#/opt/amdgpu/vulkan/lib64/amdvlk64.so#" "./etc/vulkan/icd.d/amd_icd64.json"
-
+sed -i "s#/usr/lib/x86_64-linux-gnu/amdvlk64.so#/opt/amdgpu/vulkan/%{_lib}/amdvlk64.so#" "%{buildroot}/opt/amdgpu/vulkan/etc/vulkan/implicit_layer.d/amd_icd64.json"
+sed -i "s#/usr/lib/x86_64-linux-gnu/amdvlk64.so#/opt/amdgpu/vulkan/%{_lib}/amdvlk64.so#" "%{buildroot}/opt/amdgpu/vulkan/etc/vulkan/icd.d/amd_icd64.json"
+#
+echo "adding *Disabled* library path"
+mkdir -p %{buildroot}/etc/ld.so.conf.d
+touch %{buildroot}/etc/ld.so.conf.d/amdvlk-%{_arch}.conf
+echo "#/opt/amdgpu/vulkan/%{_lib}" > %{buildroot}/etc/ld.so.conf.d/amdvlk-%{_arch}.conf
 
 %files
-"/opt/amdgpu/etc/vulkan/icd.d/amd_icd64.json"
+"/etc/ld.so.conf.d/amdvlk-%{_arch}.conf"
 "/opt/amdgpu/vulkan/lib64/amdvlk64.so"
-%exclude "/debs"
-
+"/opt/amdgpu/vulkan/etc/vulkan/icd.d/amd_icd64.json"
+"/opt/amdgpu/vulkan/etc/vulkan/implicit_layer.d/amd_icd64.json"
+"/opt/amdgpu/vulkan/share/licenses/amdvlk/LICENSE"
+"/opt/amdgpu/share/*"
 
 %post
 /sbin/ldconfig
