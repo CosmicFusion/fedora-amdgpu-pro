@@ -82,20 +82,39 @@ mkdir -p %{buildroot}/opt/amdgpu/libdrm/share/licenses/libdrm-amdgpu-amdgpu1
 mkdir -p %{buildroot}/opt/amdgpu/libdrm/share/licenses/libdrm-amdgpu-radeon1
 mkdir -p %{buildroot}/opt/amdgpu/libdrm/share/licenses/libdrm2-amdgpu
 mkdir -p %{buildroot}/opt/amdgpu/libdrm/share/licenses/libdrm-amdgpu-common
+mkdir -p %{buildroot}/opt/amdgpu/libdrm/share/libdrm
 #
 install -p -m755 files/opt/amdgpu/lib/x86_64-linux-gnu/* %{buildroot}/opt/amdgpu/libdrm/%{_lib}/
 install -p -m755 files/usr/share/doc/libdrm-amdgpu-amdgpu1/copyright %{buildroot}/opt/amdgpu/libdrm/share/licenses/libdrm-amdgpu-amdgpu1/LICENSE
 install -p -m755 files/usr/share/doc/libdrm-amdgpu-radeon1/copyright %{buildroot}/opt/amdgpu/libdrm/share/licenses/libdrm-amdgpu-radeon1/LICENSE
 install -p -m755 files/usr/share/doc/libdrm2-amdgpu/copyright %{buildroot}/opt/amdgpu/libdrm/share/licenses/libdrm2-amdgpu/LICENSE
 install -p -m755 files/usr/share/doc/libdrm-amdgpu-common/copyright %{buildroot}/opt/amdgpu/libdrm/share/licenses/libdrm-amdgpu-common/LICENSE
+install -p -m755 files/opt/amdgpu/share/libdrm/amdgpu.ids %{buildroot}/opt/amdgpu/libdrm/share/libdrm/amdgpu.ids 
 #
 mkdir -p %{buildroot}/opt/amdgpu/share/licenses
 ln -s /opt/amdgpu/libdrm/share/licenses/libdrm-amdgpu-amdgpu1 %{buildroot}/opt/amdgpu/share/licenses/libdrm-amdgpu-amdgpu1
 ln -s /opt/amdgpu/libdrm/share/licenses/libdrm-amdgpu-radeon1 %{buildroot}/opt/amdgpu/share/licenses/libdrm-amdgpu-radeon1
 ln -s /opt/amdgpu/libdrm/share/licenses/libdrm2-amdgpu %{buildroot}/opt/amdgpu/share/licenses/libdrm2-amdgpu
 ln -s /opt/amdgpu/libdrm/share/licenses/libdrm-amdgpu-common %{buildroot}/opt/amdgpu/share/licenses/libdrm-amdgpu-common
+ln -s /opt/amdgpu/libdrm/share/libdrm %{buildroot}/opt/amdgpu/share/libdrm
 #
 echo "adding *Disabled* library path"
 mkdir -p %{buildroot}/etc/ld.so.conf.d
 touch %{buildroot}/etc/ld.so.conf.d/libdrm-pro-%{_arch}.conf
 echo "#/opt/amdgpu/libdrm/%{_lib}" > %{buildroot}/etc/ld.so.conf.d/libdrm-pro-%{_arch}.conf
+
+%files
+"/etc/ld.so.conf.d/libdrm-pro-%{_arch}.conf"
+"/opt/amdgpu/libdrm/%{_lib}/*drm*"
+"/opt/amdgpu/libdrm/share/licenses/libdrm-amdgpu-amdgpu1/LICENSE"
+"/opt/amdgpu/libdrm/share/licenses/libdrm-amdgpu-radeon1/LICENSE"
+"/opt/amdgpu/libdrm/share/licenses/libdrm2-amdgpu/LICENSE"
+"/opt/amdgpu/libdrm/share/licenses/libdrm-amdgpu-common/LICENSE"
+"/opt/amdgpu/libdrm/share/libdrm/amdgpu.ids"
+"/opt/amdgpu/share/*"
+
+%post
+/sbin/ldconfig
+
+%postun
+/sbin/ldconfig
