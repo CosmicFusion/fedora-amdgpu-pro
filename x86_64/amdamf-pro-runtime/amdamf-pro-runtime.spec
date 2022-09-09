@@ -88,3 +88,9 @@ echo "/opt/amdgpu-pro/amf/%{_lib}" > %{buildroot}/etc/ld.so.conf.d/amf-runtime-%
 "/opt/amdgpu-pro/amf/share/licenses/amf-amdgpu-pro/LICENSE"
 "/opt/amdgpu-pro/amf/share/licenses/libamdenc-amdgpu-pro/LICENSE"
 "/opt/amdgpu-pro/share/*"
+
+%post
+/sbin/ldconfig
+
+%postun
+/sbin/ldconfig
