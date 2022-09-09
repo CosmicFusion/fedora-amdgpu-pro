@@ -67,7 +67,7 @@ install -p -m755 files/opt/amdgpu-pro/etc/vulkan/icd.d/* %{buildroot}/opt/amdgpu
 install -p -m755 files/usr/share/doc/vulkan-amdgpu-pro/copyright %{buildroot}/opt/amdgpu-pro/vulkan-legacy/share/licenses/vulkan-amdgpu-pro/LICENSE
 #
 mkdir -p %{buildroot}/opt/amdgpu-pro/share/licenses
-ln -s /opt/amdgpu-pro/vulkan-legacy/share/licenses/vulkan-amdgpu-pro %{buildroot}/opt/amdgpu-pro/share/licenses/vulkan-amdgpu-pro
+ln -s /opt/amdgpu-pro/vulkan-legacy/share/licenses/vulkan-amdgpu-pro %{buildroot}/opt/amdgpu-pro/share/licenses/vulkan-amdgpu-pro-legacy
 #
 echo "fixing .icds "
 sed -i "s#/opt/amdgpu-pro/lib/x86_64-linux-gnu/amdvlk64.so#/opt/amdgpu-pro/vulkan-legacy/%{_lib}/amdvlk64.so#" "%{buildroot}/opt/amdgpu-pro/vulkan-legacy/etc/vulkan/icd.d/amd_icd64.json"
