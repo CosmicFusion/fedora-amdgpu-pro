@@ -36,27 +36,27 @@ Source6:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/a/apppro
 
 Provides:      libEGL.so.1()(64bit)  
 Provides:      libegl-amdgpu-pro = %{major}-%{minor}~%{ubuntu}
-Provides:      libegl-amdgpu-pro(x86-64) = %{major}-%{minor}~%{ubuntu}
+Provides:      libegl-amdgpu-pro(x86_64) = %{major}-%{minor}~%{ubuntu}
 Provides:      libglapi-amdgpu-pro = %{major}-%{minor}~%{ubuntu}
-Provides:      libglapi-amdgpu-pro(x86-64) = %{major}-%{minor}~%{ubuntu}
+Provides:      libglapi-amdgpu-pro(x86_64) = %{major}-%{minor}~%{ubuntu}
 Provides:      libglapi.so.1()(64bit)  
 Provides:      libGLESv2.so.2()(64bit)  
 Provides:      libgles-amdgpu-pro = %{major}-%{minor}~%{ubuntu}
-Provides:      libgles-amdgpu-pro(x86-64) = %{major}-%{minor}~%{ubuntu}
+Provides:      libgles-amdgpu-pro(x86_64) = %{major}-%{minor}~%{ubuntu}
 Provides:      config(libgl-amdgpu-pro) = %{major}-%{minor}~%{ubuntu}
 Provides:      libGL.so.1()(64bit)  
 Provides:      libGLX_amd.so.0()(64bit)  
 Provides:      libgl-amdgpu-pro = %{major}-%{minor}~%{ubuntu}
-Provides:      libgl-amdgpu-pro(x86-64) = %{major}-%{minor}~%{ubuntu}
+Provides:      libgl-amdgpu-pro(x86_64) = %{major}-%{minor}~%{ubuntu}
 Provides:      config(libgl-amdgpu-pro-appprofiles) = %{major}-%{minor}~%{ubuntu}
 Provides:      libgl-amdgpu-pro-appprofiles = %{major}-%{minor}~%{ubuntu}
 Provides:      config(libgl-amdgpu-pro-dri) = %{major}-%{minor}~%{ubuntu}
 Provides:      libgl-amdgpu-pro-dri = %{major}-%{minor}~%{ubuntu}
-Provides:      libgl-amdgpu-pro-dri(x86-64) = %{major}-%{minor}~%{ubuntu}
+Provides:      libgl-amdgpu-pro-dri(x86_64) = %{major}-%{minor}~%{ubuntu}
 Provides:      libgl-amdgpu-pro-ext = %{major}-%{minor}~%{ubuntu}
-Provides:      libgl-amdgpu-pro-ext(x86-64) = %{major}-%{minor}~%{ubuntu}
+Provides:      libgl-amdgpu-pro-ext(x86_64) = %{major}-%{minor}~%{ubuntu}
 Provides:      libgl-amdgpu-pro-glx = %{major}-%{minor}~%{ubuntu}
-Provides:      libgl-amdgpu-pro-glx(x86-64) = %{major}-%{minor}~%{ubuntu}
+Provides:      libgl-amdgpu-pro-glx(x86_64) = %{major}-%{minor}~%{ubuntu}
 
 BuildRequires: wget 
 BuildRequires: cpio

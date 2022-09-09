@@ -34,7 +34,7 @@ Provides:      amdvlk = %{amdvlk}-%{release}
 Provides:      amdvlk(x86_64) = %{amdvlk}-%{release}
 Provides:      config(amdvlk) = %{amdvlk}-%{release}
 Provides:      vulkan-amdgpu = %{major}-%{minor}~%{ubuntu}
-Provides:      vulkan-amdgpu(x86-64) = %{major}-%{minor}~%{ubuntu}
+Provides:      vulkan-amdgpu(x86_64) = %{major}-%{minor}~%{ubuntu}
 
 Recommends:	 openssl-libs  
 
@@ -48,6 +48,7 @@ Requires:      config(amdvlk) = %{amdvlk}-%{release}
 Requires:      vulkan-loader
 Requires:      libdrm-pro  
 
+Recommends:	 amdgpu-vulkan-switcher 
 
 %description
 AMD Open Source Driver for Vulkan
@@ -90,7 +91,7 @@ echo "#/opt/amdgpu/vulkan/%{_lib}" > %{buildroot}/etc/ld.so.conf.d/amdvlk-%{_arc
 "/etc/ld.so.conf.d/amdvlk-%{_arch}.conf"
 "/opt/amdgpu/etc/vulkan/icd.d/amd_icd64.json"
 "/opt/amdgpu/etc/vulkan/implicit_layer.d/amd_icd64.json"
-"/opt/amdgpu/vulkan/lib64/amdvlk64.so"
+"/opt/amdgpu/vulkan/%{_lib}/amdvlk64.so"
 "/opt/amdgpu/vulkan/etc/vulkan/icd.d/amd_icd64.json"
 "/opt/amdgpu/vulkan/etc/vulkan/implicit_layer.d/amd_icd64.json"
 "/opt/amdgpu/vulkan/share/licenses/amdvlk/LICENSE"

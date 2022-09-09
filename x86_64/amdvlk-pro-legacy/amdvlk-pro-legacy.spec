@@ -29,10 +29,10 @@ Source0:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/v/vulkan
 
 Provides:      config(amdvlk-pro) = %{major}-%{release}
 Provides:      amdvlk-pro = %{major}-%{release}
-Provides:      amdvlk-pro(x86-64) = %{major}-%{release}
+Provides:      amdvlk-pro(x86_64) = %{major}-%{release}
 Provides:      config(vulkan-amdgpu-pro) = %{major}-%{minor}~%{ubuntu}
 Provides:      vulkan-amdgpu-pro = %{major}-%{minor}~%{ubuntu}
-Provides:      vulkan-amdgpu-pro(x86-64) = %{major}-%{minor}~%{ubuntu}
+Provides:      vulkan-amdgpu-pro(x86_64) = %{major}-%{minor}~%{ubuntu}
 
 
 Recommends:	 openssl-libs  

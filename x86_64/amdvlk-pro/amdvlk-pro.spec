@@ -29,10 +29,10 @@ Source0:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/v/vulkan
 
 Provides:      config(amdvlk-pro) = %{major}-%{release}
 Provides:      amdvlk-pro = %{major}-%{release}
-Provides:      amdvlk-pro(x86-64) = %{major}-%{release}
+Provides:      amdvlk-pro(x86_64) = %{major}-%{release}
 Provides:      config(vulkan-amdgpu-pro) = %{major}-%{minor}~%{ubuntu}
 Provides:      vulkan-amdgpu-pro = %{major}-%{minor}~%{ubuntu}
-Provides:      vulkan-amdgpu-pro(x86-64) = %{major}-%{minor}~%{ubuntu}
+Provides:      vulkan-amdgpu-pro(x86_64) = %{major}-%{minor}~%{ubuntu}
 
 
 Recommends:	 openssl-libs  
@@ -83,7 +83,7 @@ echo "#/opt/amdgpu-pro/vulkan/%{_lib}" > %{buildroot}/etc/ld.so.conf.d/amdvlk-pr
 %files
 "/etc/ld.so.conf.d/amdvlk-pro-%{_arch}.conf"
 "/opt/amdgpu-pro/etc/vulkan/icd.d/amd_icd64.json"
-"/opt/amdgpu-pro/vulkan/lib64/amdvlk64*"
+"/opt/amdgpu-pro/vulkan/%{_lib}/amdvlk64*"
 "/opt/amdgpu-pro/vulkan/etc/vulkan/icd.d/amd_icd64.json"
 "/opt/amdgpu-pro/vulkan/share/licenses/vulkan-amdgpu-pro/LICENSE"
 "/opt/amdgpu-pro/share/*"

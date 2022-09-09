@@ -33,13 +33,13 @@ Source1:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/ocl-ic
  
 
 Provides:      amdocl-legacy = %{major}-%{release}
-Provides:      amdocl-legacy(x86-64) = %{major}-%{release}
+Provides:      amdocl-legacy(x86_64) = %{major}-%{release}
 Provides:      config(opencl-legacy-amdgpu-pro-icd) = %{major}-%{minor}~%{ubuntu}
 Provides:      libopencl-amdgpu-pro = %{major}-%{minor}~%{ubuntu}
 Provides:      ocl-icd-amdgpu-pro = %{major}-%{minor}~%{ubuntu}
-Provides:      ocl-icd-amdgpu-pro(x86-64) = %{major}-%{minor}~%{ubuntu}
+Provides:      ocl-icd-amdgpu-pro(x86_64) = %{major}-%{minor}~%{ubuntu}
 Provides:      opencl-legacy-amdgpu-pro-icd = %{major}-%{minor}~%{ubuntu}
-Provides:      opencl-legacy-amdgpu-pro-icd(x86-64) = %{major}-%{minor}~%{ubuntu}
+Provides:      opencl-legacy-amdgpu-pro-icd(x86_64) = %{major}-%{minor}~%{ubuntu}
 Provides:      opencl-orca-amdgpu-pro-icd  
 
 BuildRequires: wget 
