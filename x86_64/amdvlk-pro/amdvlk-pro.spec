@@ -83,7 +83,7 @@ echo "#/opt/amdgpu-pro/vulkan/%{_lib}" > %{buildroot}/etc/ld.so.conf.d/amdvlk-pr
 %files
 "/etc/ld.so.conf.d/amdvlk-pro-%{_arch}.conf"
 "/opt/amdgpu-pro/etc/vulkan/icd.d/amd_icd64.json"
-"/opt/amdgpu-pro/vulkan/lib64/amdvlk64.so"
+"/opt/amdgpu-pro/vulkan/lib64/amdvlk64*"
 "/opt/amdgpu-pro/vulkan/etc/vulkan/icd.d/amd_icd64.json"
 "/opt/amdgpu-pro/vulkan/share/licenses/vulkan-amdgpu-pro/LICENSE"
 "/opt/amdgpu-pro/share/*"
