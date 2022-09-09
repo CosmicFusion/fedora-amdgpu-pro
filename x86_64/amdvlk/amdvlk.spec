@@ -33,6 +33,8 @@ Source0 :  http://repo.radeon.com/amdvlk/apt/debian/pool/main/a/amdvlk/amdvlk_%{
 Provides:      amdvlk = %{amdvlk}-%{release}
 Provides:      amdvlk(x86_64) = %{amdvlk}-%{release}
 Provides:      config(amdvlk) = %{amdvlk}-%{release}
+Provides:      vulkan-amdgpu = %{major}-%{minor}~%{ubuntu}
+Provides:      vulkan-amdgpu(x86-64) = %{major}-%{minor}~%{ubuntu}
 
 Recommends:	 openssl-libs  
 
@@ -61,6 +63,8 @@ mkdir -p %{buildroot}/opt/amdgpu/vulkan/%{_lib}
 mkdir -p %{buildroot}/opt/amdgpu/vulkan/etc/vulkan/implicit_layer.d/
 mkdir -p %{buildroot}/opt/amdgpu/vulkan/etc/vulkan/icd.d/
 mkdir -p %{buildroot}/opt/amdgpu/vulkan/share/licenses/amdvlk
+mkdir -p %{buildroot}/opt/amdgpu/etc/vulkan/implicit_layer.d/
+mkdir -p %{buildroot}/opt/amdgpu/etc/vulkan/icd.d
 #
 install -p -m755 files/usr/lib/x86_64-linux-gnu/* %{buildroot}/opt/amdgpu/vulkan/%{_lib}/
 install -p -m755 files/etc/vulkan/implicit_layer.d/* %{buildroot}/opt/amdgpu/vulkan/etc/vulkan/implicit_layer.d/
@@ -74,6 +78,9 @@ echo "fixing .icds "
 sed -i "s#/usr/lib/x86_64-linux-gnu/amdvlk64.so#/opt/amdgpu/vulkan/%{_lib}/amdvlk64.so#" "%{buildroot}/opt/amdgpu/vulkan/etc/vulkan/implicit_layer.d/amd_icd64.json"
 sed -i "s#/usr/lib/x86_64-linux-gnu/amdvlk64.so#/opt/amdgpu/vulkan/%{_lib}/amdvlk64.so#" "%{buildroot}/opt/amdgpu/vulkan/etc/vulkan/icd.d/amd_icd64.json"
 #
+ln -s /opt/amdgpu/vulkan/etc/vulkan/implicit_layer.d/amd_icd64.json %{buildroot}/opt/amdgpu/etc/vulkan/implicit_layer.d/
+ln -s /opt/amdgpu/vulkan/etc/vulkan/icd.d/amd_icd64.json %{buildroot}/opt/amdgpu/etc/vulkan/icd.d/
+#
 echo "adding *Disabled* library path"
 mkdir -p %{buildroot}/etc/ld.so.conf.d
 touch %{buildroot}/etc/ld.so.conf.d/amdvlk-%{_arch}.conf
@@ -81,6 +88,8 @@ echo "#/opt/amdgpu/vulkan/%{_lib}" > %{buildroot}/etc/ld.so.conf.d/amdvlk-%{_arc
 
 %files
 "/etc/ld.so.conf.d/amdvlk-%{_arch}.conf"
+"/opt/amdgpu/etc/vulkan/icd.d/amd_icd64.json"
+"/opt/amdgpu/etc/vulkan/implicit_layer.d/amd_icd64.json"
 "/opt/amdgpu/vulkan/lib64/amdvlk64.so"
 "/opt/amdgpu/vulkan/etc/vulkan/icd.d/amd_icd64.json"
 "/opt/amdgpu/vulkan/etc/vulkan/implicit_layer.d/amd_icd64.json"
