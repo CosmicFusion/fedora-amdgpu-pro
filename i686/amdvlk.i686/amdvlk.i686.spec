@@ -8,7 +8,7 @@
 %global amf 1.4.26
 %global enc 1.0
 #
-%global amdvlk 2022.Q3.3
+%global amdvlk 2022.Q3.4
 #
 %global drm 2.4.110.50203
 %global amdgpu 1.0.0.50203
@@ -28,7 +28,7 @@ URL:           https://github.com/GPUOpen-Drivers/AMDVLK
 Vendor:        Advanced Micro Devices (AMD)
 
 %undefine _disable_source_fetch
-Source0 :  http://repo.radeon.com/amdvlk/apt/debian/pool/main/a/amdvlk/amdvlk_%{amdvlk}_i386.deb
+Source0 :  https://github.com/GPUOpen-Drivers/AMDVLK/releases/download/v-%{amdvlk}/amdvlk_%{amdvlk}_i386.deb
 
 Provides:      amdvlk = %{amdvlk}-%{release}
 Provides:      amdvlk(x86_64) = %{amdvlk}-%{release}
