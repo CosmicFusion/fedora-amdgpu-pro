@@ -8,7 +8,7 @@
 %global amf 1.4.26
 %global enc 1.0
 #
-%global amdvlk 2022.Q3.4
+%global amdvlk 2022.Q3.5
 #
 %global drm 2.4.110.50203
 %global amdgpu 1.0.0.50203
