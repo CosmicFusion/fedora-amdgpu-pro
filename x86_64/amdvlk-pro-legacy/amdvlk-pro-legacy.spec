@@ -7,9 +7,8 @@
 # pkg info
 %global amf 1.4.26
 %global enc 1.0
-#
 %global amdvlk 2022.Q3.3
-#
+# drm info
 %global drm 2.4.110.50203
 %global amdgpu 1.0.0.50203
 # Distro info

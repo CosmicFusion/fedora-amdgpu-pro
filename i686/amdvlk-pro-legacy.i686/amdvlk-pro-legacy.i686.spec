@@ -1,20 +1,19 @@
 %define _build_id_links none
 
 # global info
-%global repo 21.40.2
-%global major 21.40.2
-%global minor 1350682
+%global repo 5.4.1
+%global major 22.40
+%global minor 1518373
 # pkg info
-%global amf 1.4.26
+%global amf 1.4.29
 %global enc 1.0
-#
-%global amdvlk 2022.Q3.3
-#
-%global drm 2.4.110.50203
-%global amdgpu 1.0.0.50203
+%global amdvlk 2022.Q4.4
+# drm info
+%global drm 2.4.113.50401
+%global amdgpu 1.0.0.50401
 # Distro info
 %global fedora fc36
-%global ubuntu 20.04
+%global ubuntu 22.04
 
 Name:     amdvlk-pro-legacy
 Version:  %{repo}

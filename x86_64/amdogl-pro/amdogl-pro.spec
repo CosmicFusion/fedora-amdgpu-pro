@@ -4,9 +4,17 @@
 %global repo 5.4.1
 %global major 22.40
 %global minor 1518373
+# pkg info
+%global amf 1.4.29
+%global enc 1.0
+%global amdvlk 2022.Q4.4
+# drm info
+%global drm 2.4.113.50401
+%global amdgpu 1.0.0.50401
 # Distro info
 %global fedora fc36
 %global ubuntu 22.04
+
 
 Name:     amdogl-pro
 Version:  	   %{repo}
