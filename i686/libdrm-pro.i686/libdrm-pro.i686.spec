@@ -43,7 +43,7 @@ Provides:      libdrm_amdgpu.so.1()(32bit)
 Provides:      libdrm_radeon.so.1()(32bit)
 
 Provides:      libdrm-amdgpu = %{drm}.%{ubuntu}
-Provides:      libdrm-amdgpu-common = %{amdgpu}-%{minor}.%{ubuntu}
+Provides:      libdrm-amdgpu-common = %{amdgpu}.%{ubuntu}
 
 Provides:      libdrm-amdgpu-amdgpu1 = %{drm}.%{ubuntu}
 Provides:      libdrm-amdgpu-radeon1 = %{drm}.%{ubuntu}

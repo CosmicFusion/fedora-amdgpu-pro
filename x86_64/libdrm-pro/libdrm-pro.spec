@@ -28,7 +28,7 @@ URL:      http://repo.radeon.com/amdgpu
 Source0:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/main/libd/libdrm-amdgpu/libdrm-amdgpu-amdgpu1_%{drm}.%{ubuntu}_amd64.deb
 Source1:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/main/libd/libdrm-amdgpu/libdrm-amdgpu-radeon1_%{drm}.%{ubuntu}_amd64.deb
 Source2:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/main/libd/libdrm-amdgpu/libdrm2-amdgpu_%{drm}.%{ubuntu}_amd64.deb
-Source3:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/main/libd/libdrm-amdgpu-common/libdrm-amdgpu-common_%{amdgpu}-%{minor}.%{ubuntu}_all.deb
+Source3:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/main/libd/libdrm-amdgpu-common/libdrm-amdgpu-common_%{amdgpu}.%{ubuntu}_all.deb
 
 Provides:      libdrm-pro
 Provides:      libdrm-pro(x86_64)
@@ -44,7 +44,7 @@ Provides:      libdrm_amdgpu.so.1()(64bit)
 Provides:      libdrm_radeon.so.1()(64bit)
 
 Provides:      libdrm-amdgpu = %{drm}.%{ubuntu}
-Provides:      libdrm-amdgpu-common = %{amdgpu}-%{minor}.%{ubuntu}
+Provides:      libdrm-amdgpu-common = %{amdgpu}.%{ubuntu}
 
 Provides:      libdrm-amdgpu-amdgpu1 = %{drm}.%{ubuntu}
 Provides:      libdrm-amdgpu-radeon1 = %{drm}.%{ubuntu}
