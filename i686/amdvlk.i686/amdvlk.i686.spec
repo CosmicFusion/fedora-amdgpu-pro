@@ -9,12 +9,11 @@
 %global enc 1.0
 %global amdvlk 2022.Q4.4
 # drm info
-%global drm 2.4.113.50401
-%global amdgpu 1.0.0.50401
+%global drm 2.4.113.50401-1518338
+%global amdgpu 1.0.0.50401-1518338
 # Distro info
 %global fedora fc36
 %global ubuntu 22.04
-
 
 
 Name:          amdvlk
@@ -33,8 +32,8 @@ Source0 :  https://github.com/GPUOpen-Drivers/AMDVLK/releases/download/v-%{amdvl
 Provides:      amdvlk = %{amdvlk}-%{release}
 Provides:      amdvlk(x86_64) = %{amdvlk}-%{release}
 Provides:      config(amdvlk) = %{amdvlk}-%{release}
-Provides:      vulkan-amdgpu = %{major}-%{minor}~%{ubuntu}
-Provides:      vulkan-amdgpu(i386) = %{major}-%{minor}~%{ubuntu}
+Provides:      vulkan-amdgpu = %{major}-%{minor}.%{ubuntu}
+Provides:      vulkan-amdgpu(i386) = %{major}-%{minor}.%{ubuntu}
 
 Recommends:	 openssl-libs  
 

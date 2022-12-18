@@ -9,8 +9,8 @@
 %global enc 1.0
 %global amdvlk 2022.Q4.4
 # drm info
-%global drm 2.4.113.50401
-%global amdgpu 1.0.0.50401
+%global drm 2.4.113.50401-1518338
+%global amdgpu 1.0.0.50401-1518338
 # Distro info
 %global fedora fc36
 %global ubuntu 22.04
@@ -26,16 +26,16 @@ URL:      http://repo.radeon.com/amdgpu
 
 
 %undefine _disable_source_fetch
-Source0:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/a/amf-amdgpu-pro/amf-amdgpu-pro_%{amf}-%{minor}~%{ubuntu}_amd64.deb
-Source1:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/liba/libamdenc-amdgpu-pro/libamdenc-amdgpu-pro_%{enc}-%{minor}~%{ubuntu}_amd64.deb
+Source0:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/a/amf-amdgpu-pro/amf-amdgpu-pro_%{amf}-%{minor}.%{ubuntu}_amd64.deb
+Source1:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/liba/libamdenc-amdgpu-pro/libamdenc-amdgpu-pro_%{enc}-%{minor}.%{ubuntu}_amd64.deb
 
 Provides:      amf-runtime = %{major}-%{release}
 Provides:      amf-runtime(x86_64) = %{major}-%{release}
-Provides:      amf-amdgpu-pro = %{amf}-%{minor}~%{ubuntu}
-Provides:      amf-amdgpu-pro(x86_64) = %{amf}-%{minor}~%{ubuntu}
+Provides:      amf-amdgpu-pro = %{amf}-%{minor}.%{ubuntu}
+Provides:      amf-amdgpu-pro(x86_64) = %{amf}-%{minor}.%{ubuntu}
 Provides:      libamfrt64.so.1()(64bit) 
-Provides:      libamdenc-amdgpu-pro = %{enc}-%{minor}~%{ubuntu}
-Provides:      libamdenc-amdgpu-pro(x86_64) = %{enc}-%{minor}~%{ubuntu}
+Provides:      libamdenc-amdgpu-pro = %{enc}-%{minor}.%{ubuntu}
+Provides:      libamdenc-amdgpu-pro(x86_64) = %{enc}-%{minor}.%{ubuntu}
 Provides:      libamdenc64.so.1.0()(64bit)  
 Provides:      libamdenc64.so.1.0()(64bit)  
 

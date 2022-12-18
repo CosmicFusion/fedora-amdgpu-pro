@@ -9,8 +9,8 @@
 %global enc 1.0
 %global amdvlk 2022.Q4.4
 # drm info
-%global drm 2.4.113.50401
-%global amdgpu 1.0.0.50401
+%global drm 2.4.113.50401-1518338
+%global amdgpu 1.0.0.50401-1518338
 # Distro info
 %global fedora fc36
 %global ubuntu 22.04
@@ -25,10 +25,10 @@ Summary:       AMD proprietary libdrm
 URL:      http://repo.radeon.com/amdgpu
 
 %undefine _disable_source_fetch
-Source0:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/main/libd/libdrm-amdgpu/libdrm-amdgpu-amdgpu1_%{drm}-%{minor}~%{ubuntu}_amd64.deb
-Source1:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/main/libd/libdrm-amdgpu/libdrm-amdgpu-radeon1_%{drm}-%{minor}~%{ubuntu}_amd64.deb
-Source2:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/main/libd/libdrm-amdgpu/libdrm2-amdgpu_%{drm}-%{minor}~%{ubuntu}_amd64.deb
-Source3:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/main/libd/libdrm-amdgpu-common/libdrm-amdgpu-common_%{amdgpu}-%{minor}~%{ubuntu}_all.deb
+Source0:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/main/libd/libdrm-amdgpu/libdrm-amdgpu-amdgpu1_%{drm}.%{ubuntu}_amd64.deb
+Source1:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/main/libd/libdrm-amdgpu/libdrm-amdgpu-radeon1_%{drm}.%{ubuntu}_amd64.deb
+Source2:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/main/libd/libdrm-amdgpu/libdrm2-amdgpu_%{drm}.%{ubuntu}_amd64.deb
+Source3:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/main/libd/libdrm-amdgpu-common/libdrm-amdgpu-common_%{amdgpu}-%{minor}.%{ubuntu}_all.deb
 
 Provides:      libdrm-pro
 Provides:      libdrm-pro(x86_64)
@@ -43,12 +43,12 @@ Provides:      libdrm.so.2()(64bit)
 Provides:      libdrm_amdgpu.so.1()(64bit)
 Provides:      libdrm_radeon.so.1()(64bit)
 
-Provides:      libdrm-amdgpu = %{drm}-%{minor}~%{ubuntu}
-Provides:      libdrm-amdgpu-common = %{amdgpu}-%{minor}~%{ubuntu}
+Provides:      libdrm-amdgpu = %{drm}.%{ubuntu}
+Provides:      libdrm-amdgpu-common = %{amdgpu}-%{minor}.%{ubuntu}
 
-Provides:      libdrm-amdgpu-amdgpu1 = %{drm}-%{minor}~%{ubuntu}
-Provides:      libdrm-amdgpu-radeon1 = %{drm}-%{minor}~%{ubuntu}
-Provides:      libdrm2-amdgpu = %{drm}-%{minor}~%{ubuntu}
+Provides:      libdrm-amdgpu-amdgpu1 = %{drm}.%{ubuntu}
+Provides:      libdrm-amdgpu-radeon1 = %{drm}.%{ubuntu}
+Provides:      libdrm2-amdgpu = %{drm}.%{ubuntu}
 
 
 

@@ -9,8 +9,8 @@
 %global enc 1.0
 %global amdvlk 2022.Q4.4
 # drm info
-%global drm 2.4.113.50401
-%global amdgpu 1.0.0.50401
+%global drm 2.4.113.50401-1518338
+%global amdgpu 1.0.0.50401-1518338
 # Distro info
 %global fedora fc36
 %global ubuntu 22.04
@@ -26,47 +26,47 @@ URL:      http://repo.radeon.com/amdgpu
 Summary:       AMD OpenGL
 
 %undefine _disable_source_fetch
-Source0:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libegl1-amdgpu-pro_%{major}-%{minor}~%{ubuntu}_amd64.deb
-Source1:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libgl1-amdgpu-pro-dri_%{major}-%{minor}~%{ubuntu}_amd64.deb
-Source2:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libgl1-amdgpu-pro-ext_%{major}-%{minor}~%{ubuntu}_amd64.deb
-Source3:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libgl1-amdgpu-pro-glx_%{major}-%{minor}~%{ubuntu}_amd64.deb
-Source4:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libglapi1-amdgpu-pro_%{major}-%{minor}~%{ubuntu}_amd64.deb
-Source5:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libgles2-amdgpu-pro_%{major}-%{minor}~%{ubuntu}_amd64.deb
-Source6:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/a/appprofiles-amdgpu-pro/libgl1-amdgpu-pro-appprofiles_%{major}-%{minor}~%{ubuntu}_all.deb
+Source0:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libegl1-amdgpu-pro_%{major}-%{minor}.%{ubuntu}_amd64.deb
+Source1:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libgl1-amdgpu-pro-dri_%{major}-%{minor}.%{ubuntu}_amd64.deb
+Source2:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libgl1-amdgpu-pro-ext_%{major}-%{minor}.%{ubuntu}_amd64.deb
+Source3:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libgl1-amdgpu-pro-glx_%{major}-%{minor}.%{ubuntu}_amd64.deb
+Source4:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libglapi1-amdgpu-pro_%{major}-%{minor}.%{ubuntu}_amd64.deb
+Source5:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libgles2-amdgpu-pro_%{major}-%{minor}.%{ubuntu}_amd64.deb
+Source6:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/a/appprofiles-amdgpu-pro/libgl1-amdgpu-pro-appprofiles_%{major}-%{minor}.%{ubuntu}_all.deb
 
 Provides:      libEGL.so.1()(64bit)  
-Provides:      libegl-amdgpu-pro = %{major}-%{minor}~%{ubuntu}
-Provides:      libegl-amdgpu-pro(x86_64) = %{major}-%{minor}~%{ubuntu}
-Provides:      libglapi-amdgpu-pro = %{major}-%{minor}~%{ubuntu}
-Provides:      libglapi-amdgpu-pro(x86_64) = %{major}-%{minor}~%{ubuntu}
+Provides:      libegl-amdgpu-pro = %{major}-%{minor}.%{ubuntu}
+Provides:      libegl-amdgpu-pro(x86_64) = %{major}-%{minor}.%{ubuntu}
+Provides:      libglapi-amdgpu-pro = %{major}-%{minor}.%{ubuntu}
+Provides:      libglapi-amdgpu-pro(x86_64) = %{major}-%{minor}.%{ubuntu}
 Provides:      libglapi.so.1()(64bit)  
 Provides:      libGLESv2.so.2()(64bit)  
-Provides:      libgles-amdgpu-pro = %{major}-%{minor}~%{ubuntu}
-Provides:      libgles-amdgpu-pro(x86_64) = %{major}-%{minor}~%{ubuntu}
-Provides:      config(libgl-amdgpu-pro) = %{major}-%{minor}~%{ubuntu}
+Provides:      libgles-amdgpu-pro = %{major}-%{minor}.%{ubuntu}
+Provides:      libgles-amdgpu-pro(x86_64) = %{major}-%{minor}.%{ubuntu}
+Provides:      config(libgl-amdgpu-pro) = %{major}-%{minor}.%{ubuntu}
 Provides:      libGL.so.1()(64bit)  
 Provides:      libGLX_amd.so.0()(64bit)  
-Provides:      libgl-amdgpu-pro = %{major}-%{minor}~%{ubuntu}
-Provides:      libgl-amdgpu-pro(x86_64) = %{major}-%{minor}~%{ubuntu}
-Provides:      config(libgl-amdgpu-pro-appprofiles) = %{major}-%{minor}~%{ubuntu}
-Provides:      libgl-amdgpu-pro-appprofiles = %{major}-%{minor}~%{ubuntu}
-Provides:      config(libgl-amdgpu-pro-dri) = %{major}-%{minor}~%{ubuntu}
-Provides:      libgl-amdgpu-pro-dri = %{major}-%{minor}~%{ubuntu}
-Provides:      libgl-amdgpu-pro-dri(x86_64) = %{major}-%{minor}~%{ubuntu}
-Provides:      libgl-amdgpu-pro-ext = %{major}-%{minor}~%{ubuntu}
-Provides:      libgl-amdgpu-pro-ext(x86_64) = %{major}-%{minor}~%{ubuntu}
-Provides:      libgl-amdgpu-pro-glx = %{major}-%{minor}~%{ubuntu}
-Provides:      libgl-amdgpu-pro-glx(x86_64) = %{major}-%{minor}~%{ubuntu}
+Provides:      libgl-amdgpu-pro = %{major}-%{minor}.%{ubuntu}
+Provides:      libgl-amdgpu-pro(x86_64) = %{major}-%{minor}.%{ubuntu}
+Provides:      config(libgl-amdgpu-pro-appprofiles) = %{major}-%{minor}.%{ubuntu}
+Provides:      libgl-amdgpu-pro-appprofiles = %{major}-%{minor}.%{ubuntu}
+Provides:      config(libgl-amdgpu-pro-dri) = %{major}-%{minor}.%{ubuntu}
+Provides:      libgl-amdgpu-pro-dri = %{major}-%{minor}.%{ubuntu}
+Provides:      libgl-amdgpu-pro-dri(x86_64) = %{major}-%{minor}.%{ubuntu}
+Provides:      libgl-amdgpu-pro-ext = %{major}-%{minor}.%{ubuntu}
+Provides:      libgl-amdgpu-pro-ext(x86_64) = %{major}-%{minor}.%{ubuntu}
+Provides:      libgl-amdgpu-pro-glx = %{major}-%{minor}.%{ubuntu}
+Provides:      libgl-amdgpu-pro-glx(x86_64) = %{major}-%{minor}.%{ubuntu}
 
 BuildRequires: wget 
 BuildRequires: cpio
 
 Requires:      libEGL.so.1()(64bit)    
 Requires:      libGLESv2.so.2()(64bit) 
-Requires:      config(libgl-amdgpu-pro) = %{major}-%{minor}~%{ubuntu}
+Requires:      config(libgl-amdgpu-pro) = %{major}-%{minor}.%{ubuntu}
 Requires:      libGLX_amd.so.0()(64bit)
-Requires:      config(libgl-amdgpu-pro-appprofiles) = %{major}-%{minor}~%{ubuntu}
-Requires:      config(libgl-amdgpu-pro-dri) = %{major}-%{minor}~%{ubuntu}
+Requires:      config(libgl-amdgpu-pro-appprofiles) = %{major}-%{minor}.%{ubuntu}
+Requires:      config(libgl-amdgpu-pro-dri) = %{major}-%{minor}.%{ubuntu}
 Requires:      libGL.so.1()(64bit)  
 Requires:      libX11-xcb.so.1()(64bit)  
 Requires:      libX11.so.6()(64bit)  

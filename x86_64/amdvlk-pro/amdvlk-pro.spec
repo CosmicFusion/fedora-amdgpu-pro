@@ -9,8 +9,8 @@
 %global enc 1.0
 %global amdvlk 2022.Q4.4
 # drm info
-%global drm 2.4.113.50401
-%global amdgpu 1.0.0.50401
+%global drm 2.4.113.50401-1518338
+%global amdgpu 1.0.0.50401-1518338
 # Distro info
 %global fedora fc36
 %global ubuntu 22.04
@@ -25,14 +25,14 @@ Summary:       AMD Vulkan
 URL:      http://repo.radeon.com/amdgpu
 
 %undefine _disable_source_fetch
-Source0:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/v/vulkan-amdgpu-pro/vulkan-amdgpu-pro_%{major}-%{minor}~%{ubuntu}_amd64.deb
+Source0:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/v/vulkan-amdgpu-pro/vulkan-amdgpu-pro_%{major}-%{minor}.%{ubuntu}_amd64.deb
 
 Provides:      config(amdvlk-pro) = %{major}-%{release}
 Provides:      amdvlk-pro = %{major}-%{release}
 Provides:      amdvlk-pro(x86_64) = %{major}-%{release}
-Provides:      config(vulkan-amdgpu-pro) = %{major}-%{minor}~%{ubuntu}
-Provides:      vulkan-amdgpu-pro = %{major}-%{minor}~%{ubuntu}
-Provides:      vulkan-amdgpu-pro(x86_64) = %{major}-%{minor}~%{ubuntu}
+Provides:      config(vulkan-amdgpu-pro) = %{major}-%{minor}.%{ubuntu}
+Provides:      vulkan-amdgpu-pro = %{major}-%{minor}.%{ubuntu}
+Provides:      vulkan-amdgpu-pro(x86_64) = %{major}-%{minor}.%{ubuntu}
 
 
 Recommends:	 openssl-libs  

@@ -9,8 +9,8 @@
 %global enc 1.0
 %global amdvlk 2022.Q4.4
 # drm info
-%global drm 2.4.113.50401
-%global amdgpu 1.0.0.50401
+%global drm 2.4.113.50401-1518338
+%global amdgpu 1.0.0.50401-1518338
 # Distro info
 %global fedora fc36
 %global ubuntu 22.04
@@ -27,19 +27,19 @@ Summary:       AMD OpenCL ICD Loaders
 URL:           http://repo.radeon.com/amdgpu
 
 %undefine _disable_source_fetch
-Source0:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/opencl-legacy-amdgpu-pro/opencl-legacy-amdgpu-pro-icd_%{major}-%{minor}~%{ubuntu}_amd64.deb
-Source1:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/ocl-icd-amdgpu-pro/ocl-icd-libopencl1-amdgpu-pro_%{major}-%{minor}~%{ubuntu}_amd64.deb
+Source0:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/opencl-legacy-amdgpu-pro/opencl-legacy-amdgpu-pro-icd_%{major}-%{minor}.%{ubuntu}_amd64.deb
+Source1:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/ocl-icd-amdgpu-pro/ocl-icd-libopencl1-amdgpu-pro_%{major}-%{minor}.%{ubuntu}_amd64.deb
 
  
 
 Provides:      amdocl-legacy = %{major}-%{release}
 Provides:      amdocl-legacy(x86_64) = %{major}-%{release}
-Provides:      config(opencl-legacy-amdgpu-pro-icd) = %{major}-%{minor}~%{ubuntu}
-Provides:      libopencl-amdgpu-pro = %{major}-%{minor}~%{ubuntu}
-Provides:      ocl-icd-amdgpu-pro = %{major}-%{minor}~%{ubuntu}
-Provides:      ocl-icd-amdgpu-pro(x86_64) = %{major}-%{minor}~%{ubuntu}
-Provides:      opencl-legacy-amdgpu-pro-icd = %{major}-%{minor}~%{ubuntu}
-Provides:      opencl-legacy-amdgpu-pro-icd(x86_64) = %{major}-%{minor}~%{ubuntu}
+Provides:      config(opencl-legacy-amdgpu-pro-icd) = %{major}-%{minor}.%{ubuntu}
+Provides:      libopencl-amdgpu-pro = %{major}-%{minor}.%{ubuntu}
+Provides:      ocl-icd-amdgpu-pro = %{major}-%{minor}.%{ubuntu}
+Provides:      ocl-icd-amdgpu-pro(x86_64) = %{major}-%{minor}.%{ubuntu}
+Provides:      opencl-legacy-amdgpu-pro-icd = %{major}-%{minor}.%{ubuntu}
+Provides:      opencl-legacy-amdgpu-pro-icd(x86_64) = %{major}-%{minor}.%{ubuntu}
 Provides:      opencl-orca-amdgpu-pro-icd  
 
 BuildRequires: wget 
