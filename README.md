@@ -32,13 +32,7 @@ https://github.com/GPUOpen-LibrariesAndSDKs/AMF/issues/334~~
 
 3) We have repackaged the offficial "libdrm" library for better performance and stability , it also solves the RDNA2 issue.
 
-<<<<<<< HEAD
-4) We have made these libdrm libraries load system wide , to get the banefits of these libraries without needing wrappers (we need them anyway for vulkan and opengl , but i really don't wanna have one for opencl too!)
-
-5) the libdrm*.so libraries are renamed to libdro*.so to not conflict with the mesa ones (all amdgpu-pro .so files have been modded to cater for this change!).
-=======
 4) We have made these libdrm libraries load using system wrappers (vk_pro, gl_pro, cl_pro)
->>>>>>> bfb7e56 (update 64 to latest release)
 
 
 We include a package builder script which uses mock to build packages with minimal dependencies. It will auto install the dependencies it needs (mock pykickstart fedpkg libvirt)  
@@ -59,11 +53,7 @@ amdocl-legacy
 amdogl-pro
 amdvlk
 amdvlk-pro
-<<<<<<< HEAD
-amdvlk-pro-rdna2
-=======
 amdvlk-pro-legacy
->>>>>>> bfb7e56 (update 64 to latest release)
 -------------------------------------
 32 bit package names are:
 libdrm-pro
@@ -71,11 +61,7 @@ amdocl-legacy
 amdogl-pro
 amdvlk
 amdvlk-pro
-<<<<<<< HEAD
-amdvlk-pro-rdna2
-=======
 amdvlk-pro-legacy
->>>>>>> bfb7e56 (update 64 to latest release)
 ```
 
 # How to install the packages:
@@ -136,14 +122,9 @@ gl_zink {THE_PROGRAM}
 
 # How to use the OpenCL drivers:
 
-<<<<<<< HEAD
-- The system will do what it needs to do automatically .
-
-=======
 - install amdgpu-opencl-switcher from https://copr.fedorainfracloud.org/coprs/gloriouseggroll/amdgpu-vulkan-switcher/
 
 - Run the program with 
 ```
 cl_pro {THE_PROGRAM}
->>>>>>> bfb7e56 (update 64 to latest release)
 
