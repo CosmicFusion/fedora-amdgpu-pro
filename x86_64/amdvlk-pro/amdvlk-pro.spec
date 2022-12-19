@@ -12,7 +12,7 @@
 %global drm 2.4.113.50401-1518338
 %global amdgpu 1.0.0.50401-1518338
 # Distro info
-%global fedora fc36
+%global fedora 36
 %global ubuntu 22.04
 
 

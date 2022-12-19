@@ -12,7 +12,7 @@
 %global drm 2.4.110.50203
 %global amdgpu 1.0.0.50203
 # Distro info
-%global fedora fc36
+%global fedora 36
 %global ubuntu 20.04
 
 Name:     amdvlk-pro-legacy
