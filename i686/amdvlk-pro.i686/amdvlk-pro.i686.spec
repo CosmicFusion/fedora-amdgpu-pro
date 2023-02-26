@@ -9,10 +9,10 @@
 %global enc 1.0
 %global amdvlk 2022.Q4.4
 # drm info
-%global drm 2.4.113.50401-1518338
-%global amdgpu 1.0.0.50401-1518338
+%global drm 2.4.113.50403-1538762
+%global amdgpu 1.0.0.50403-1538762
 # Distro info
-%global fedora 36
+%global fedora 37
 %global ubuntu 22.04
 
 
