@@ -50,6 +50,7 @@ Requires(postun): /sbin/ldconfig
 Requires:      vulkan-amdgpu-pro  
 Requires:      libdrm-pro
 Requires:      opencl-filesystem
+Requires:      amd-gpu-pro-firmware
 
 Recommends:	 rocm-opencl-runtime  
 
