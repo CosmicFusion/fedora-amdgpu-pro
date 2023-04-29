@@ -31,12 +31,11 @@ URL:      http://repo.radeon.com/amdgpu
 Summary:       AMD OpenGL
 
 %undefine _disable_source_fetch
-Source0:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libegl1-amdgpu-pro_%{major}-%{minor}.%{ubuntu}_i386.deb
-Source1:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libgl1-amdgpu-pro-dri_%{major}-%{minor}.%{ubuntu}_i386.deb
-Source2:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libgl1-amdgpu-pro-ext_%{major}-%{minor}.%{ubuntu}_i386.deb
-Source3:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libgl1-amdgpu-pro-glx_%{major}-%{minor}.%{ubuntu}_i386.deb
-Source4:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libglapi1-amdgpu-pro_%{major}-%{minor}.%{ubuntu}_i386.deb
-Source5:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libgles2-amdgpu-pro_%{major}-%{minor}.%{ubuntu}_i386.deb
+Source0:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/oglp-amdgpu-pro/libegl1-amdgpu-pro-oglp_%{major}-%{minor}.%{ubuntu}_i386.deb
+Source1:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/oglp-amdgpu-pro/libgl1-amdgpu-pro-oglp-dri_%{major}-%{minor}.%{ubuntu}_i386.deb
+Source2:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/oglp-amdgpu-pro/libgl1-amdgpu-pro-oglp-glx_%{major}-%{minor}.%{ubuntu}_i386.deb
+Source3:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/oglp-amdgpu-pro/libgles1-amdgpu-pro-oglp_%{major}-%{minor}.%{ubuntu}_i386.deb
+Source4:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/oglp-amdgpu-pro/libgles2-amdgpu-pro-oglp_%{major}-%{minor}.%{ubuntu}_i386.deb
 
 Provides:      libEGL.so.1()(64bit)  
 Provides:      libegl-amdgpu-pro = %{major}-%{minor}.%{ubuntu}
@@ -114,29 +113,17 @@ tar -xJC files -f data.tar.xz || tar -xC files -f data.tar.gz
 ar x --output . %{SOURCE4}
 tar -xJC files -f data.tar.xz || tar -xC files -f data.tar.gz
 
-ar x --output . %{SOURCE5}
-tar -xJC files -f data.tar.xz || tar -xC files -f data.tar.gz
-
 %install
 mkdir -p %{buildroot}/opt/amdgpu/share/drirc.d
 mkdir -p %{buildroot}/opt/amdgpu-pro/opengl/%{_lib}
 mkdir -p %{buildroot}/opt/amdgpu-pro/opengl/%{_lib}/dri
 #
 cp -r files/opt/amdgpu-pro/lib/i386-linux-gnu/* %{buildroot}/opt/amdgpu-pro/opengl/%{_lib}/
-cp -r files/opt/amdgpu-pro/lib/xorg/modules/extensions/* %{buildroot}/opt/amdgpu-pro/opengl/%{_lib}/
-cp -r files/usr/lib/i386-linux-gnu/dri/* %{buildroot}/opt/amdgpu-pro/opengl/%{_lib}/dri
-#
-echo "adding *Disabled* library path"
-mkdir -p %{buildroot}/etc/ld.so.conf.d
-touch %{buildroot}/etc/ld.so.conf.d/amdogl-pro-%{_arch}.conf
-echo "#/opt/amdgpu-pro/opengl/%{_lib}" > %{buildroot}/etc/ld.so.conf.d/amdogl-pro-%{_arch}.conf
+cp -r files/opt/amdgpu/lib/i386-linux-gnu/dri/* %{buildroot}/opt/amdgpu-pro/opengl/%{_lib}/dri
 
 %files
-"/etc/ld.so.conf.d/amdogl-pro-%{_arch}.conf"
 "/opt/amdgpu-pro/opengl/%{_lib}/dri/amdgpu_dri.so"
-"/opt/amdgpu-pro/opengl/%{_lib}/libEGL*"
-"/opt/amdgpu-pro/opengl/%{_lib}/libGL*"
-"/opt/amdgpu-pro/opengl/%{_lib}/libgl*"
+"/opt/amdgpu-pro/opengl/%{_lib}/*"
 
 %post
 /sbin/ldconfig

@@ -31,13 +31,13 @@ URL:      http://repo.radeon.com/amdgpu
 Summary:       AMD OpenGL
 
 %undefine _disable_source_fetch
-Source0:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libegl1-amdgpu-pro_%{major}-%{minor}.%{ubuntu}_amd64.deb
-Source1:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libgl1-amdgpu-pro-dri_%{major}-%{minor}.%{ubuntu}_amd64.deb
-Source2:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libgl1-amdgpu-pro-ext_%{major}-%{minor}.%{ubuntu}_amd64.deb
-Source3:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libgl1-amdgpu-pro-glx_%{major}-%{minor}.%{ubuntu}_amd64.deb
-Source4:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libglapi1-amdgpu-pro_%{major}-%{minor}.%{ubuntu}_amd64.deb
-Source5:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/opengl-amdgpu-pro/libgles2-amdgpu-pro_%{major}-%{minor}.%{ubuntu}_amd64.deb
-Source6:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/a/appprofiles-amdgpu-pro/libgl1-amdgpu-pro-appprofiles_%{major}-%{minor}.%{ubuntu}_all.deb
+Source0:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/oglp-amdgpu-pro/libegl1-amdgpu-pro-oglp_%{major}-%{minor}.%{ubuntu}_amd64.deb
+Source1:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/oglp-amdgpu-pro/libgl1-amdgpu-pro-oglp-dri_%{major}-%{minor}.%{ubuntu}_amd64.deb
+Source2:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/oglp-amdgpu-pro/libgl1-amdgpu-pro-oglp-ext_%{major}-%{minor}.%{ubuntu}_amd64.deb
+Source3:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/oglp-amdgpu-pro/libgl1-amdgpu-pro-oglp-gbm_%{major}-%{minor}.%{ubuntu}_amd64.deb
+Source4:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/oglp-amdgpu-pro/libgl1-amdgpu-pro-oglp-glx_%{major}-%{minor}.%{ubuntu}_amd64.deb
+Source5:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/oglp-amdgpu-pro/libgles1-amdgpu-pro-oglp_%{major}-%{minor}.%{ubuntu}_amd64.deb
+Source6:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/oglp-amdgpu-pro/libgles2-amdgpu-pro-oglp_%{major}-%{minor}.%{ubuntu}_amd64.deb
 
 Provides:      libEGL.so.1()(64bit)  
 Provides:      libegl-amdgpu-pro = %{major}-%{minor}.%{ubuntu}
@@ -122,62 +122,18 @@ ar x --output . %{SOURCE6}
 tar -xJC files -f data.tar.xz || tar -xC files -f data.tar.gz
 
 %install
-mkdir -p %{buildroot}/etc/amd
 mkdir -p %{buildroot}/opt/amdgpu/share/drirc.d
 mkdir -p %{buildroot}/opt/amdgpu-pro/opengl/%{_lib}
 mkdir -p %{buildroot}/opt/amdgpu-pro/opengl/%{_lib}/dri
-mkdir -p %{buildroot}/opt/amdgpu-pro/opengl/share/licenses/libegl1-amdgpu-pro
-mkdir -p %{buildroot}/opt/amdgpu-pro/opengl/share/licenses/libgl1-amdgpu-pro-dri
-mkdir -p %{buildroot}/opt/amdgpu-pro/opengl/share/licenses/libgl1-amdgpu-pro-ext
-mkdir -p %{buildroot}/opt/amdgpu-pro/opengl/share/licenses/libgl1-amdgpu-pro-glx
-mkdir -p %{buildroot}/opt/amdgpu-pro/opengl/share/licenses/libglapi1-amdgpu-pro
-mkdir -p %{buildroot}/opt/amdgpu-pro/opengl/share/licenses/libgles2-amdgpu-pro
-mkdir -p %{buildroot}/opt/amdgpu-pro/opengl/share/licenses/libgl1-amdgpu-pro-appprofiles
 #
 cp -r files/opt/amdgpu-pro/lib/x86_64-linux-gnu/* %{buildroot}/opt/amdgpu-pro/opengl/%{_lib}/
-cp -r files/opt/amdgpu-pro/lib/xorg/modules/extensions/* %{buildroot}/opt/amdgpu-pro/opengl/%{_lib}/
-cp -r files/usr/lib/x86_64-linux-gnu/dri/* %{buildroot}/opt/amdgpu-pro/opengl/%{_lib}/dri
+cp -r files/opt/amdgpu/lib/x86_64-linux-gnu/dri/* %{buildroot}/opt/amdgpu-pro/opengl/%{_lib}/dri
 cp -r files/opt/amdgpu/share/drirc.d/10-amdgpu-pro.conf %{buildroot}/opt/amdgpu/share/drirc.d/10-amdgpu-pro.conf.disabled
-cp -r files/etc/amd/*  %{buildroot}/etc/amd
 #
-cp -r files/usr/share/doc/libegl1-amdgpu-pro/copyright %{buildroot}/opt/amdgpu-pro/opengl/share/licenses/libegl1-amdgpu-pro/LICENSE
-cp -r files/usr/share/doc/libgl1-amdgpu-pro-dri/copyright %{buildroot}/opt/amdgpu-pro/opengl/share/licenses/libgl1-amdgpu-pro-dri/LICENSE
-cp -r files/usr/share/doc/libgl1-amdgpu-pro-ext/copyright %{buildroot}/opt/amdgpu-pro/opengl/share/licenses/libgl1-amdgpu-pro-ext/LICENSE
-cp -r files/usr/share/doc/libgl1-amdgpu-pro-glx/copyright %{buildroot}/opt/amdgpu-pro/opengl/share/licenses/libgl1-amdgpu-pro-glx/LICENSE
-cp -r files/usr/share/doc/libglapi1-amdgpu-pro/copyright %{buildroot}/opt/amdgpu-pro/opengl/share/licenses/libglapi1-amdgpu-pro/LICENSE
-cp -r files/usr/share/doc/libgles2-amdgpu-pro/copyright %{buildroot}/opt/amdgpu-pro/opengl/share/licenses/libgles2-amdgpu-pro/LICENSE
-cp -r files/usr/share/doc/libgl1-amdgpu-pro-appprofiles/copyright %{buildroot}/opt/amdgpu-pro/opengl/share/licenses/libgl1-amdgpu-pro-appprofiles/LICENSE
-#
-mkdir -p %{buildroot}/opt/amdgpu-pro/share/licenses
-ln -s /opt/amdgpu-pro/opengl/share/licenses/libegl1-amdgpu-pro %{buildroot}/opt/amdgpu-pro/share/licenses/libegl1-amdgpu-pro
-ln -s /opt/amdgpu-pro/opengl/share/licenses/libgl1-amdgpu-pro-dri %{buildroot}/opt/amdgpu-pro/share/licenses/libgl1-amdgpu-pro-dri
-ln -s /opt/amdgpu-pro/opengl/share/licenses/libgl1-amdgpu-pro-ext %{buildroot}/opt/amdgpu-pro/share/licenses/libgl1-amdgpu-pro-ext
-ln -s /opt/amdgpu-pro/opengl/share/licenses/libgl1-amdgpu-pro-glx %{buildroot}/opt/amdgpu-pro/share/licenses/libgl1-amdgpu-pro-glx
-ln -s /opt/amdgpu-pro/opengl/share/licenses/libglapi1-amdgpu-pro %{buildroot}/opt/amdgpu-pro/share/licenses/libglapi1-amdgpu-pro
-ln -s /opt/amdgpu-pro/opengl/share/licenses/libgles2-amdgpu-pro %{buildroot}/opt/amdgpu-pro/share/licenses/libgles2-amdgpu-pro
-ln -s /opt/amdgpu-pro/opengl/share/licenses/libgl1-amdgpu-pro-appprofiles %{buildroot}/opt/amdgpu-pro/share/licenses/libgl1-amdgpu-pro-appprofiles
-#
-echo "adding *Disabled* library path"
-mkdir -p %{buildroot}/etc/ld.so.conf.d
-touch %{buildroot}/etc/ld.so.conf.d/amdogl-pro-%{_arch}.conf
-echo "#/opt/amdgpu-pro/opengl/%{_lib}" > %{buildroot}/etc/ld.so.conf.d/amdogl-pro-%{_arch}.conf
 
 %files
-"/etc/amd/amdapfxx.blb"
-"/etc/amd/amdrc"
-"/etc/ld.so.conf.d/amdogl-pro-%{_arch}.conf"
 "/opt/amdgpu-pro/opengl/%{_lib}/dri/amdgpu_dri.so"
-"/opt/amdgpu-pro/opengl/%{_lib}/libEGL*"
-"/opt/amdgpu-pro/opengl/%{_lib}/libGL*"
-"/opt/amdgpu-pro/opengl/%{_lib}/libgl*"
-"/opt/amdgpu-pro/opengl/share/licenses/libegl1-amdgpu-pro/LICENSE"
-"/opt/amdgpu-pro/opengl/share/licenses/libgl1-amdgpu-pro-appprofiles/LICENSE"
-"/opt/amdgpu-pro/opengl/share/licenses/libgl1-amdgpu-pro-dri/LICENSE"
-"/opt/amdgpu-pro/opengl/share/licenses/libgl1-amdgpu-pro-ext/LICENSE"
-"/opt/amdgpu-pro/opengl/share/licenses/libgl1-amdgpu-pro-glx/LICENSE"
-"/opt/amdgpu-pro/opengl/share/licenses/libglapi1-amdgpu-pro/LICENSE"
-"/opt/amdgpu-pro/opengl/share/licenses/libgles2-amdgpu-pro/LICENSE"
-"/opt/amdgpu-pro/share/*"
+"/opt/amdgpu-pro/opengl/%{_lib}/*"
 "/opt/amdgpu/share/drirc.d/10-amdgpu-pro.conf.disabled"
 
 %post
