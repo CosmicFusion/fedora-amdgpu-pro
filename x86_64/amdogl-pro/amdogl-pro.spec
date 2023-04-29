@@ -1,18 +1,23 @@
 %define _build_id_links none
 
 # global info
-%global repo 5.4.1
+%global repo 5.4.5
 %global major 22.40
-%global minor 1518373
+%global minor 1577632
 # pkg info
 %global amf 1.4.29
 %global enc 1.0
 %global amdvlk 2022.Q4.4
 # drm info
-%global drm 2.4.113.50401-1518338
-%global amdgpu 1.0.0.50401-1518338
+%global drm 2.4.113.50405-1577590
+%global amdgpu 1.0.0.50405-1577590
+# firmware info
+%global firmware_rev 5.18.13
+%global firmware_maj 50405
+%global firmware_min 1577590
+%global _firmwarepath	/usr/lib/firmware
 # Distro info
-%global fedora 36
+%global fedora 38
 %global ubuntu 22.04
 
 
