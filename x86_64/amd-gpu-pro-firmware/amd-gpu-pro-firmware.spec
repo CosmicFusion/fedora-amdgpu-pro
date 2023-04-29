@@ -3,7 +3,7 @@
 # global info
 %global repo 5.4.5
 %global major 22.40
-%global minor 1577632
+%global minor 1577631
 # pkg info
 %global amf 1.4.29
 %global enc 1.0
