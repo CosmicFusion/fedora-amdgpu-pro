@@ -40,7 +40,7 @@ fi
 rpmbuild -bs --define "_srcrpmdir $(pwd)" --undefine=_disable_source_fetch *.spec
 
 # build the package
-mock -r /etc/mock/fedora-36-$BUILDARCH.cfg --enable-network --rebuild *.src.rpm
+mock -r /etc/mock/fedora-38-$BUILDARCH.cfg --enable-network --rebuild *.src.rpm
 
 # cleanup our source rpm
 rm *.src.rpm
@@ -48,9 +48,9 @@ rm *.src.rpm
 # move the package to our main folder
 cd ../../
 if [[ "$BUILDARCH" == "i386" ]]; then
-	sudo mv /var/lib/mock/fedora-36-i686/result/*.rpm packages/
+	sudo mv /var/lib/mock/fedora-38-i686/result/*.rpm packages/
 else
-	sudo mv /var/lib/mock/fedora-36-$BUILDARCH/result/*.rpm packages/
+	sudo mv /var/lib/mock/fedora-38-$BUILDARCH/result/*.rpm packages/
 fi
 
 # cleanup our source rpm (again)
@@ -60,6 +60,6 @@ rm packages/*.src.rpm
 sudo setenforce 1
 
 # cleanup
-mock -r /etc/mock/fedora-36-x86_64.cfg --scrub=all
-mock -r /etc/mock/fedora-36-i386.cfg --scrub=all
+mock -r /etc/mock/fedora-38-x86_64.cfg --scrub=all
+mock -r /etc/mock/fedora-38-i386.cfg --scrub=all
 
