@@ -7,7 +7,7 @@
 # pkg info
 %global amf 1.4.29
 %global enc 1.0
-%global amdvlk 2022.Q4.4
+%global amdvlk 2023.Q2.2
 # drm info
 %global drm 2.4.113.50405-1577590
 %global amdgpu 1.0.0.50405-1577590
