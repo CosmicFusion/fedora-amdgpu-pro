@@ -10,6 +10,7 @@
 %global amdvlk 2023.Q2.3
 # drm info
 %global drm 2.4.114.50502-1607507
+%global amdgpu 1.0.0.50502-1607507
 # firmware info
 %global firmware_rev 6.0.5
 %global firmware_maj 50502
