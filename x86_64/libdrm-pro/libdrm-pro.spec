@@ -63,6 +63,7 @@ Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig 
 
 Requires: 	libdrm
+Requires: 	amd-gpu-pro-firmware
 
 %description
 AMD proprietary libdrm

@@ -16,7 +16,7 @@ While yes AMD driver stack is mostly open-source , as some parts remains proprie
 
 # How to build the packages:
 
-**"**IMPORTANT BUILD NOTES**"** : 
+**"**IMPORTANT NOTES**"** : 
 
 1) Occasionally, the mock build may fail on 32 bit packages with the following issue:
 ```
@@ -27,12 +27,12 @@ Error: Transaction failed
 ```
 This is a known issue. You can just ignore it and re-run the build.  
 
-2) ~~It seems like AMD maintainers forgot enable rdna2 AMF encoding support in amdvlk-pro starting from amdgpu-pro 21.50 and onwards , so please use **amdvlk-pro-rdna2** if you have a rdna2 GPU. (6000 series or higher):  
-https://github.com/GPUOpen-LibrariesAndSDKs/AMF/issues/334~~
+2) Starting from amdgpu-pro 21.50 the driver components -MUST- match the version of their firmware, and it's recommended to also match the drm version
+    so we have repackaged the official "libdrm" along with the official amdgpu firmware used for their dkms modules, which we re-routed to be used for the amdgpu module in your kernel to fix these issues.
 
-3) We have repackaged the offficial "libdrm" library for better performance and stability , it also solves the RDNA2 issue.
+3) We have made these libdrm libraries load using system wrappers (vk_pro, gl_pro, cl_pro)
 
-4) We have made these libdrm libraries load using system wrappers (vk_pro, gl_pro, cl_pro)
+4) Using the official firmware will not cause any side-effects, they are practically the same as the normal ones except being properly versioned
 
 
 We include a package builder script which uses mock to build packages with minimal dependencies. It will auto install the dependencies it needs (mock pykickstart fedpkg libvirt)  
@@ -47,13 +47,13 @@ You must specify a package name and an architecture.
 Achitecture options are "32" for 32 bit and "64" for 64 bit
 -------------------------------------
 64 bit package names are:
+amd-gpu-pro-firmware
 libdrm-pro
 amdamf-pro-runtime
 amdocl-legacy
 amdogl-pro
 amdvlk
 amdvlk-pro
-amdvlk-pro-legacy
 -------------------------------------
 32 bit package names are:
 libdrm-pro
@@ -61,7 +61,6 @@ amdocl-legacy
 amdogl-pro
 amdvlk
 amdvlk-pro
-amdvlk-pro-legacy
 ```
 
 # How to install the packages:

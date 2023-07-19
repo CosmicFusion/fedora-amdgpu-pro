@@ -39,8 +39,6 @@ BuildRequires: cpio
 Requires(post): /usr/bin/dracut 
 Requires(postun): /usr/bin/dracut
 
-Requires:      amdamf-pro-runtime
-
 %description
 Firmware required for AMD AMF encoder support
 
