@@ -62,6 +62,7 @@ BuildRequires: cpio
 Requires(post): /sbin/ldconfig  
 Requires(postun): /sbin/ldconfig 
 
+Requires: 	amd-gpu-pro-firmware
 Requires: 	libdrm
 
 %description
