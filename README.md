@@ -5,7 +5,7 @@ This repository contains scripts for repacking the AMD proprietary drivers into 
 
 * Proprietary drivers on AMD? thought those guys were open source ??
 
-AMD's proprietary drivers only support a few linux distributions: Ubuntu, OpenSUSE, RHEL, CentOS. Other distributions have to repackage their drivers.
+AMD's proprietary drivers only support a few linux distributions: Ubuntu LTS, SLES, RHEL, CentOS. Other distributions have to repackage their drivers.
 
 While yes AMD driver stack is mostly open-source , as some parts remains proprietary like :
 

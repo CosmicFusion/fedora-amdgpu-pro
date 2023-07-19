@@ -1,19 +1,20 @@
 %define _build_id_links none
 
 # global info
-%global repo 5.4.6
-%global major 22.40
-%global minor 1580631
+%global repo 5.5.2
+%global major 23.10
+%global minor 1610704
 # pkg info
-%global amf 1.4.29
+%global amf 1.4.30
 %global enc 1.0
-%global amdvlk 2023.Q2.2
+%global amdvlk 2023.Q2.3
 # drm info
-%global drm 2.4.113.50406-1580598
+%global drm 2.4.114.50502-1607507
+%global amdgpu 1.0.0.50502-1607507
 # firmware info
-%global firmware_rev 5.18.13
-%global firmware_maj 50406
-%global firmware_min 1580598
+%global firmware_rev 6.0.5
+%global firmware_maj 50502
+%global firmware_min 1607507
 %global _firmwarepath	/usr/lib/firmware
 # Distro info
 %global fedora 38
@@ -50,7 +51,8 @@ tar -xJC files -f data.tar.xz || tar -xC files -f data.tar.gz
 
 %install
 mkdir -p %{buildroot}/usr/lib/firmware/amdgpu
-cp -r files/usr/src/amdgpu-%{firmware_rev}-%{firmware_min}.%{ubuntu}/firmware/amdgpu/* %{buildroot}%{_firmwarepath}/amdgpu/
+cp -r files/usr/src/amdgpu-%{firmware_rev}-%{firmware_min}.%{ubuntu}/firmware/amdgpu/* %{buildroot}%{_firmwarepath}/amdgpu/ || true
+cp -r files/lib/firmware/updates/amdgpu/* %{buildroot}%{_firmwarepath}/amdgpu/
 
 %files
 %{_firmwarepath}/amdgpu/
