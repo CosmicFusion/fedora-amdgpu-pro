@@ -51,7 +51,8 @@ tar -xJC files -f data.tar.xz || tar -xC files -f data.tar.gz
 
 %install
 mkdir -p %{buildroot}/usr/lib/firmware/amdgpu
-cp -r files/usr/src/amdgpu-%{firmware_rev}-%{firmware_min}.%{ubuntu}/firmware/amdgpu/* %{buildroot}%{_firmwarepath}/amdgpu/
+cp -r files/usr/src/amdgpu-%{firmware_rev}-%{firmware_min}.%{ubuntu}/firmware/amdgpu/* %{buildroot}%{_firmwarepath}/amdgpu/ || true
+cp -r files/lib/firmware/updates/amdgpu/* %{buildroot}%{_firmwarepath}/amdgpu/
 
 %files
 %{_firmwarepath}/amdgpu/
