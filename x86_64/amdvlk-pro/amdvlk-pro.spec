@@ -1,20 +1,20 @@
 %define _build_id_links none
 
 # global info
-%global repo 5.5.2
+%global repo 5.5.3
 %global major 23.10
-%global minor 1610704
+%global minor 1620044
 # pkg info
 %global amf 1.4.30
 %global enc 1.0
-%global amdvlk 2023.Q2.3
+%global amdvlk 2023.Q3.1
 # drm info
-%global drm 2.4.114.50502-1607507
-%global amdgpu 1.0.0.50502-1607507
+%global drm 2.4.114.50503-1620033
+%global amdgpu 1.0.0.50503-1636786
 # firmware info
 %global firmware_rev 6.0.5
-%global firmware_maj 50502
-%global firmware_min 1607507
+%global firmware_maj 50503
+%global firmware_min 1620033
 %global _firmwarepath	/usr/lib/firmware
 # Distro info
 %global fedora 38
