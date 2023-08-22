@@ -12,9 +12,9 @@
 %global drm 2.4.114.50503-1620033
 %global amdgpu 1.0.0.50503-1636786
 # firmware info
-%global firmware_rev 6.0.5
-%global firmware_maj 50503
-%global firmware_min 1620033
+%global firmware_rev 6.2.4
+%global firmware_maj 50700
+%global firmware_min 1637781
 %global _firmwarepath	/usr/lib/firmware
 # Distro info
 %global fedora 38
