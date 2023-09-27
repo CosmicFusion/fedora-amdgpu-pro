@@ -3,7 +3,7 @@
 # global info
 %global repo 23.20
 %global major 23.20
-%global minor 11646757
+%global minor 1646757
 # pkg info
 %global amf 1.4.31
 %global enc 1.0
@@ -29,7 +29,7 @@ Summary:       System runtime for AMD Advanced Media Framework
 URL:      http://repo.radeon.com/amdgpu
 
 %undefine _disable_source_fetch
-Source0:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/main/a/amdgpu-dkms/amdgpu-dkms-firmware_%{firmware_rev}.%{firmware_maj}-%{firmware_min}.20.04_all.deb
+Source0:  http://repo.radeon.com/amdgpu/%{repo}/amdgpu/ubuntu/pool/main/a/amdgpu-dkms/amdgpu-dkms-firmware_%{firmware_rev}.%{firmware_maj}-%{firmware_min}.20.04_all.deb
 
 Provides:      amd-gpu-firmware
 Obsoletes:	amd-gpu-firmware
