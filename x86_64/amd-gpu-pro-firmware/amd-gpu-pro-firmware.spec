@@ -18,7 +18,7 @@
 %global _firmwarepath	/usr/lib/firmware
 # Distro info
 %global fedora 38
-%global ubuntu 22.04
+%global ubuntu 20.04
 
 Name:     amd-gpu-pro-firmware
 Version:  %{repo}
