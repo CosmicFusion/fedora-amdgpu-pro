@@ -1,20 +1,20 @@
 %define _build_id_links none
 
 # global info
-%global repo 5.7.1
-%global major 23.20
-%global minor 1664987
+%global repo 23.20.00.48
+%global major 23.20.00.48
+%global minor 1666589
 # pkg info
 %global amf 1.4.31
 %global enc 1.0
 %global amdvlk 2023.Q3.3
 # drm info
-%global drm 2.4.115.50701-1664922
-%global amdgpu 1.0.0.50701-1664922
+%global drm 2.4.115.50700-1666569
+%global amdgpu 1.0.0.50700-1666569
 # firmware info
 %global firmware_rev 6.2.4
-%global firmware_maj 50701
-%global firmware_min 1664922
+%global firmware_maj 50700
+%global firmware_min 1666569
 %global _firmwarepath	/usr/lib/firmware
 # Distro info
 %global fedora 39
