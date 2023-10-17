@@ -1,25 +1,24 @@
 %define _build_id_links none
 
 # global info
-%global repo 5.5.3
-%global major 23.10
-%global minor 1620044
+%global repo 5.7.1
+%global major 23.20
+%global minor 1664987
 # pkg info
-%global amf 1.4.30
+%global amf 1.4.31
 %global enc 1.0
-%global amdvlk 2023.Q3.1
+%global amdvlk 2023.Q3.3
 # drm info
-%global drm 2.4.114.50503-1620033
-%global amdgpu 1.0.0.50503-1636786
+%global drm 2.4.115.50701-1664922
+%global amdgpu 1.0.0.50701-1664922
 # firmware info
-%global firmware_rev 6.0.5
-%global firmware_maj 50503
-%global firmware_min 1620033
+%global firmware_rev 6.4.2
+%global firmware_maj 50701
+%global firmware_min 1664922
 %global _firmwarepath	/usr/lib/firmware
 # Distro info
-%global fedora 38
+%global fedora 39
 %global ubuntu 22.04
-
 Name:     libdrm-pro
 Version:  %{repo}
 Release:  4%{?dist}
