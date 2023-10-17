@@ -12,7 +12,7 @@
 %global drm 2.4.115.50701-1664922
 %global amdgpu 1.0.0.50701-1664922
 # firmware info
-%global firmware_rev 6.4.2
+%global firmware_rev 6.2.4
 %global firmware_maj 50701
 %global firmware_min 1664922
 %global _firmwarepath	/usr/lib/firmware
