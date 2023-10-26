@@ -89,12 +89,12 @@ touch %{buildroot}/etc/ld.so.conf.d/amf-runtime-%{_arch}.conf
 echo "/opt/amdgpu-pro/amf/%{_lib}" > %{buildroot}/etc/ld.so.conf.d/amf-runtime-%{_arch}.conf
 
 %files
-"/etc/ld.so.conf.d/amf-runtime-%{_arch}.conf"
-"/opt/amdgpu-pro/amf/lib64/libamf*"
-"/opt/amdgpu-pro/amf/lib64/libamdenc*"
-"/opt/amdgpu-pro/amf/share/licenses/amf-amdgpu-pro/LICENSE"
-"/opt/amdgpu-pro/amf/share/licenses/libamdenc-amdgpu-pro/LICENSE"
-"/opt/amdgpu-pro/share/*"
+/etc/ld.so.conf.d/amf-runtime-%{_arch}.conf
+/opt/amdgpu-pro/amf/lib64/libamf*
+/opt/amdgpu-pro/amf/lib64/libamdenc*
+/opt/amdgpu-pro/amf/share/licenses/amf-amdgpu-pro/LICENSE
+/opt/amdgpu-pro/amf/share/licenses/libamdenc-amdgpu-pro/LICENSE
+/opt/amdgpu-pro/share/*
 
 %post
 /sbin/ldconfig
