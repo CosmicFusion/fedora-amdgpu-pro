@@ -85,12 +85,12 @@ touch %{buildroot}/etc/ld.so.conf.d/amdvlk-pro-%{_arch}.conf
 echo "#/opt/amdgpu-pro/vulkan/%{_lib}" > %{buildroot}/etc/ld.so.conf.d/amdvlk-pro-%{_arch}.conf
 
 %files
-"/etc/ld.so.conf.d/amdvlk-pro-%{_arch}.conf"
-"/opt/amdgpu-pro/etc/vulkan/icd.d/amd_icd64.json"
-"/opt/amdgpu-pro/vulkan/%{_lib}/amdvlk64*"
-"/opt/amdgpu-pro/vulkan/etc/vulkan/icd.d/amd_icd64.json"
-"/opt/amdgpu-pro/vulkan/share/licenses/vulkan-amdgpu-pro/LICENSE"
-"/opt/amdgpu-pro/share/*"
+/etc/ld.so.conf.d/amdvlk-pro-%{_arch}.conf
+/opt/amdgpu-pro/etc/vulkan/icd.d/amd_icd64.json
+/opt/amdgpu-pro/vulkan/%{_lib}/amdvlk64*
+/opt/amdgpu-pro/vulkan/etc/vulkan/icd.d/amd_icd64.json
+/opt/amdgpu-pro/vulkan/share/licenses/vulkan-amdgpu-pro/LICENSE
+/opt/amdgpu-pro/share/*
 
 %post
 /sbin/ldconfig
