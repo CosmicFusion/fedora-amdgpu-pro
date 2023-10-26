@@ -111,14 +111,14 @@ touch %{buildroot}/etc/ld.so.conf.d/libdrm-pro-%{_arch}.conf
 echo "#/opt/amdgpu/libdrm/%{_lib}" > %{buildroot}/etc/ld.so.conf.d/libdrm-pro-%{_arch}.conf
 
 %files
-"/etc/ld.so.conf.d/libdrm-pro-%{_arch}.conf"
-"/opt/amdgpu/libdrm/%{_lib}/*drm*"
-"/opt/amdgpu/libdrm/share/licenses/libdrm-amdgpu-amdgpu1/LICENSE"
-"/opt/amdgpu/libdrm/share/licenses/libdrm-amdgpu-radeon1/LICENSE"
-"/opt/amdgpu/libdrm/share/licenses/libdrm2-amdgpu/LICENSE"
-"/opt/amdgpu/libdrm/share/licenses/libdrm-amdgpu-common/LICENSE"
-"/opt/amdgpu/libdrm/share/libdrm/amdgpu.ids"
-"/opt/amdgpu/share/*"
+/etc/ld.so.conf.d/libdrm-pro-%{_arch}.conf
+/opt/amdgpu/libdrm/%{_lib}/*drm*
+/opt/amdgpu/libdrm/share/licenses/libdrm-amdgpu-amdgpu1/LICENSE
+/opt/amdgpu/libdrm/share/licenses/libdrm-amdgpu-radeon1/LICENSE
+/opt/amdgpu/libdrm/share/licenses/libdrm2-amdgpu/LICENSE
+/opt/amdgpu/libdrm/share/licenses/libdrm-amdgpu-common/LICENSE
+/opt/amdgpu/libdrm/share/libdrm/amdgpu.ids
+/opt/amdgpu/share/*
 
 %post
 /sbin/ldconfig
