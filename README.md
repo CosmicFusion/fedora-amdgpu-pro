@@ -73,7 +73,7 @@ $ sudo dnf install *.rpm
 
 # How to use Vulkan PRO drivers:
 
-- install amdgpu-vulkan-switcher from https://copr.fedorainfracloud.org/coprs/gloriouseggroll/amdgpu-vulkan-switcher/
+- install amdgpu-vulkan-switcher from https://copr.fedorainfracloud.org/coprs/gloriouseggroll/nobara/
  
 - Run the program with 
   
@@ -83,7 +83,7 @@ vk_pro {THE_PROGRAM}
  
 # How to use Vulkan AMDVLK drivers:
 
-- install amdgpu-vulkan-switcher from https://copr.fedorainfracloud.org/coprs/gloriouseggroll/amdgpu-vulkan-switcher/
+- install amdgpu-vulkan-switcher from https://copr.fedorainfracloud.org/coprs/gloriouseggroll/nobara/
 
 **AMDVLK**
  
@@ -105,7 +105,7 @@ Note : H265 AMF is supported only on RDNA1 cards and higher (RX 5XXX) , the rest
 
 # How to use the OpenGL PRO drivers:
 
-- install amdgpu-opengl-switcher from https://copr.fedorainfracloud.org/coprs/gloriouseggroll/amdgpu-vulkan-switcher/
+- install amdgpu-opengl-switcher from https://copr.fedorainfracloud.org/coprs/gloriouseggroll/nobara/
 
 
 - Run the program with 
@@ -121,7 +121,7 @@ gl_zink {THE_PROGRAM}
 
 # How to use the OpenCL drivers:
 
-- install amdgpu-opencl-switcher from https://copr.fedorainfracloud.org/coprs/gloriouseggroll/amdgpu-vulkan-switcher/
+- install amdgpu-opencl-switcher from https://copr.fedorainfracloud.org/coprs/gloriouseggroll/nobara/
 
 - Run the program with 
 ```
