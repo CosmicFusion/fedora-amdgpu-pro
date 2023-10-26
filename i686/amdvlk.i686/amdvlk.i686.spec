@@ -86,12 +86,12 @@ touch %{buildroot}/etc/ld.so.conf.d/amdvlk-%{_arch}.conf
 echo "#/opt/amdgpu/vulkan/%{_lib}" > %{buildroot}/etc/ld.so.conf.d/amdvlk-%{_arch}.conf
 
 %files
-"/etc/ld.so.conf.d/amdvlk-%{_arch}.conf"
-"/opt/amdgpu/etc/vulkan/icd.d/amd_icd32.json"
-"/opt/amdgpu/etc/vulkan/implicit_layer.d/amd_icd32.json"
-"/opt/amdgpu/vulkan/%{_lib}/amdvlk32.so"
-"/opt/amdgpu/vulkan/etc/vulkan/icd.d/amd_icd32.json"
-"/opt/amdgpu/vulkan/etc/vulkan/implicit_layer.d/amd_icd32.json"
+/etc/ld.so.conf.d/amdvlk-%{_arch}.conf
+/opt/amdgpu/etc/vulkan/icd.d/amd_icd32.json
+/opt/amdgpu/etc/vulkan/implicit_layer.d/amd_icd32.json
+/opt/amdgpu/vulkan/%{_lib}/amdvlk32.so
+/opt/amdgpu/vulkan/etc/vulkan/icd.d/amd_icd32.json
+/opt/amdgpu/vulkan/etc/vulkan/implicit_layer.d/amd_icd32.json
 
 %post
 /sbin/ldconfig
