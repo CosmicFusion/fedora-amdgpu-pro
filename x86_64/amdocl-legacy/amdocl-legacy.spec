@@ -91,13 +91,13 @@ touch %{buildroot}/etc/ld.so.conf.d/amdocl-legacy-%{_arch}.conf
 echo "#/opt/amdgpu-pro/opencl/%{_lib}" > %{buildroot}/etc/ld.so.conf.d/amdocl-legacy-%{_arch}.conf
 
 %files
-"/etc/OpenCL/vendors/amdocl-orca64.icd"
-"/etc/ld.so.conf.d/amdocl-legacy-%{_arch}.conf"
-"/opt/amdgpu-pro/opencl/%{_lib}/libOpenCL*"
-"/opt/amdgpu-pro/opencl/%{_lib}/libamdocl-orca*"
-"/opt/amdgpu-pro/opencl/share/licenses/opencl-legacy-amdgpu-pro-icd/LICENSE"
-"/opt/amdgpu-pro/opencl/share/licenses/ocl-icd-libopencl1-amdgpu-pro/LICENSE"
-"/opt/amdgpu-pro/share/*"
+/etc/OpenCL/vendors/amdocl-orca64.icd
+/etc/ld.so.conf.d/amdocl-legacy-%{_arch}.conf
+/opt/amdgpu-pro/opencl/%{_lib}/libOpenCL*
+/opt/amdgpu-pro/opencl/%{_lib}/libamdocl-orca*
+/opt/amdgpu-pro/opencl/share/licenses/opencl-legacy-amdgpu-pro-icd/LICENSE
+/opt/amdgpu-pro/opencl/share/licenses/ocl-icd-libopencl1-amdgpu-pro/LICENSE
+/opt/amdgpu-pro/share/*
 
 %post
 /sbin/ldconfig
