@@ -92,14 +92,14 @@ touch %{buildroot}/etc/ld.so.conf.d/amdvlk-%{_arch}.conf
 echo "#/opt/amdgpu/vulkan/%{_lib}" > %{buildroot}/etc/ld.so.conf.d/amdvlk-%{_arch}.conf
 
 %files
-"/etc/ld.so.conf.d/amdvlk-%{_arch}.conf"
-"/opt/amdgpu/etc/vulkan/icd.d/amd_icd64.json"
-"/opt/amdgpu/etc/vulkan/implicit_layer.d/amd_icd64.json"
-"/opt/amdgpu/vulkan/%{_lib}/amdvlk64.so"
-"/opt/amdgpu/vulkan/etc/vulkan/icd.d/amd_icd64.json"
-"/opt/amdgpu/vulkan/etc/vulkan/implicit_layer.d/amd_icd64.json"
-"/opt/amdgpu/vulkan/share/licenses/amdvlk/LICENSE"
-"/opt/amdgpu/share/*"
+/etc/ld.so.conf.d/amdvlk-%{_arch}.conf
+/opt/amdgpu/etc/vulkan/icd.d/amd_icd64.json
+/opt/amdgpu/etc/vulkan/implicit_layer.d/amd_icd64.json
+/opt/amdgpu/vulkan/%{_lib}/amdvlk64.so
+/opt/amdgpu/vulkan/etc/vulkan/icd.d/amd_icd64.json
+/opt/amdgpu/vulkan/etc/vulkan/implicit_layer.d/amd_icd64.json
+/opt/amdgpu/vulkan/share/licenses/amdvlk/LICENSE
+/opt/amdgpu/share/*
 
 %post
 /sbin/ldconfig
