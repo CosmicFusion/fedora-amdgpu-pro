@@ -121,8 +121,8 @@ cp -r files/opt/amdgpu-pro/lib/i386-linux-gnu/* %{buildroot}/opt/amdgpu-pro/open
 cp -r files/opt/amdgpu/lib/i386-linux-gnu/dri/* %{buildroot}/opt/amdgpu-pro/opengl/%{_lib}/dri
 
 %files
-"/opt/amdgpu-pro/opengl/%{_lib}/dri/amdgpu_dri.so"
-"/opt/amdgpu-pro/opengl/%{_lib}/*"
+/opt/amdgpu-pro/opengl/%{_lib}/dri/amdgpu_dri.so
+/opt/amdgpu-pro/opengl/%{_lib}/*
 
 %post
 /sbin/ldconfig
