@@ -81,10 +81,10 @@ touch %{buildroot}/etc/ld.so.conf.d/amdocl-legacy-%{_arch}.conf
 echo "#/opt/amdgpu-pro/opencl/%{_lib}" > %{buildroot}/etc/ld.so.conf.d/amdocl-legacy-%{_arch}.conf
 
 %files
-"/etc/OpenCL/vendors/amdocl-orca32.icd"
-"/etc/ld.so.conf.d/amdocl-legacy-%{_arch}.conf"
-"/opt/amdgpu-pro/opencl/%{_lib}/libOpenCL*"
-"/opt/amdgpu-pro/opencl/%{_lib}/libamdocl-orca*"
+/etc/OpenCL/vendors/amdocl-orca32.icd
+/etc/ld.so.conf.d/amdocl-legacy-%{_arch}.conf
+/opt/amdgpu-pro/opencl/%{_lib}/libOpenCL*
+/opt/amdgpu-pro/opencl/%{_lib}/libamdocl-orca*
 
 %post
 /sbin/ldconfig
