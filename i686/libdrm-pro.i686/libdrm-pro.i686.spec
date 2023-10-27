@@ -95,8 +95,8 @@ touch %{buildroot}/etc/ld.so.conf.d/libdrm-pro-%{_arch}.conf
 echo "#/opt/amdgpu/libdrm/%{_lib}" > %{buildroot}/etc/ld.so.conf.d/libdrm-pro-%{_arch}.conf
 
 %files
-"/etc/ld.so.conf.d/libdrm-pro-%{_arch}.conf"
-"/opt/amdgpu/libdrm/%{_lib}/*drm*"
+/etc/ld.so.conf.d/libdrm-pro-%{_arch}.conf
+/opt/amdgpu/libdrm/%{_lib}/*drm*
 
 %post
 /sbin/ldconfig

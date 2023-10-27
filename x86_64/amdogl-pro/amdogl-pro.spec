@@ -131,9 +131,9 @@ cp -r files/opt/amdgpu/share/drirc.d/10-amdgpu-pro.conf %{buildroot}/opt/amdgpu/
 #
 
 %files
-"/opt/amdgpu-pro/opengl/%{_lib}/dri/amdgpu_dri.so"
-"/opt/amdgpu-pro/opengl/%{_lib}/*"
-"/opt/amdgpu/share/drirc.d/10-amdgpu-pro.conf.disabled"
+/opt/amdgpu-pro/opengl/%{_lib}/dri/amdgpu_dri.so
+/opt/amdgpu-pro/opengl/%{_lib}/*
+/opt/amdgpu/share/drirc.d/10-amdgpu-pro.conf.disabled
 
 %post
 /sbin/ldconfig
