@@ -1,7 +1,7 @@
 %define _build_id_links none
 
 # global info
-%global repo 23.20/amdgpu
+%global repo 23.20
 %global major 23.20
 %global minor 1646757
 # pkg info

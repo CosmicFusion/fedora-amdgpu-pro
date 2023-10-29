@@ -1,7 +1,7 @@
 %define _build_id_links none
 
 # global info
-%global repo 23.20/amdgpu
+%global repo 23.20
 %global major 23.20
 %global minor 1646757
 # pkg info
@@ -28,10 +28,10 @@ Summary:       AMD proprietary libdrm
 URL:      http://repo.radeon.com/amdgpu
 
 %undefine _disable_source_fetch
-Source0:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/main/libd/libdrm-amdgpu/libdrm-amdgpu-amdgpu1_%{drm}.%{ubuntu}_amd64.deb
-Source1:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/main/libd/libdrm-amdgpu/libdrm-amdgpu-radeon1_%{drm}.%{ubuntu}_amd64.deb
-Source2:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/main/libd/libdrm-amdgpu/libdrm2-amdgpu_%{drm}.%{ubuntu}_amd64.deb
-Source3:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/main/libd/libdrm-amdgpu-common/libdrm-amdgpu-common_%{amdgpu}.%{ubuntu}_all.deb
+Source0:  http://repo.radeon.com/amdgpu/%{repo}/amdgpu/ubuntu/pool/main/libd/libdrm-amdgpu/libdrm-amdgpu-amdgpu1_%{drm}.%{ubuntu}_amd64.deb
+Source1:  http://repo.radeon.com/amdgpu/%{repo}/amdgpu/ubuntu/pool/main/libd/libdrm-amdgpu/libdrm-amdgpu-radeon1_%{drm}.%{ubuntu}_amd64.deb
+Source2:  http://repo.radeon.com/amdgpu/%{repo}/amdgpu/ubuntu/pool/main/libd/libdrm-amdgpu/libdrm2-amdgpu_%{drm}.%{ubuntu}_amd64.deb
+Source3:  http://repo.radeon.com/amdgpu/%{repo}/amdgpu/ubuntu/pool/main/libd/libdrm-amdgpu-common/libdrm-amdgpu-common_%{amdgpu}.%{ubuntu}_all.deb
 
 Provides:      libdrm-pro
 Provides:      libdrm-pro(x86_64)
