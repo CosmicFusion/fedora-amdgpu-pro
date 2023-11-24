@@ -1,20 +1,20 @@
 %define _build_id_links none
 
 # global info
-%global repo 23.20
-%global major 23.20
-%global minor 1646757
+%global repo 5.7.2
+%global major 23.30
+%global minor 1684442
 # pkg info
-%global amf 1.4.31
+%global amf 1.4.32
 %global enc 1.0
 %global amdvlk 2023.Q4.1
 # drm info
-%global drm 2.4.115.50700-1646729
-%global amdgpu 1.0.0.50700-1652687
+%global drm 2.4.115.50702-1683306
+%global amdgpu 1.0.0.50702-1683306
 # firmware info
 %global firmware_rev 6.2.4
-%global firmware_maj 50700
-%global firmware_min 1646729
+%global firmware_maj 50702
+%global firmware_min 1683306
 %global _firmwarepath	/usr/lib/firmware
 # Distro info
 %global fedora 39
@@ -30,13 +30,13 @@ URL:      http://repo.radeon.com/amdgpu
 Summary:       AMD OpenGL
 
 %undefine _disable_source_fetch
-Source0:  http://repo.radeon.com/amdgpu/%{repo}/amdgpu/ubuntu/pool/proprietary/o/oglp-amdgpu-pro/libegl1-amdgpu-pro-oglp_%{major}-%{minor}.%{ubuntu}_amd64.deb
-Source1:  http://repo.radeon.com/amdgpu/%{repo}/amdgpu/ubuntu/pool/proprietary/o/oglp-amdgpu-pro/libgl1-amdgpu-pro-oglp-dri_%{major}-%{minor}.%{ubuntu}_amd64.deb
-Source2:  http://repo.radeon.com/amdgpu/%{repo}/amdgpu/ubuntu/pool/proprietary/o/oglp-amdgpu-pro/libgl1-amdgpu-pro-oglp-ext_%{major}-%{minor}.%{ubuntu}_amd64.deb
-Source3:  http://repo.radeon.com/amdgpu/%{repo}/amdgpu/ubuntu/pool/proprietary/o/oglp-amdgpu-pro/libgl1-amdgpu-pro-oglp-gbm_%{major}-%{minor}.%{ubuntu}_amd64.deb
-Source4:  http://repo.radeon.com/amdgpu/%{repo}/amdgpu/ubuntu/pool/proprietary/o/oglp-amdgpu-pro/libgl1-amdgpu-pro-oglp-glx_%{major}-%{minor}.%{ubuntu}_amd64.deb
-Source5:  http://repo.radeon.com/amdgpu/%{repo}/amdgpu/ubuntu/pool/proprietary/o/oglp-amdgpu-pro/libgles1-amdgpu-pro-oglp_%{major}-%{minor}.%{ubuntu}_amd64.deb
-Source6:  http://repo.radeon.com/amdgpu/%{repo}/amdgpu/ubuntu/pool/proprietary/o/oglp-amdgpu-pro/libgles2-amdgpu-pro-oglp_%{major}-%{minor}.%{ubuntu}_amd64.deb
+Source0:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/oglp-amdgpu-pro/libegl1-amdgpu-pro-oglp_%{major}-%{minor}.%{ubuntu}_amd64.deb
+Source1:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/oglp-amdgpu-pro/libgl1-amdgpu-pro-oglp-dri_%{major}-%{minor}.%{ubuntu}_amd64.deb
+Source2:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/oglp-amdgpu-pro/libgl1-amdgpu-pro-oglp-ext_%{major}-%{minor}.%{ubuntu}_amd64.deb
+Source3:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/oglp-amdgpu-pro/libgl1-amdgpu-pro-oglp-gbm_%{major}-%{minor}.%{ubuntu}_amd64.deb
+Source4:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/oglp-amdgpu-pro/libgl1-amdgpu-pro-oglp-glx_%{major}-%{minor}.%{ubuntu}_amd64.deb
+Source5:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/oglp-amdgpu-pro/libgles1-amdgpu-pro-oglp_%{major}-%{minor}.%{ubuntu}_amd64.deb
+Source6:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/o/oglp-amdgpu-pro/libgles2-amdgpu-pro-oglp_%{major}-%{minor}.%{ubuntu}_amd64.deb
 
 Provides:      libEGL.so.1()(64bit)  
 Provides:      libegl-amdgpu-pro = %{major}-%{minor}.%{ubuntu}

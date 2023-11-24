@@ -1,20 +1,20 @@
 %define _build_id_links none
 
 # global info
-%global repo 23.20
-%global major 23.20
-%global minor 1646757
+%global repo 5.7.2
+%global major 23.30
+%global minor 1684442
 # pkg info
-%global amf 1.4.31
+%global amf 1.4.32
 %global enc 1.0
 %global amdvlk 2023.Q4.1
 # drm info
-%global drm 2.4.115.50700-1646729
-%global amdgpu 1.0.0.50700-1652687
+%global drm 2.4.115.50702-1683306
+%global amdgpu 1.0.0.50702-1683306
 # firmware info
 %global firmware_rev 6.2.4
-%global firmware_maj 50700
-%global firmware_min 1646729
+%global firmware_maj 50702
+%global firmware_min 1683306
 %global _firmwarepath	/usr/lib/firmware
 # Distro info
 %global fedora 39
@@ -30,8 +30,8 @@ URL:      http://repo.radeon.com/amdgpu
 
 
 %undefine _disable_source_fetch
-Source0:  http://repo.radeon.com/amdgpu/%{repo}/amdgpu/ubuntu/pool/proprietary/a/amf-amdgpu-pro/amf-amdgpu-pro_%{amf}-%{minor}.%{ubuntu}_amd64.deb
-Source1:  http://repo.radeon.com/amdgpu/%{repo}/amdgpu/ubuntu/pool/proprietary/liba/libamdenc-amdgpu-pro/libamdenc-amdgpu-pro_%{enc}-%{minor}.%{ubuntu}_amd64.deb
+Source0:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/a/amf-amdgpu-pro/amf-amdgpu-pro_%{amf}-%{minor}.%{ubuntu}_amd64.deb
+Source1:  http://repo.radeon.com/amdgpu/%{repo}/ubuntu/pool/proprietary/liba/libamdenc-amdgpu-pro/libamdenc-amdgpu-pro_%{enc}-%{minor}.%{ubuntu}_amd64.deb
 
 Provides:      amf-runtime = %{major}-%{release}
 Provides:      amf-runtime(x86_64) = %{major}-%{release}
