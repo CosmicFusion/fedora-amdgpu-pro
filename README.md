@@ -1,3 +1,12 @@
+# Deprecated and Archived!
+With recent commits to [VA-API](https://freedesktop.org/wiki/Software/vaapi/) AMD proprietary AMF is virtually useless on AMD hardware except polaris/GFX8/RX 5XX/RX 4XX series, but with AMF depending on the proprietary vulkan driver and that dropping support for Polaris too, it's now actually universally useless.
+
+on top of that the proprietary vulkan driver lost it's RT Edge to [Mesa RADV](https://docs.mesa3d.org/drivers/radv.html) So it's useless too.
+
+The proprietary OpenCL implentation is broken, unsupported, and unusable USE [ROCm](https://www.amd.com/en/products/software/rocm.html).
+
+Meanwhile the much more performant [Mesa radeonSI](https://www.x.org/wiki/RadeonFeature/) is now fully compatible with proprietary applications such as davinci resolve .
+
 # fedora-amdgpu-pro
 This repository contains scripts for repacking the AMD proprietary drivers into Fedora-usable packages. It includes both 64 and 32 bit drivers.
 
